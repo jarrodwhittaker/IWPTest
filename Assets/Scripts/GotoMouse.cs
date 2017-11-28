@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class GotoMouse : MonoBehaviour {
 
+    public GameObject projectile;
     public float speed = 1.5f;
     private Vector3 target;
 
+    public bool isClicked;
+    public bool isEnemy;
     void Start()
     {
         target = transform.position;
+        isClicked = false;
     }
 
     void Update()
