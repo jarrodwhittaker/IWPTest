@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class Player : NetworkBehaviour, IPlayerInterface
 {
@@ -39,7 +40,12 @@ public class Player : NetworkBehaviour, IPlayerInterface
 		}
 	}
 
-	[Client]
+    internal void TurnUpdate()
+    {
+        throw new NotImplementedException();
+    }
+
+    [Client]
 	public void moveComplete ()
 	{
 		if (!isLocalPlayer)
