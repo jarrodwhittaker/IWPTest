@@ -16,6 +16,7 @@ public class Tile : MonoBehaviour {
 		
 	}
 
+    //mouse highlight is set to the color Blue//
     void OnMouseEnter() {
 
         GetComponent<Renderer>().material.color = Color.blue;
@@ -23,10 +24,12 @@ public class Tile : MonoBehaviour {
         Debug.Log("my position is(" + gridPos.x + "," + gridPos.y + ")");
     }
 
+    //When the mouse is not over the tiles, it stays white//
     void OnMouseExit() {
         GetComponent<Renderer>().material.color = Color.white;
     }
 
+    //On mouse click, move the player to that tile//
     void OnMouseDown() {
         GameManager.instance.moveCurrentPlayer(this);
     }

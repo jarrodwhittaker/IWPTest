@@ -7,15 +7,15 @@ public class GameManager : MonoBehaviour {
 
     public GameObject TilePrefab;  //tile prefab for grid
     public int mapSize = 11;   //map size
-    List <List<Tile>> map = new List<List<Tile>>();  //grid tile
+    List <List<Tile>> map = new List<List<Tile>>();  //References tiles as a 2D list
 
-    public GameObject UserPlayerPrefab;
-    List<_Player> players = new List<_Player>();
-    int currentPlayerIndex = 0;
+    public GameObject UserPlayerPrefab;  //player prefab
+    List<_Player> players = new List<_Player>(); //List reference for player
+    int currentPlayerIndex = 0; //Index of how many players are there currently
 
-    public GameObject AIPlayerPrefab;
+    public GameObject AIPlayerPrefab; //AI player prefab
 
-
+    //stuff//
     void Awake() {
         instance = this;
     }
@@ -25,16 +25,17 @@ public class GameManager : MonoBehaviour {
     void Start () {
     
         generateMap();  //spawn pseduo hexgrid
-        generatePlayers();
+        generatePlayers(); //spawn players
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-       players[currentPlayerIndex].TurnUpdate();
+       players[currentPlayerIndex].TurnUpdate();  //next player turn//
 
 	}
 
+    //Function for the player turns//
     public void nextTurn() {
         if (currentPlayerIndex + 1 < players.Count)
         {
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    //generates sqare hex-grid using cubes
+    //generating the map//
     void generateMap() {
         map = new List<List<Tile>>();
       		for (int i = 0; i < mapSize; i++) {
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour {
         		}
     }
 
-    //f*** this section in particular, it gave me an error earlier that sent me into a mental breakdown twice before realizing what the problem was. Sorry to any lecturer reading my code but seriously.//
+    //Spawns the player(s) at the designated coordinates (x,y,z) //
     void generatePlayers() {
         UserPlayer player;
 

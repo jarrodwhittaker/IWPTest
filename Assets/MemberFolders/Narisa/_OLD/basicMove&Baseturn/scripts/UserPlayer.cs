@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UserPlayer : _Player {
 
-    public float moveSpeed = 5.0f;
+    public float moveSpeed = 5.0f;  //movement Speed
 
     // Use this for initialization
     void Start () {

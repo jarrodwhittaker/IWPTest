@@ -15,7 +15,7 @@ public class AIPlayer : _Player {
 	void Update () {
 		
 	}
-    //if its not moving, move to 0,0 which is the top left corner
+    //if its not moving, move to 0,0 which is the top left corner//
     public override void TurnUpdate()
     {
         if (Vector3.Distance(moveDestination, transform.position) > 0.1f)
