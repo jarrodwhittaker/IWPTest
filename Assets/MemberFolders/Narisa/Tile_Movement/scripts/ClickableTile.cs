@@ -16,7 +16,7 @@ public class ClickableTile : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        map.GeneratePathTo(tileX, tileY);
+        map.GeneratePathTo(tileX, tileY);  //on mouse click, generate path to the selected tile
     }
 
 }

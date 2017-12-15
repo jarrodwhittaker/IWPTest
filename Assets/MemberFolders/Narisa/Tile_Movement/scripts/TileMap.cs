@@ -5,14 +5,14 @@ using System.Linq;
 public class TileMap : MonoBehaviour
 {
 
-    public GameObject selectedUnit;
+    public GameObject selectedUnit;  //player unit
 
-    public TileType[] tileTypes;
+    public TileType[] tileTypes;  //array of different tile types. In this case: walkable tile and unwalkable tiles
 
-    int[,] tiles;
-    Node[,] graph;
+    int[,] tiles;  //array of tiles
+    Node[,] graph;  //Node = tile
 
-
+    //Map Size//
     int mapSizeX = 10;
     int mapSizeY = 10;
 
@@ -23,11 +23,13 @@ public class TileMap : MonoBehaviour
         selectedUnit.GetComponent<Unit>().tileY = (int)selectedUnit.transform.position.y;
         selectedUnit.GetComponent<Unit>().map = this;
 
+        //Map generation - data, pathfinding, visuals
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisual();
     }
 
+    //Generatin the map
     void GenerateMapData()
     {
         // Allocate our map tiles
@@ -35,7 +37,7 @@ public class TileMap : MonoBehaviour
 
         int x, y;
 
-        // Initialize our map tiles to be grass
+        // Initialize our map tiles to be tile 0 (aka walkable tile)
         for (x = 0; x < mapSizeX; x++)
         {
             for (y = 0; y < mapSizeX; y++)
@@ -44,7 +46,7 @@ public class TileMap : MonoBehaviour
             }
         }
 
-        // Let's make a u-shaped mountain range
+        // Jellyfish forest (unwalkable tile locations)
         tiles[4, 4] = 1;
         tiles[5, 4] = 1;
         tiles[6, 4] = 1;
@@ -56,8 +58,15 @@ public class TileMap : MonoBehaviour
         tiles[8, 5] = 1;
         tiles[8, 6] = 1;
 
+        //Additional environmental obstacles
+        tiles[1,8] = 1;
+        tiles[4,2] = 1;
+        tiles[3,1] = 1;
+        tiles[2,0] = 1;
+
     }
 
+    //Function regarding movement cost - at this time it will only cost 1 movement point to move across each tile
     public float CostToEnterTile(int sourceX, int sourceY, int targetX, int targetY)
     {
 
@@ -70,8 +79,8 @@ public class TileMap : MonoBehaviour
 
         if (sourceX != targetX && sourceY != targetY)
         {
-            // We are moving diagonally! 
-            // Purely a cosmetic thing!
+            // We are moving diagonally! which will cost a barely noticable movement cost
+            // YAAAS
             cost += 0.001f;
         }
 
@@ -79,6 +88,7 @@ public class TileMap : MonoBehaviour
 
     }
 
+    //Pathfinding function
     void GeneratePathfindingGraph()
     {
         // Initialize the array
@@ -87,7 +97,7 @@ public class TileMap : MonoBehaviour
         // Initialize a Node for each spot in the array
         for (int x = 0; x < mapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeX; y++)
+            for (int y = 0; y < mapSizeY; y++)
             {
                 graph[x, y] = new Node();
                 graph[x, y].x = x;
@@ -98,22 +108,11 @@ public class TileMap : MonoBehaviour
         // Now that all the nodes exist, calculate their neighbours
         for (int x = 0; x < mapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeX; y++)
+            for (int y = 0; y < mapSizeY; y++)
             {
-
-                // This is the 4-way connection version:
-                /*				if(x > 0)
-                                    graph[x,y].neighbours.Add( graph[x-1, y] );
-                                if(x < mapSizeX-1)
-                                    graph[x,y].neighbours.Add( graph[x+1, y] );
-                                if(y > 0)
-                                    graph[x,y].neighbours.Add( graph[x, y-1] );
-                                if(y < mapSizeY-1)
-                                    graph[x,y].neighbours.Add( graph[x, y+1] );
-                */
-
-                // This is the 8-way connection version (allows diagonal movement)
-                // Try left
+                // This is the 8-way connection version (allows diagonal movement) which we need for the hexagonal grid system
+              
+                // Try left (to the left, to the left..?)
                 if (x > 0)
                 {
                     graph[x, y].neighbours.Add(graph[x - 1, y]);
@@ -138,12 +137,11 @@ public class TileMap : MonoBehaviour
                     graph[x, y].neighbours.Add(graph[x, y - 1]);
                 if (y < mapSizeY - 1)
                     graph[x, y].neighbours.Add(graph[x, y + 1]);
-
-                // This also works with 6-way hexes and n-way variable areas (like EU4)
             }
         }
     }
 
+    //Map visuals as a square grid
     void GenerateMapVisual()
     {
         for (int x = 0; x < mapSizeX; x++)
@@ -160,7 +158,8 @@ public class TileMap : MonoBehaviour
             }
         }
     }
-
+    
+    //Converts the tile coordinates to the "game world" coordinates, I believe, I *may* have forgot what this function did in particular
     public Vector3 TileCoordToWorldCoord(int x, int y)
     {
         return new Vector3(x, y, 0);
@@ -168,13 +167,12 @@ public class TileMap : MonoBehaviour
 
     public bool UnitCanEnterTile(int x, int y)
     {
-
-        // We could test the unit's walk/hover/fly type against various
-        // terrain flags here to see if they are allowed to enter the tile.
+        // is the tile walkabe?
 
         return tileTypes[tiles[x, y]].isWalkable;
     }
 
+    //
     public void GeneratePathTo(int x, int y)
     {
         // Clear out our unit's old path.
@@ -182,14 +180,14 @@ public class TileMap : MonoBehaviour
 
         if (UnitCanEnterTile(x, y) == false)
         {
-            // We probably clicked on a mountain or something, so just quit out.
+            // We probably clicked on a unwalkable tile, so quit
             return;
         }
 
         Dictionary<Node, float> dist = new Dictionary<Node, float>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
 
-        // the list of nodes we haven't checked yet.
+        // the list of tiles (nodes) we haven't checked yet.
         List<Node> unvisited = new List<Node>();
 
         Node source = graph[
@@ -205,9 +203,7 @@ public class TileMap : MonoBehaviour
         dist[source] = 0;
         prev[source] = null;
 
-        // Initialize everything to have INFINITY distance, since
-        // we don't know any better right now. Also, it's possible
-        // that some nodes CAN'T be reached from the source,
+        // Initialize everything to have INFINITY distance, since I don't know any better right now. Also, it's possible that some nodes CAN'T be reached from the source,
         // which would make INFINITY a reasonable value
         foreach (Node v in graph)
         {
@@ -242,7 +238,6 @@ public class TileMap : MonoBehaviour
 
             foreach (Node v in u.neighbours)
             {
-                //float alt = dist[u] + u.DistanceTo(v);
                 float alt = dist[u] + CostToEnterTile(u.x, u.y, v.x, v.y);
                 if (alt < dist[v])
                 {
@@ -252,8 +247,7 @@ public class TileMap : MonoBehaviour
             }
         }
 
-        // If we get there, the either we found the shortest route
-        // to our target, or there is no route at ALL to our target.
+        // If we get there, then either we've found the shortest route to our target, or there is no route at ALL to our target.
 
         if (prev[target] == null)
         {

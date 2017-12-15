@@ -3,28 +3,25 @@ using System.Collections.Generic;
 
 public class Unit : MonoBehaviour
 {
-
-    // tileX and tileY represent the correct map-tile position
-    // for this piece.  Note that this doesn't necessarily mean
-    // the world-space coordinates, because our map might be scaled
-    // or offset or something of that nature.  Also, during movement
-    // animations, we are going to be somewhere in between tiles.
+    
+    //tileX & tileY are referring to the map tile positions, not the world coords. This allows for the map to be scaled or off-set. Including allowing the cube to 
+    //slip in between tiles (e.g. go in between two tiles diagonally)
     public int tileX;
     public int tileY;
 
     public TileMap map;
 
-    // Our pathfinding info.  Null if we have no destination ordered.
+    // Our pathfinding info.  If there is no destination set, destination is then = null
     public List<Node> currentPath = null;
 
-    // How far this unit can move in one turn. Note that some tiles cost extra.
-    int moveSpeed = 5;
-    float remainingMovement = 5;
+    // How far this unit can move in one turn and movement points before it's turn must end. Now set to be a public variable so it can be changed in the inspector
+   public int moveSpeed = 5;
+   public float remainingMovement = 5;
 
     void Update()
     {
-        // Draw our debug line showing the pathfinding!
-        // NOTE: This won't appear in the actual game view.
+        // Draw our debug line showing the pathfinding! You can render it by enabling Gizmo within Unity's game window
+        // NOTE: This won't appear in the actual game view...sadly
         if (currentPath != null)
         {
             int currNode = 0;
@@ -43,12 +40,12 @@ public class Unit : MonoBehaviour
             }
         }
 
-        // Have we moved our visible piece close enough to the target tile that we can
-        // advance to the next step in our pathfinding?
+        // Have we moved our cube close enough to the tile destination that we can
+        // move to the next step in our pathfinding?
         if (Vector3.Distance(transform.position, map.TileCoordToWorldCoord(tileX, tileY)) < 0.1f)
             AdvancePathing();
 
-        // Smoothly animate towards the correct map tile.
+        // Moves towards the map tile smoothly
         transform.position = Vector3.Lerp(transform.position, map.TileCoordToWorldCoord(tileX, tileY), 5f * Time.deltaTime);
     }
 
@@ -77,14 +74,12 @@ public class Unit : MonoBehaviour
 
         if (currentPath.Count == 1)
         {
-            // We only have one tile left in the path, and that tile MUST be our ultimate
-            // destination -- and we are standing on it!
-            // So let's just clear our pathfinding info.
+            //If there is one tile left in the path and we are standing on it...it is the ultimate destination therefore clear pathfinding info
             currentPath = null;
         }
     }
 
-    // The "Next Turn" button calls this.
+    // The "End Turn" button calls this.
     public void NextTurn()
     {
         // Make sure to wrap-up any outstanding movement left over.
@@ -93,7 +88,7 @@ public class Unit : MonoBehaviour
             AdvancePathing();
         }
 
-        // Reset our available movement points.
+        // Reset movement points.
         remainingMovement = moveSpeed;
     }
 }
