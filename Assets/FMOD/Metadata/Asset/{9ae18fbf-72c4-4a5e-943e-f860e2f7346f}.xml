@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="EncodableAsset" id="{9ae18fbf-72c4-4a5e-943e-f860e2f7346f}">
+        <property name="assetPath">
+            <value>Pak/</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{b54ee500-fa6a-41dd-9614-95973b667ce8}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="AudioFile" id="{e94bdfa5-c18b-450f-99a9-42f0184f73c1}">
+        <property name="assetPath">
+            <value>Flak/FlakFire.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>1.9890000000000001</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{b54ee500-fa6a-41dd-9614-95973b667ce8}</destination>
+        </relationship>
+    </object>
+</objects>
