@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.09.00">
+<objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{fb3f837a-63aa-486e-9b48-3f79d3f1c657}">
         <property name="name">
             <value>FlakFire</value>
@@ -31,6 +31,9 @@
         </relationship>
         <relationship name="timeline">
             <destination>{d383eeeb-d6ce-4cc7-b7c3-de00557c1bf6}</destination>
+        </relationship>
+        <relationship name="banks">
+            <destination>{8f357f9b-c94d-4608-aa64-2964f65f57c1}</destination>
         </relationship>
     </object>
     <object class="EventMixer" id="{30ee0c91-e423-4b4c-b318-f8f2ee31a9d7}">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.09.00">
+<objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{b4c685f6-1143-4aa5-b557-58b39f719d94}">
         <property name="name">
             <value>PakFire</value>
@@ -31,6 +31,9 @@
         </relationship>
         <relationship name="timeline">
             <destination>{62327557-1f71-4fea-890d-582dc8733ced}</destination>
+        </relationship>
+        <relationship name="banks">
+            <destination>{8f357f9b-c94d-4608-aa64-2964f65f57c1}</destination>
         </relationship>
     </object>
     <object class="EventMixer" id="{5c07f2b9-255c-43ed-af09-4c0662827e93}">
