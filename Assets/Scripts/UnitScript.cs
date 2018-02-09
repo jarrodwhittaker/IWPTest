@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitScript : MonoBehaviour {
+    public enum UnitType {
+        Tank, Jet, Mech, Bunker, Flak, Pak
+    };
 
     public bool isPlayer;
     public bool canMove;
@@ -10,7 +13,7 @@ public class UnitScript : MonoBehaviour {
     public int currentPool;
     public float attackRange = 10;
     public float visionRange = 15;
-    //public enum
+    public UnitType troops = UnitType.Mech;
     //For Sam's audio in FMOD
     public float distanceRemain;
 
@@ -19,13 +22,13 @@ public class UnitScript : MonoBehaviour {
     // Player begins the game
     // 
 	void Start () {
-        isPlayer = true;
-        canMove = true;
+        
         currentPool = basePool;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+
 	}
 }
