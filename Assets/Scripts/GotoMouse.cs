@@ -18,7 +18,7 @@ public class GotoMouse : MonoBehaviour {
 
     void Start()
     {
-        target = transform.position;
+        
         // Player has not been clicked yet.
         didClick = false;
         //turn = 0;
@@ -26,7 +26,8 @@ public class GotoMouse : MonoBehaviour {
 
     void Update()
     {
-        if ((playerNumber == 1 && GameController.Instance.p1 == true) || (playerNumber == 2 && GameController.Instance.p2 == true))
+        // if (GameController.Instance.activeUnit == this)
+      /*  if ((playerNumber == 1 && GameController.Instance.p1 == true) || (playerNumber == 2 && GameController.Instance.p2 == true))
         {
            
             //Have the player move to where the mouse clicks to.
