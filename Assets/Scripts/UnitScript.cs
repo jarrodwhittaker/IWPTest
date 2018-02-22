@@ -82,17 +82,20 @@ public class UnitScript : MonoBehaviour {
 
         if (GameController.Instance.activeUnit == this)
         {
-            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 40))
+            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50))
             {
                 if (GameController.Instance.targetUnit != null)
                 {
+                    anim.SetTrigger("Attack");
                     Debug.Log("Bang");
+                    // have the enemy unit explode and play their death animation.
                 }
                 else
                 {
                    
                     target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     target.z = transform.position.z;
+                    anim.SetTrigger("Move");
                 }
             }
 
