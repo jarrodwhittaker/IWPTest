@@ -74,8 +74,11 @@ public class GameController : MonoBehaviour {
         //    }
         //}
 
-        
 
 
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+        }
     }
 }

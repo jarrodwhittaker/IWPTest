@@ -9,6 +9,8 @@ public class UnitScript : MonoBehaviour {
 
     private Vector3 target;
 
+    public Animator anim;
+
     private const UnitType unitType = UnitType.Jet;
     public bool isPlayer;
     public bool canMove;
