@@ -10,12 +10,17 @@ public class GameController : MonoBehaviour {
     public UnitScript activeUnit;
     public UnitScript targetUnit;
 
+    public RaycastHit hit;
+
     public bool p1;
     public GameObject player1;
     public bool p2;
     public GameObject player2;
     public Text Turn;
     public Button endTurn;
+
+    
+
 
     //Instance variable equals game object
     // Sets Instance
@@ -33,42 +38,47 @@ public class GameController : MonoBehaviour {
         p2 = false;
         Turn.text = "Player 1's Turn";
 	}
+
+    public void OnUnitClicked(UnitScript unit)
+    {
+        Debug.Log(unit.gameObject.name);
+
+        if (unit.isPlayer != true)
+        {
+            targetUnit = unit;
+            Debug.Log(unit.gameObject.name + " is the enemy");
+        }
+        else
+        {
+            activeUnit = unit;
+            targetUnit = null;
+            Debug.Log(unit.gameObject.name + " is your troop");
+        }
+        // To be worked on, having the target refresh after a certain amount of time.
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log(Input.mousePosition.y);
-        if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height -40))
-       
-        {
-            GameController.Instance.p1 = !GameController.Instance.p1;
-            GameController.Instance.p2 = !GameController.Instance.p2;
-        }
-        //if it's player 1's turn, disable the movement of player 2 and display text.
-        if (p1 != true)
-        {
-            Turn.text = "Player 2's Turn";
-            p1 = false;
-            p2 = true;
-        }
-        else
-        {
-            Turn.text = "Player 1's Turn";
-            p1 = true;
-            p2 = false;
-        }
 
-        //if it's player 2's turn, disable the movement of player 1 and display text.
-        if (p2 != true)
+        //// When click occurs, create a raycast.
+        //// Check if it hit anything
+        //// If so, see if what was hit had a unit script.
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    RaycastHit hit;
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    if (Physics.Raycast(ray, out hit, 100.0f))
+        //    {
+        //        UnitScript uscript = hit.transform.gameObject.GetComponent<UnitScript>();
+        //        Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+        //    }
+        //}
+
+
+
+        if (Input.GetKeyDown("escape"))
         {
-            Turn.text = "Player 1's Turn";
-            p2 = false;
-            p1 = true;
+            Application.Quit();
         }
-        else
-        {
-            Turn.text = "Player 2's Turn";
-            p2 = true;
-            p1 = false;
-        }
-	}
+    }
 }
