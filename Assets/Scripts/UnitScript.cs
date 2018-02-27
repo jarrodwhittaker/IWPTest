@@ -7,14 +7,15 @@ public class UnitScript : MonoBehaviour {
         Tank, Jet, Mech, Bunker, Flak, Pak
     };
 
-    private Vector3 target;
+    public Vector3 target;
+    public Vector3 currentPos;
 
     public Animator anim;
 
     public UnitType unitType = UnitType.Jet;
     public bool isPlayer;
     public bool canMove;
-    public int basePool = 20;
+    public int basePool = 5;
     public float speed = 1.5f;
     public int currentPool;
     public float attackRange = 10;
@@ -34,7 +35,7 @@ public class UnitScript : MonoBehaviour {
 	void Start () {
 
         target = transform.position;
-
+        distanceRemain =  Vector3.Distance(currentPos, target);
         // Communicate with other scripts at the beginning for info
     }
 	
@@ -54,6 +55,7 @@ public class UnitScript : MonoBehaviour {
     public void takeDamage()
     {
         anim.SetTrigger("Death");
+        
     }
 
     public void deathComplete()
@@ -65,6 +67,8 @@ public class UnitScript : MonoBehaviour {
     {
         anim.SetTrigger("Shield");
     }
+
+    
 
     // Update is called once per frame
     void Update () {
@@ -89,6 +93,18 @@ public class UnitScript : MonoBehaviour {
         }
 
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+        
+
+        if (distanceRemain > 0.1)
+        {
+            return;
+        }
+
+        if (currentPool <= 0)
+        {
+            return;
+        }
 
         if (ignoreNextClick)
         {
@@ -122,6 +138,7 @@ public class UnitScript : MonoBehaviour {
                     target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     target.z = transform.position.z;
                     anim.SetTrigger("Move");
+                    currentPool =- 1;
                 }
             }
 
