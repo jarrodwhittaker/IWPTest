@@ -8,7 +8,7 @@ public class UnitScript : MonoBehaviour {
     };
 
     public Vector3 target;
-    public Vector3 currentPos;
+    
 
     public Animator anim;
 
@@ -33,17 +33,18 @@ public class UnitScript : MonoBehaviour {
     // No units are to be selected by now
     // 
 	void Start () {
-
+        startTurn();
+        
         target = transform.position;
-        distanceRemain =  Vector3.Distance(currentPos, target);
+        
         // Communicate with other scripts at the beginning for info
     }
-	
-    void startTurn ()
+
+    void startTurn()
     {
         // 
         currentPool = basePool;
-        
+
     }
 
     void OnMouseDown()
@@ -93,8 +94,9 @@ public class UnitScript : MonoBehaviour {
         }
 
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        distanceRemain = Vector3.Distance(transform.position, target);
 
-        
+
 
         if (distanceRemain > 0.1)
         {
@@ -138,7 +140,7 @@ public class UnitScript : MonoBehaviour {
                     target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     target.z = transform.position.z;
                     anim.SetTrigger("Move");
-                    currentPool =- 1;
+                    currentPool -= 1;
                 }
             }
 
