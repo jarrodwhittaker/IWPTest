@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
 
     public static GameController Instance;
 
+
     public UnitScript activeUnit;
     public UnitScript targetUnit;
 
