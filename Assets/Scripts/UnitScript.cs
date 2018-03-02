@@ -11,7 +11,7 @@ public class UnitScript : MonoBehaviour {
 
     public Animator anim;
 
-    private const UnitType unitType = UnitType.Jet;
+    public UnitType unitType = UnitType.Jet;
     public bool isPlayer;
     public bool canMove;
     public int basePool = 20;
@@ -19,9 +19,10 @@ public class UnitScript : MonoBehaviour {
     public int currentPool;
     public float attackRange = 10;
     public float visionRange = 15;
-    public List <UnitType> troops;
+    public List <UnitType> effectiveAgainst;
     //For Sam's audio in FMOD
     public float distanceRemain;
+    
 
     private bool ignoreNextClick = false;
 
@@ -48,6 +49,21 @@ public class UnitScript : MonoBehaviour {
     {
         GameController.Instance.OnUnitClicked(this);
         ignoreNextClick = true;
+    }
+
+    public void takeDamage()
+    {
+        anim.SetTrigger("Death");
+    }
+
+    public void deathComplete()
+    {
+        Destroy(gameObject);
+    }
+
+    public void shield()
+    {
+        anim.SetTrigger("Shield");
     }
 
     // Update is called once per frame
@@ -82,17 +98,30 @@ public class UnitScript : MonoBehaviour {
 
         if (GameController.Instance.activeUnit == this)
         {
-            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 40))
+            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50))
             {
-                if (GameController.Instance.targetUnit != null)
+                if (GameController.Instance.targetUnit != null) 
                 {
+                    anim.SetTrigger("Attack");
                     Debug.Log("Bang");
+                    if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
+                    {
+                        
+                        // have the enemy unit explode and play their death animation.
+                        GameController.Instance.targetUnit.takeDamage();
+                    }
+                    else
+                    {
+                        GameController.Instance.targetUnit.shield();
+                    }
                 }
+                
                 else
                 {
                    
                     target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     target.z = transform.position.z;
+                    anim.SetTrigger("Move");
                 }
             }
 
