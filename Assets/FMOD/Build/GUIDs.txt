@@ -1,0 +1,19 @@
+{fb3f837a-63aa-486e-9b48-3f79d3f1c657} event:/Units/Flak/FlakFire
+{1b5088e9-a3f5-4ad2-9015-e626948d4e99} event:/Units/Flak/FlakShield
+{291bf732-b8bd-4103-aea9-ef70d8e40385} event:/Units/Jet/Jet Move
+{6f13387a-281f-4bb0-91ed-957a34ea2b8a} event:/Units/Jet/Jet Fire
+{b4c685f6-1143-4aa5-b557-58b39f719d94} event:/Units/Pak/PakFire
+{2989a696-ce63-4d26-976b-b2599801ccfd} event:/Units/Pak/PakShield
+{27ca566b-d899-4305-b363-7a030c261180} event:/Units/Tank/Tank Fire
+{6c8172e0-36a1-4bb0-995d-be549835c1c6} event:/Units/Tank/Tank Move
+{d37fafe5-fcb5-4c3b-b499-6f441e958ca2} event:/Units/Tank/Tank Shield
+{b28d874b-2f35-49ed-ad89-f4e54bfecc64} bus:/
+{2d91db90-fbf1-4065-adcb-19e5241fb0f0} bus:/Reverb
+{8f357f9b-c94d-4608-aa64-2964f65f57c1} bank:/Level
+{e94f9295-700a-4e33-a3b1-28117d8b0312} bank:/Menu
+{26555e6a-44ff-4cfa-8279-305da13ea6f4} bank:/Music_L1
+{741f86de-7c3b-4432-970b-ea9203e34b38} bank:/Music_L2
+{bd80f077-f361-479a-9201-7844aed40661} bank:/Music_L3
+{f6431064-8109-4c13-ad0e-4c15e41c0f27} bank:/Music_L4
+{fb52347e-f0c0-4725-b5d3-4eaccf3e73a3} bank:/Music_L5
+{3c5260b0-0494-4806-af99-869276884757} bank:/Master Bank
