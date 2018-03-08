@@ -16,9 +16,9 @@ public class UnitScript : MonoBehaviour {
     public UnitType unitType = UnitType.Jet;
     public bool isPlayer;
     public bool canMove;
-    public int basePool = 5;
+    public int basePool;
     public float speed = 1.5f;
-    public int currentPool;
+    public static int currentPool;
     public float attackRange = 10;
     public float visionRange = 15;
     public List <UnitType> effectiveAgainst;
@@ -34,18 +34,18 @@ public class UnitScript : MonoBehaviour {
     // No units are to be selected by now
     // 
 	void Start () {
-        startTurn();
-        
+        StartTurn();
+
         target = transform.position;
         
         // Communicate with other scripts at the beginning for info
     }
 
-    void startTurn()
+    void StartTurn()
     {
         // 
         currentPool = basePool;
-        //GameController.Instance.AP("Action Points: " + currentPool);
+        GameController.Instance.AP.text = "Action Points: " + currentPool;
     }
 
     void OnMouseDown()
@@ -54,20 +54,20 @@ public class UnitScript : MonoBehaviour {
         ignoreNextClick = true;
     }
 
-    public void takeDamage()
+    public void TakeDamage()
     {
         anim.SetTrigger("Death");
         Debug.Log("Animate");
-        deathComplete();
+        DeathComplete();
         Debug.Log("Bye");
     }
 
-    public void deathComplete()
+    public void DeathComplete()
     {
         Destroy(gameObject);
     }
 
-    public void shield()
+    public void Shield()
     {
         anim.SetTrigger("Shield");
     }
@@ -102,7 +102,11 @@ public class UnitScript : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         distanceRemain = Vector3.Distance(transform.position, target);
 
-        //GameController.Instance.AP("Action Points: " + currentPool);
+        //if (GameController.Instance.activeUnit == this)
+        {
+            GameController.Instance.AP.text = "Action Points: " + currentPool;
+        }
+
 
         if (distanceRemain > 0.1)
         {
@@ -111,6 +115,7 @@ public class UnitScript : MonoBehaviour {
 
         if (currentPool <= 0)
         {
+            currentPool = 0;
             return;
         }
 
@@ -127,17 +132,18 @@ public class UnitScript : MonoBehaviour {
                 if (GameController.Instance.targetUnit != null) 
                 {
                     anim.SetTrigger("Attack");
-                    Debug.Log("Bang");
                     currentPool = 0;
+                    Debug.Log("Bang");
+                    
                     if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
                     {
                         
                         // have the enemy unit explode and play their death animation.
-                        GameController.Instance.targetUnit.takeDamage();
+                        GameController.Instance.targetUnit.TakeDamage();
                     }
                     else
                     {
-                        GameController.Instance.targetUnit.shield();
+                        GameController.Instance.targetUnit.Shield();
                     }
                 }
                 
@@ -152,7 +158,6 @@ public class UnitScript : MonoBehaviour {
             }
 
         }
-        
 
     }
 }
