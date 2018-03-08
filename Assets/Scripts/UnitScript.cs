@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitScript : MonoBehaviour {
     public enum UnitType {
@@ -8,8 +9,8 @@ public class UnitScript : MonoBehaviour {
     };
 
     public Vector3 target;
-    
 
+    
     public Animator anim;
 
     public UnitType unitType = UnitType.Jet;
@@ -44,7 +45,7 @@ public class UnitScript : MonoBehaviour {
     {
         // 
         currentPool = basePool;
-
+        //GameController.Instance.AP("Action Points: " + currentPool);
     }
 
     void OnMouseDown()
@@ -56,7 +57,9 @@ public class UnitScript : MonoBehaviour {
     public void takeDamage()
     {
         anim.SetTrigger("Death");
-        
+        Debug.Log("Animate");
+        deathComplete();
+        Debug.Log("Bye");
     }
 
     public void deathComplete()
@@ -73,11 +76,14 @@ public class UnitScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (isPlayer != true)
+        
+        if (isPlayer != true)
         {
             // The AI should do their procedure in here
             // Attack all enemies once within their attack range
             // Can't attack through walls/objects
+
+
 
         }
         else
@@ -96,7 +102,7 @@ public class UnitScript : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         distanceRemain = Vector3.Distance(transform.position, target);
 
-
+        //GameController.Instance.AP("Action Points: " + currentPool);
 
         if (distanceRemain > 0.1)
         {
@@ -122,6 +128,7 @@ public class UnitScript : MonoBehaviour {
                 {
                     anim.SetTrigger("Attack");
                     Debug.Log("Bang");
+                    currentPool = 0;
                     if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
                     {
                         

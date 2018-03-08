@@ -13,12 +13,13 @@ public class GameController : MonoBehaviour {
 
     public RaycastHit hit;
 
+    public Text AP;
     public bool p1;
     public GameObject player1;
     public bool p2;
     public GameObject player2;
-    public Text Turn;
-    public Button endTurn;
+    public Text turn;
+    public Button swapTurn;
 
     
 
@@ -37,8 +38,10 @@ public class GameController : MonoBehaviour {
         p1 = true;
         // p2 will be restricted from moving
         p2 = false;
-        Turn.text = "Player 1's Turn";
-	}
+        turn.text = "Player's Turn";
+        swapTurn.onClick.AddListener(EndTurn);
+
+    }
 
     public void OnUnitClicked(UnitScript unit)
     {
@@ -56,6 +59,31 @@ public class GameController : MonoBehaviour {
             Debug.Log(unit.gameObject.name + " is your troop");
         }
         // To be worked on, having the target refresh after a certain amount of time.
+    }
+
+    public void EndTurn()
+    {
+        
+        if (turn.text == "Player's Turn")
+        {
+            activeUnit = null;
+            targetUnit = null;
+            turn.text = "Enemy's Turn";
+            UnTag();
+        }
+        else if (turn.text == "Enemy's Turn")
+        {
+            activeUnit = null;
+            targetUnit = null;
+            turn.text = "Player's Turn";
+            UnTag();
+        }
+    }
+
+    public void UnTag()
+    {
+        //GameObject.FindGameObjectsWithTag("Tagged");
+        
     }
 	
 	// Update is called once per frame
