@@ -185,6 +185,9 @@ public class UnitScript : MonoBehaviour {
                     anim.SetTrigger("Move");
                     iAmMoving = true;
                     Debug.Log("Zoom");
+					if (UnitType.Tank) {
+						AudioManager.Instance.TankMove ();
+					}
                     currentPool -= 1;
                 }
             }
