@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -119,10 +120,16 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    
-	
-	// Update is called once per frame
-	void Update () {
+    public void FindThePlayers()
+    {
+        // wanting to check all units within the range
+        // Detects whether the bool isPlayer is true or false
+        // if the closest unit has isPlayer, attack them.
+        //FindSceneObjectsOfType
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         //// When click occurs, create a raycast.
         //// Check if it hit anything

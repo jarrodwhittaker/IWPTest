@@ -7,16 +7,19 @@ public class AudioManager : MonoBehaviour {
 
 
 	[FMODUnity.EventRef]
-	public string tankMove ="event:/Units/Tank/Tank Move";
+	public string tankMoveP ="event:/Units/Tank/Tank Move";
 	FMOD.Studio.EventInstance TankMoveEv;
 
 
 
-
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        Instance = this;
+    }
+    // Use this for initialization
+    void Start () {
 	
-		TankMoveEv = FMODUnity.RuntimeManager.CreateInstance(tankMove);
+		TankMoveEv = FMODUnity.RuntimeManager.CreateInstance(tankMoveP);
 
 	}
 	
@@ -30,9 +33,13 @@ public class AudioManager : MonoBehaviour {
 	{
 		//Write a reference to this script as "AudioManager.Instance.TankMove ();"
 		TankMoveEv.start ();
-		if (UnitScript.Instance.distanceRemain == 0)
-		{
-			TankMoveEv.stop ();
-		}
-	}
+        
+
+    }
+    public void TankStop()
+    {
+        TankMoveEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        Debug.Log("Tank stops making sound");
+     
+    }
 }

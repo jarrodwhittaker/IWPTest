@@ -64,6 +64,7 @@ public class UnitScript : MonoBehaviour {
     {
         anim.SetTrigger("Death");
         Debug.Log("Animate");
+        //Sam plays damage/destruction sfx here
         Invoke("DeathComplete", 1f);
 //        DeathComplete();
     }
@@ -138,6 +139,12 @@ public class UnitScript : MonoBehaviour {
             Debug.Log(distanceRemain);
             anim.SetTrigger("Idle");
             Debug.Log("Halt!");
+            // Sam stops movement sfx pieces here
+            if (unitType == UnitType.Tank)
+            {
+                AudioManager.Instance.TankStop();
+                Debug.Log("Tank stops making sound");
+            }
             iAmMoving = false;
         }
         
@@ -174,6 +181,7 @@ public class UnitScript : MonoBehaviour {
                     else
                     {
                         GameController.Instance.targetUnit.Shield();
+                        // Shield sound here, have it fade out.
                     }
                 }
                 
@@ -185,8 +193,10 @@ public class UnitScript : MonoBehaviour {
                     anim.SetTrigger("Move");
                     iAmMoving = true;
                     Debug.Log("Zoom");
-					if (UnitType.Tank) {
-						AudioManager.Instance.TankMove ();
+                    // Sam writes the movement pieces here
+                    if (unitType == UnitType.Tank) {
+                        AudioManager.Instance.TankMove();
+                        Debug.Log("Tank does the move");
 					}
                     currentPool -= 1;
                 }
