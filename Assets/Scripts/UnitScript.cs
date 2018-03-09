@@ -22,7 +22,7 @@ public class UnitScript : MonoBehaviour {
     public static int basePool = 5;
     public float speed = 1.5f;
     public static int currentPool = basePool;
-    public float attackRange = 2;
+    public float attackRange = 1;
     public float visionRange = 5;
     public List <UnitType> effectiveAgainst;
     //For Sam's audio in FMOD
@@ -59,6 +59,8 @@ public class UnitScript : MonoBehaviour {
         GameController.Instance.OnUnitClicked(this);
         ignoreNextClick = true;
     }
+
+    
 
     public void TakeDamage()
     {
@@ -157,13 +159,15 @@ public class UnitScript : MonoBehaviour {
 
         if (GameController.Instance.activeUnit == this)
         {
+            
             if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50) )
             {
-                if (GameController.Instance.targetUnit != null) 
+                if (GameController.Instance.targetUnit != null && attackRange <= 2) 
                 {
                     anim.SetTrigger("Attack");
                     currentPool = 0;
                     Debug.Log("Bang");
+                    
                     
                     if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
                     {
@@ -177,7 +181,7 @@ public class UnitScript : MonoBehaviour {
                     }
                 }
                 
-                else
+                else if (attackRange <= 2)
                 {
                    
                     target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
