@@ -20,7 +20,11 @@ public class GameController : MonoBehaviour {
     public GameObject player2;
     public Text turn;
     public Button swapTurn;
+    public Text unitsLeft;
+    public Text enemiesLeft;
 
+    public int noOfEnemies;
+    public int noOfUnits;
     
 
 
@@ -40,7 +44,40 @@ public class GameController : MonoBehaviour {
         p2 = false;
         turn.text = "Player's Turn";
         swapTurn.onClick.AddListener(EndTurn);
+        unitsLeft.text = "Units Left: " + noOfUnits;
+        enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+    }
 
+    public void GoingUp(bool isPlayer)
+    {
+        // Have the tally of enemies and units go up at the beginning of the game to the amount in the level.
+        Debug.Log("Hello");
+        if (isPlayer)
+        {
+            noOfUnits += 1;
+            unitsLeft.text = "Units Left: " + noOfUnits;
+        }
+        else
+        {
+            noOfEnemies += 1;
+            enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+        }
+    }
+
+    public void GoingDown(bool isPlayer)
+    {
+        // Have the tally of enemies and units go up at the beginning of the game to the amount in the level.
+        Debug.Log("Point down");
+        if (isPlayer)
+        {
+            noOfUnits -= 1;
+            unitsLeft.text = "Units Left: " + noOfUnits;
+        }
+        else
+        {
+            noOfEnemies -= 1;
+            enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+        }
     }
 
     public void OnUnitClicked(UnitScript unit)
@@ -69,22 +106,20 @@ public class GameController : MonoBehaviour {
             activeUnit = null;
             targetUnit = null;
             turn.text = "Enemy's Turn";
-            UnTag();
+            UnitScript.StartTurn();
+            p2 = true;
         }
         else if (turn.text == "Enemy's Turn")
         {
             activeUnit = null;
             targetUnit = null;
             turn.text = "Player's Turn";
-            UnTag();
+            UnitScript.StartTurn();
+            p1 = true;
         }
     }
 
-    public void UnTag()
-    {
-        //GameObject.FindGameObjectsWithTag("Tagged");
-        
-    }
+    
 	
 	// Update is called once per frame
 	void Update () {

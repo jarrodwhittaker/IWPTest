@@ -10,21 +10,26 @@ public class UnitScript : MonoBehaviour {
 
     public Vector3 target;
 
-    
+    public static UnitScript Instance;
+
     public Animator anim;
+
+    
 
     public UnitType unitType = UnitType.Jet;
     public bool isPlayer;
     public bool canMove;
-    public int basePool;
+    public static int basePool = 5;
     public float speed = 1.5f;
-    public static int currentPool;
-    public float attackRange = 10;
-    public float visionRange = 15;
+    public static int currentPool = basePool;
+    public float attackRange = 2;
+    public float visionRange = 5;
     public List <UnitType> effectiveAgainst;
     //For Sam's audio in FMOD
     public float distanceRemain;
-    
+
+    // troy
+    public bool iAmMoving;
 
     private bool ignoreNextClick = false;
 
@@ -37,11 +42,12 @@ public class UnitScript : MonoBehaviour {
         StartTurn();
 
         target = transform.position;
-        
         // Communicate with other scripts at the beginning for info
+        GameController.Instance.GoingUp(isPlayer);
+
     }
 
-    void StartTurn()
+    public static void StartTurn()
     {
         // 
         currentPool = basePool;
@@ -58,13 +64,15 @@ public class UnitScript : MonoBehaviour {
     {
         anim.SetTrigger("Death");
         Debug.Log("Animate");
-        DeathComplete();
-        Debug.Log("Bye");
+        Invoke("DeathComplete", 1f);
+//        DeathComplete();
     }
 
     public void DeathComplete()
     {
+        GameController.Instance.GoingDown(isPlayer);
         Destroy(gameObject);
+        
     }
 
     public void Shield()
@@ -72,18 +80,30 @@ public class UnitScript : MonoBehaviour {
         anim.SetTrigger("Shield");
     }
 
-    
+    /*public void UnitRally()
+    {
+        // Tell the GameController to increase number of units by 1
+        
+    }
+
+    public void EnemyRally()
+    {
+        // Tell the GameController to increase enemies left by 1
+        
+    }*/
 
     // Update is called once per frame
     void Update () {
         
-        if (isPlayer != true)
+        if (GameController.Instance.p2 == true)
         {
+
+
             // The AI should do their procedure in here
             // Attack all enemies once within their attack range
             // Can't attack through walls/objects
 
-
+            return;
 
         }
         else
@@ -107,11 +127,21 @@ public class UnitScript : MonoBehaviour {
             GameController.Instance.AP.text = "Action Points: " + currentPool;
         }
 
-
         if (distanceRemain > 0.1)
         {
+            Debug.Log("I am returning");
             return;
         }
+
+        else if (distanceRemain <= 0 && iAmMoving) // we check that we are actually taking action)
+        {
+            Debug.Log(distanceRemain);
+            anim.SetTrigger("Idle");
+            Debug.Log("Halt!");
+            iAmMoving = false;
+        }
+        
+
 
         if (currentPool <= 0)
         {
@@ -127,7 +157,7 @@ public class UnitScript : MonoBehaviour {
 
         if (GameController.Instance.activeUnit == this)
         {
-            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50))
+            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50) )
             {
                 if (GameController.Instance.targetUnit != null) 
                 {
@@ -153,6 +183,8 @@ public class UnitScript : MonoBehaviour {
                     target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     target.z = transform.position.z;
                     anim.SetTrigger("Move");
+                    iAmMoving = true;
+                    Debug.Log("Zoom");
                     currentPool -= 1;
                 }
             }
