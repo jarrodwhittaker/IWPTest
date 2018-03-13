@@ -144,7 +144,12 @@ public class UnitScript : MonoBehaviour {
             {
                 AudioManager.Instance.TankStop();
                 Debug.Log("Tank stops making sound");
-            }
+			}
+			else if (unitType == UnitType.Jet)
+			{
+				AudioManager.Instance.JetStop();
+				Debug.Log("Jet stops making sound");
+			}
             iAmMoving = false;
         }
         
@@ -169,13 +174,25 @@ public class UnitScript : MonoBehaviour {
                 if (GameController.Instance.targetUnit != null) 
                 {
                     anim.SetTrigger("Attack");
+
+					//play the firing sound effect
+					if (unitType == UnitType.Jet)
+					{
+						AudioManager.Instance.JetFire();
+						//Debug.Log("Jet pew pew");
+					}
+					else if (unitType == UnitType.Tank)
+					{
+						AudioManager.Instance.TankFire();
+						Debug.Log("Tank pew pew");
+					}
+
                     currentPool = 0;
                     Debug.Log("Bang");
                     
                     if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
                     {
-                        
-                        // have the enemy unit explode and play their death animation.
+						// have the enemy unit explode and play their death animation.
                         GameController.Instance.targetUnit.TakeDamage();
                     }
                     else
@@ -197,6 +214,10 @@ public class UnitScript : MonoBehaviour {
                     if (unitType == UnitType.Tank) {
                         AudioManager.Instance.TankMove();
                         Debug.Log("Tank does the move");
+					}
+					else if (unitType == UnitType.Jet) {
+						AudioManager.Instance.JetMove();
+						Debug.Log("Jet does the move");
 					}
                     currentPool -= 1;
                 }
