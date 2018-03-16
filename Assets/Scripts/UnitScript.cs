@@ -178,7 +178,7 @@ public class UnitScript : MonoBehaviour {
 					//play the firing sound effect
 					if (unitType == UnitType.Jet)
 					{
-						AudioManager.Instance.JetFire();
+						//AudioManager.Instance.JetFire();
 						//Debug.Log("Jet pew pew");
 					}
 					else if (unitType == UnitType.Tank)
