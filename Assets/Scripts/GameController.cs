@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,13 +14,18 @@ public class GameController : MonoBehaviour {
 
     public RaycastHit hit;
 
+    public Text AP;
     public bool p1;
     public GameObject player1;
     public bool p2;
     public GameObject player2;
-    public Text Turn;
-    public Button endTurn;
+    public Text turn;
+    public Button swapTurn;
+    public Text unitsLeft;
+    public Text enemiesLeft;
 
+    public int noOfEnemies;
+    public int noOfUnits;
     
 
 
@@ -37,8 +43,43 @@ public class GameController : MonoBehaviour {
         p1 = true;
         // p2 will be restricted from moving
         p2 = false;
-        Turn.text = "Player 1's Turn";
-	}
+        turn.text = "Player's Turn";
+        swapTurn.onClick.AddListener(EndTurn);
+        unitsLeft.text = "Units Left: " + noOfUnits;
+        enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+    }
+
+    public void GoingUp(bool isPlayer)
+    {
+        // Have the tally of enemies and units go up at the beginning of the game to the amount in the level.
+        Debug.Log("Hello");
+        if (isPlayer)
+        {
+            noOfUnits += 1;
+            unitsLeft.text = "Units Left: " + noOfUnits;
+        }
+        else
+        {
+            noOfEnemies += 1;
+            enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+        }
+    }
+
+    public void GoingDown(bool isPlayer)
+    {
+        // Have the tally of enemies and units go up at the beginning of the game to the amount in the level.
+        Debug.Log("Point down");
+        if (isPlayer)
+        {
+            noOfUnits -= 1;
+            unitsLeft.text = "Units Left: " + noOfUnits;
+        }
+        else
+        {
+            noOfEnemies -= 1;
+            enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+        }
+    }
 
     public void OnUnitClicked(UnitScript unit)
     {
@@ -57,9 +98,45 @@ public class GameController : MonoBehaviour {
         }
         // To be worked on, having the target refresh after a certain amount of time.
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void EndTurn()
+    {
+        
+        if (turn.text == "Player's Turn")
+        {
+            activeUnit = null;
+            targetUnit = null;
+            turn.text = "Enemy's Turn";
+            UnitScript.StartTurn();
+            p2 = true;
+            p1 = false;
+        }
+        else if (turn.text == "Enemy's Turn")
+        {
+            activeUnit = null;
+            targetUnit = null;
+            turn.text = "Player's Turn";
+            UnitScript.StartTurn();
+            p1 = true;
+            p2 = false;
+        }
+    }
+
+    /*public void P2Turn()
+    {
+        GetComponent<UnitScript>();
+    }*/
+
+    public void FindThePlayers()
+    {
+        // wanting to check all units within the range
+        // Detects whether the bool isPlayer is true or false
+        // if the closest unit has isPlayer, attack them.
+        //FindSceneObjectsOfType
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         //// When click occurs, create a raycast.
         //// Check if it hit anything
