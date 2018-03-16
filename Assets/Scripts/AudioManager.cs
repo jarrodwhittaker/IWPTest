@@ -7,9 +7,18 @@ public class AudioManager : MonoBehaviour {
 
 
 	[FMODUnity.EventRef]
+
+	//Tank Events
 	public string tankMoveP ="event:/Units/Tank/Tank Move";
 	FMOD.Studio.EventInstance TankMoveEv;
+	public string tankFireP ="event:/Units/Tank/Tank Fire";
+	FMOD.Studio.EventInstance TankFireEv;
 
+	//Jet Events
+	public string jetMoveP ="event:/Units/Jet/Jet Move";
+	FMOD.Studio.EventInstance JetMoveEv;
+	public string jetFireP ="event:/Units/Jet/Jet Fire";
+	FMOD.Studio.EventInstance JetFireEv;
 
 
     private void Awake()
@@ -20,6 +29,9 @@ public class AudioManager : MonoBehaviour {
     void Start () {
 	
 		TankMoveEv = FMODUnity.RuntimeManager.CreateInstance(tankMoveP);
+		TankFireEv = FMODUnity.RuntimeManager.CreateInstance(tankFireP);
+		JetMoveEv = FMODUnity.RuntimeManager.CreateInstance(jetMoveP);
+		JetFireEv = FMODUnity.RuntimeManager.CreateInstance(jetFireP);
 
 	}
 	
@@ -28,6 +40,8 @@ public class AudioManager : MonoBehaviour {
 
 
 	}
+
+	//Tank SFX
 
 	public void TankMove () 
 	{
@@ -38,8 +52,30 @@ public class AudioManager : MonoBehaviour {
     }
     public void TankStop()
     {
-        TankMoveEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+		TankMoveEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         Debug.Log("Tank stops making sound");
      
     }
+	public void TankFire()
+	{
+		TankFireEv.start ();
+	}
+
+	//Jet SFX
+
+	public void JetMove () 
+	{
+		JetMoveEv.start ();
+	}
+	public void JetStop()
+	{
+		JetMoveEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+		Debug.Log("Jet stops making sound");
+
+	}
+	public void JetFire()
+	{
+		JetFireEv.start ();
+	}
+
 }
