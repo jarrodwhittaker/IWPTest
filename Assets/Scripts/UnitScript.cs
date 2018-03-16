@@ -98,7 +98,7 @@ public class UnitScript : MonoBehaviour {
         
         if (GameController.Instance.p2 == true)
         {
-
+           
 
             // The AI should do their procedure in here
             // Attack all enemies once within their attack range
@@ -120,89 +120,109 @@ public class UnitScript : MonoBehaviour {
             // Calculate 
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        distanceRemain = Vector3.Distance(transform.position, target);
-
-        //if (GameController.Instance.activeUnit == this)
-        {
-            GameController.Instance.AP.text = "Action Points: " + currentPool;
-        }
-
-        if (distanceRemain > 0.1)
-        {
-            Debug.Log("I am returning");
-            return;
-        }
-
-        else if (distanceRemain <= 0 && iAmMoving) // we check that we are actually taking action)
-        {
-            Debug.Log(distanceRemain);
-            anim.SetTrigger("Idle");
-            Debug.Log("Halt!");
-            // Sam stops movement sfx pieces here
-            if (unitType == UnitType.Tank)
-            {
-                AudioManager.Instance.TankStop();
-                Debug.Log("Tank stops making sound");
-            }
-            iAmMoving = false;
-        }
         
-
-
-        if (currentPool <= 0)
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            distanceRemain = Vector3.Distance(transform.position, target);
+        if (GameController.Instance.p1 == true)
         {
-            currentPool = 0;
-            return;
-        }
-
-        if (ignoreNextClick)
-        {
-            ignoreNextClick = false;
-            return;
-        }
-
-        if (GameController.Instance.activeUnit == this)
-        {
-            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50) )
+            //if (GameController.Instance.activeUnit == this)
             {
-                if (GameController.Instance.targetUnit != null) 
+                GameController.Instance.AP.text = "Action Points: " + currentPool;
+            }
+
+            if (distanceRemain > 0.1)
+            {
+                Debug.Log("I am returning");
+                return;
+            }
+
+            else if (distanceRemain <= 0 && iAmMoving) // we check that we are actually taking action)
+            {
+                Debug.Log(distanceRemain);
+                anim.SetTrigger("Idle");
+                Debug.Log("Halt!");
+                // Sam stops movement sfx pieces here
+                if (unitType == UnitType.Tank)
                 {
-                    anim.SetTrigger("Attack");
-                    currentPool = 0;
-                    Debug.Log("Bang");
-                    
-                    if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
+                    AudioManager.Instance.TankStop();
+                    Debug.Log("Tank stops making sound");
+                }
+                iAmMoving = false;
+            }
+
+
+
+            if (currentPool <= 0)
+            {
+                currentPool = 0;
+                return;
+            }
+
+            if (ignoreNextClick)
+            {
+                ignoreNextClick = false;
+                return;
+            }
+
+            if (GameController.Instance.activeUnit == this)
+            {
+                //if (input, ans this)
+                //{
+                // grab location, check tiles between (before that check Vector3.Distance
+                //if (within attack range)
+                //rest of attack function
+                //            }
+                if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50))// && (attackRange <= 2))
+                {
+
+                    if (GameController.Instance.targetUnit != null)
                     {
-                        
-                        // have the enemy unit explode and play their death animation.
-                        GameController.Instance.targetUnit.TakeDamage();
+                        if (Vector2.Distance(transform.position, GameController.Instance.targetUnit.transform.position) <= attackRange)
+                        {
+                            anim.SetTrigger("Attack");
+                            currentPool = 0;
+                            Debug.Log("Bang");
+
+                            if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
+                            {
+
+                                // have the enemy unit explode and play their death animation.
+                                GameController.Instance.targetUnit.TakeDamage();
+                                GameController.Instance.targetUnit = null;
+                            }
+                            else
+                            {
+                                GameController.Instance.targetUnit.Shield();
+                                // Shield sound here, have it fade out.
+                                GameController.Instance.targetUnit = null;
+                            }
+                        }
                     }
+
                     else
                     {
-                        GameController.Instance.targetUnit.Shield();
-                        // Shield sound here, have it fade out.
+                        Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        if (Vector2.Distance(transform.position, tempTarget) <= attackRange)
+                        {
+                            
+                            target = tempTarget;
+                            target.z = transform.position.z;
+                            anim.SetTrigger("Move");
+                            iAmMoving = true;
+                            Debug.Log("Zoom");
+                            // Sam writes the movement pieces here
+                            if (unitType == UnitType.Tank)
+                            {
+                                AudioManager.Instance.TankMove();
+                                Debug.Log("Tank does the move");
+                            }
+                            currentPool -= 1;
+                        }
                     }
                 }
-                
-                else
-                {
-                   
-                    target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    target.z = transform.position.z;
-                    anim.SetTrigger("Move");
-                    iAmMoving = true;
-                    Debug.Log("Zoom");
-                    // Sam writes the movement pieces here
-                    if (unitType == UnitType.Tank) {
-                        AudioManager.Instance.TankMove();
-                        Debug.Log("Tank does the move");
-					}
-                    currentPool -= 1;
-                }
+
             }
 
         }
-
     }
 }

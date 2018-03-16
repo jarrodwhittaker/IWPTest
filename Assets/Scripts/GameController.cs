@@ -109,6 +109,7 @@ public class GameController : MonoBehaviour {
             turn.text = "Enemy's Turn";
             UnitScript.StartTurn();
             p2 = true;
+            p1 = false;
         }
         else if (turn.text == "Enemy's Turn")
         {
@@ -117,8 +118,14 @@ public class GameController : MonoBehaviour {
             turn.text = "Player's Turn";
             UnitScript.StartTurn();
             p1 = true;
+            p2 = false;
         }
     }
+
+    /*public void P2Turn()
+    {
+        GetComponent<UnitScript>();
+    }*/
 
     public void FindThePlayers()
     {
