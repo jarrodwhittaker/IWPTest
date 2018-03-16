@@ -20,6 +20,13 @@ public class AudioManager : MonoBehaviour {
 	public string jetFireP ="event:/Units/Jet/Jet Fire";
 	FMOD.Studio.EventInstance JetFireEv;
 
+	//Pak Events
+	public string pakFireP ="event:/Units/Pak/PakFire";
+	FMOD.Studio.EventInstance PakFireEv;
+
+	//Flak Events
+	public string flakFireP ="event:/Units/Flak/FlakFire";
+	FMOD.Studio.EventInstance FlakFireEv;
 
     private void Awake()
     {
@@ -32,6 +39,8 @@ public class AudioManager : MonoBehaviour {
 		TankFireEv = FMODUnity.RuntimeManager.CreateInstance(tankFireP);
 		JetMoveEv = FMODUnity.RuntimeManager.CreateInstance(jetMoveP);
 		JetFireEv = FMODUnity.RuntimeManager.CreateInstance(jetFireP);
+		PakFireEv = FMODUnity.RuntimeManager.CreateInstance(pakFireP);
+		FlakFireEv = FMODUnity.RuntimeManager.CreateInstance(flakFireP);
 
 	}
 	
@@ -78,4 +87,17 @@ public class AudioManager : MonoBehaviour {
 		JetFireEv.start ();
 	}
 
+	//Pak SFX
+
+	public void PakFire()
+	{
+		PakFireEv.start ();
+	}
+
+	//Flak SFX
+
+	public void FlakFire()
+	{
+		FlakFireEv.start ();
+	}
 }
