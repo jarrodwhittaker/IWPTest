@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameController : MonoBehaviour {
 
@@ -108,6 +109,7 @@ public class GameController : MonoBehaviour {
             targetUnit = null;
             turn.text = "Enemy's Turn";
             UnitScript.StartTurn();
+            StartCoroutine(P2Turn());
             p2 = true;
             p1 = false;
         }
@@ -117,15 +119,35 @@ public class GameController : MonoBehaviour {
             targetUnit = null;
             turn.text = "Player's Turn";
             UnitScript.StartTurn();
+
             p1 = true;
             p2 = false;
         }
     }
 
-    /*public void P2Turn()
+    public IEnumerator P2Turn()
     {
-        GetComponent<UnitScript>();
-    }*/
+        // find all enemies and sort them based on their type
+        List<UnitScript> allEnemies = FindObjectsOfType<UnitScript>().Where(unit => unit.isPlayer == false).OrderBy(unit => unit.unitType).ToList();
+
+        // loop over all of the enemies
+        foreach (UnitScript enemy in allEnemies)
+        {
+            Debug.Log(enemy.gameObject.name);
+
+            // find all of the player units
+            List<UnitScript> allPlayers = FindObjectsOfType<UnitScript>().Where(unit => unit.isPlayer == true).ToList();
+
+            // loop over all of the player units and attacks each one
+            foreach (UnitScript playerUnit in allPlayers)
+            {
+                enemy.PerformAttack(playerUnit);
+                yield return new WaitForSeconds(2f);
+            }
+        }
+
+        yield return null;
+    }
 
     public void FindThePlayers()
     {
