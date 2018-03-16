@@ -174,20 +174,7 @@ public class UnitScript : MonoBehaviour {
                 if (GameController.Instance.targetUnit != null) 
                 {
                     anim.SetTrigger("Attack");
-
-					//play the firing sound effect
-					if (unitType == UnitType.Jet)
-					{
-						//AudioManager.Instance.JetFire();
-						//Debug.Log("Jet pew pew");
-					}
-					else if (unitType == UnitType.Tank)
-					{
-						AudioManager.Instance.TankFire();
-						Debug.Log("Tank pew pew");
-					}
-
-                    currentPool = 0;
+					currentPool = 0;
                     Debug.Log("Bang");
                     
                     if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
