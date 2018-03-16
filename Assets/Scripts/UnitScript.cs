@@ -93,6 +93,40 @@ public class UnitScript : MonoBehaviour {
         
     }*/
 
+    public void PerformAttack(UnitScript targetUnit)
+    {
+        if (Vector2.Distance(transform.position, targetUnit.transform.position) <= attackRange)
+        {
+            anim.SetTrigger("Attack");
+
+            /*//play the firing sound effect
+            if (unitType == UnitType.Jet)
+            {
+                //AudioManager.Instance.JetFire();
+                //Debug.Log("Jet pew pew");
+            }
+            else if (unitType == UnitType.Tank)
+            {
+                AudioManager.Instance.TankFire();
+                Debug.Log("Tank pew pew");
+            }*/
+
+            currentPool = 0;
+            Debug.Log("Bang");
+
+            if (effectiveAgainst.Contains(targetUnit.unitType))
+            {
+                // have the enemy unit explode and play their death animation.
+                targetUnit.TakeDamage();
+            }
+            else
+            {
+                targetUnit.Shield();
+                // Shield sound here, have it fade out.
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update () {
         
@@ -173,40 +207,33 @@ public class UnitScript : MonoBehaviour {
             {
                 if (GameController.Instance.targetUnit != null) 
                 {
-                    anim.SetTrigger("Attack");
-					currentPool = 0;
-                    Debug.Log("Bang");
-                    
-                    if (effectiveAgainst.Contains(GameController.Instance.targetUnit.unitType))
-                    {
-						// have the enemy unit explode and play their death animation.
-                        GameController.Instance.targetUnit.TakeDamage();
-                    }
-                    else
-                    {
-                        GameController.Instance.targetUnit.Shield();
-                        // Shield sound here, have it fade out.
-                    }
+                    PerformAttack(GameController.Instance.targetUnit);
                 }
                 
                 else
                 {
-                   
-                    target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    target.z = transform.position.z;
-                    anim.SetTrigger("Move");
-                    iAmMoving = true;
-                    Debug.Log("Zoom");
-                    // Sam writes the movement pieces here
-                    if (unitType == UnitType.Tank) {
-                        AudioManager.Instance.TankMove();
-                        Debug.Log("Tank does the move");
-					}
-					else if (unitType == UnitType.Jet) {
-						AudioManager.Instance.JetMove();
-						Debug.Log("Jet does the move");
-					}
-                    currentPool -= 1;
+                    Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    if (Vector2.Distance(transform.position, tempTarget) <= attackRange)
+                    {
+
+                        target = tempTarget;
+                        target.z = transform.position.z;
+                        anim.SetTrigger("Move");
+                        iAmMoving = true;
+                        Debug.Log("Zoom");
+                        // Sam writes the movement pieces here
+                        if (unitType == UnitType.Tank)
+                        {
+                            AudioManager.Instance.TankMove();
+                            Debug.Log("Tank does the move");
+                        }
+                        else if (unitType == UnitType.Jet)
+                        {
+                            AudioManager.Instance.JetMove();
+                            Debug.Log("Jet does the move");
+                        }
+                        currentPool -= 1;
+                    }
                 }
             }
 
