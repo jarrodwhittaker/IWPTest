@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{e077836e-38ff-445c-aaa9-8936e2f9c86a}">
         <property name="name">
-            <value>JetShield</value>
+            <value>Jet Shield</value>
         </property>
         <property name="outputFormat">
             <value>0</value>

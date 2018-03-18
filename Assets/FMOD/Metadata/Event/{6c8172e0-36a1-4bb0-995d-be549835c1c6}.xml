@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{6c8172e0-36a1-4bb0-995d-be549835c1c6}">
         <property name="name">
-            <value>TankMove</value>
+            <value>Tank Move</value>
         </property>
         <property name="outputFormat">
             <value>0</value>
