@@ -1,12 +1,22 @@
-{fb3f837a-63aa-486e-9b48-3f79d3f1c657} event:/Units/Flak/FlakFire
-{1b5088e9-a3f5-4ad2-9015-e626948d4e99} event:/Units/Flak/FlakShield
-{291bf732-b8bd-4103-aea9-ef70d8e40385} event:/Units/Jet/Jet Move
+{3eb19cff-35bd-42c7-8355-e8ebfb7b4081} event:/Units/Bunker/BunkerDefence
+{1a419bd0-bdce-4301-bf41-3b785e14ea19} event:/Units/Bunker/BunkerFire
+{b3460d41-6724-45af-acf8-abcb0fbb3bee} event:/Units/Drone/DroneFire
+{01102811-198e-4def-9ab4-706a3f6cf70d} event:/Units/Drone/DroneMove
+{e501c92d-b50d-4847-b9f5-1782e3fbccd6} event:/Units/Drone/DroneShield
+{c37c15f3-69c2-491f-8c36-5e1d93360c0f} event:/Units/Flak/FlakDefence
+{fb3f837a-63aa-486e-9b48-3f79d3f1c657} event:/Units/Flak/Flak Fire
 {6f13387a-281f-4bb0-91ed-957a34ea2b8a} event:/Units/Jet/Jet Fire
-{b4c685f6-1143-4aa5-b557-58b39f719d94} event:/Units/Pak/PakFire
-{2989a696-ce63-4d26-976b-b2599801ccfd} event:/Units/Pak/PakShield
+{291bf732-b8bd-4103-aea9-ef70d8e40385} event:/Units/Jet/Jet Move
+{e077836e-38ff-445c-aaa9-8936e2f9c86a} event:/Units/Jet/Jet Shield
+{1c3b912a-ac55-4f54-b7ae-7ea46bce8f4a} event:/Units/Mech/MechFire
+{264a3c8b-a79f-4016-a44a-62f2a0c763ab} event:/Units/Mech/MechMove
+{fd7d2c92-d279-45ba-b621-4ac5e2f754ed} event:/Units/Mech/MechShield
+{f4dc0fb0-df48-4cec-a677-1443dc80e156} event:/Units/Pak/PakDefence
+{b4c685f6-1143-4aa5-b557-58b39f719d94} event:/Units/Pak/Pak Fire
 {27ca566b-d899-4305-b363-7a030c261180} event:/Units/Tank/Tank Fire
 {6c8172e0-36a1-4bb0-995d-be549835c1c6} event:/Units/Tank/Tank Move
 {d37fafe5-fcb5-4c3b-b499-6f441e958ca2} event:/Units/Tank/Tank Shield
+{d1119101-2d33-4fff-9911-4164584c41f2} event:/Units/Destroyed
 {b28d874b-2f35-49ed-ad89-f4e54bfecc64} bus:/
 {2d91db90-fbf1-4065-adcb-19e5241fb0f0} bus:/Reverb
 {8f357f9b-c94d-4608-aa64-2964f65f57c1} bank:/Level

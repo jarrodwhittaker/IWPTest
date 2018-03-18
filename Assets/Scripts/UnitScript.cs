@@ -184,6 +184,16 @@ public class UnitScript : MonoBehaviour {
 				AudioManager.Instance.JetStop();
 				Debug.Log("Jet stops making sound");
 			}
+			else if (unitType == UnitType.Mech)
+			{
+				AudioManager.Instance.MechStop();
+				Debug.Log("Mech stops making sound");
+			}
+			/*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
+			{
+				AudioManager.Instance.DroneStop();
+				Debug.Log("Drone stops making sound");
+			}*/
             iAmMoving = false;
         }
         
@@ -232,6 +242,16 @@ public class UnitScript : MonoBehaviour {
                             AudioManager.Instance.JetMove();
                             Debug.Log("Jet does the move");
                         }
+						else if (unitType == UnitType.Mech)
+						{
+							AudioManager.Instance.MechMove();
+							Debug.Log("Mech does the move");
+						}
+						/*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
+						{
+							AudioManager.Instance.DroneMove();
+							Debug.Log("Drone does the move");
+						}*/
                         currentPool -= 1;
                     }
                 }
