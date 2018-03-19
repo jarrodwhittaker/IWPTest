@@ -43,19 +43,19 @@ public class AudioManager : MonoBehaviour {
 	//Pak Events
 	public string pakFireP ="event:/Units/Pak/Pak Fire";
 	FMOD.Studio.EventInstance PakFireEv;
-	public string pakDefP ="eventL/Units/Pak/PakDefence";
+	public string pakDefP ="event:/Units/Pak/PakDefence";
 	FMOD.Studio.EventInstance PakDefenceEv;
 
 	//Flak Events
 	public string flakFireP ="event:/Units/Flak/Flak Fire";
 	FMOD.Studio.EventInstance FlakFireEv;
-	public string flakDefP ="eventL/Units/Flak/FlakDefence";
+	public string flakDefP ="event:/Units/Flak/FlakDefence";
 	FMOD.Studio.EventInstance FlakDefenceEv;
 
 	//Bunker Events
 	public string bunkerFireP ="event:/Units/Bunker/BunkerFire";
 	FMOD.Studio.EventInstance BunkerFireEv;
-	public string bunkerDefP ="eventL/Units/Bunker/BunkerDefence";
+	public string bunkerDefP ="event:/Units/Bunker/BunkerDefence";
 	FMOD.Studio.EventInstance BunkerDefenceEv;
 
 	//Generic Events
