@@ -60,7 +60,7 @@
     <object class="MarkerTrack" id="{eb4f8f3a-8832-4692-81dd-182cdb430a86}"/>
     <object class="GroupTrack" id="{2655158c-9d1c-49ed-99da-3cac39697a3b}">
         <relationship name="modules">
-            <destination>{b39b7c4c-88b5-495d-8cd1-33bb2e098a3a}</destination>
+            <destination>{0f49363f-010d-4971-82a5-b7a1fd2ed135}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{b9c904d2-5438-44c9-9a80-822152f40f5a}</destination>
@@ -68,10 +68,10 @@
     </object>
     <object class="Timeline" id="{54f438d7-3349-4153-8427-e64ab01af5f7}">
         <relationship name="modules">
-            <destination>{b39b7c4c-88b5-495d-8cd1-33bb2e098a3a}</destination>
+            <destination>{0f49363f-010d-4971-82a5-b7a1fd2ed135}</destination>
         </relationship>
         <relationship name="markers">
-            <destination>{fa1b2045-0fff-4fd3-af82-eae2590b1f6c}</destination>
+            <destination>{f66c2ee2-e4e9-4b71-8459-ed203cdb3a20}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{d7f65893-2112-42c8-a374-941505a0a401}">
@@ -91,12 +91,12 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{b0d738a2-1af4-44ec-af91-74d473fbdcb8}"/>
-    <object class="SingleSound" id="{b39b7c4c-88b5-495d-8cd1-33bb2e098a3a}">
+    <object class="SingleSound" id="{0f49363f-010d-4971-82a5-b7a1fd2ed135}">
         <property name="length">
-            <value>3.4169583333333335</value>
+            <value>0.62531250000000005</value>
         </property>
         <relationship name="audioFile">
-            <destination>{8eb9077a-5215-4923-a202-87474710574e}</destination>
+            <destination>{a1290a57-7094-4ab9-a32e-72a69086151b}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{b9c904d2-5438-44c9-9a80-822152f40f5a}">
@@ -113,12 +113,12 @@
             <destination>{d7f65893-2112-42c8-a374-941505a0a401}</destination>
         </relationship>
     </object>
-    <object class="LoopRegion" id="{fa1b2045-0fff-4fd3-af82-eae2590b1f6c}">
+    <object class="LoopRegion" id="{f66c2ee2-e4e9-4b71-8459-ed203cdb3a20}">
         <property name="position">
             <value>0</value>
         </property>
         <property name="length">
-            <value>3.4169583333333335</value>
+            <value>0.62531250000000005</value>
         </property>
         <relationship name="timeline">
             <destination>{54f438d7-3349-4153-8427-e64ab01af5f7}</destination>

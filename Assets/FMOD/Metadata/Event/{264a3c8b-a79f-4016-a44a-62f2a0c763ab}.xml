@@ -60,7 +60,7 @@
     <object class="MarkerTrack" id="{2bc68a38-30d4-4c1e-bc80-808a74446663}"/>
     <object class="GroupTrack" id="{8ba9f05c-a6a3-47d3-bb37-8053fffa7c98}">
         <relationship name="modules">
-            <destination>{2ef0d3ba-d4ca-41d6-80bb-9aa95b1d9c88}</destination>
+            <destination>{db42e1f1-9952-4fdf-9fb4-a83a37c3a7f7}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{93fe2967-be30-4ebe-afc9-c366f28f3edc}</destination>
@@ -68,10 +68,10 @@
     </object>
     <object class="Timeline" id="{72b4069c-d587-426a-8388-8e64e4e3179b}">
         <relationship name="modules">
-            <destination>{2ef0d3ba-d4ca-41d6-80bb-9aa95b1d9c88}</destination>
+            <destination>{db42e1f1-9952-4fdf-9fb4-a83a37c3a7f7}</destination>
         </relationship>
         <relationship name="markers">
-            <destination>{089f8bfb-8de1-4e0a-bb27-fbe328186e34}</destination>
+            <destination>{42f10eb5-e11a-4196-865f-2ebbe7b08de4}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{1b8466ba-2af6-4071-9f0e-048d076e415b}">
@@ -91,12 +91,12 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{0f3b5be6-d349-4bf7-a464-aa5faad3a128}"/>
-    <object class="SingleSound" id="{2ef0d3ba-d4ca-41d6-80bb-9aa95b1d9c88}">
+    <object class="SingleSound" id="{db42e1f1-9952-4fdf-9fb4-a83a37c3a7f7}">
         <property name="length">
-            <value>0.80106250000000001</value>
+            <value>2.09375</value>
         </property>
         <relationship name="audioFile">
-            <destination>{e507d627-9a4d-477f-a745-236ccca52415}</destination>
+            <destination>{790959de-4d72-4edc-849b-af74901fdb84}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{93fe2967-be30-4ebe-afc9-c366f28f3edc}">
@@ -113,12 +113,12 @@
             <destination>{1b8466ba-2af6-4071-9f0e-048d076e415b}</destination>
         </relationship>
     </object>
-    <object class="LoopRegion" id="{089f8bfb-8de1-4e0a-bb27-fbe328186e34}">
+    <object class="LoopRegion" id="{42f10eb5-e11a-4196-865f-2ebbe7b08de4}">
         <property name="position">
             <value>0</value>
         </property>
         <property name="length">
-            <value>0.80106250000000001</value>
+            <value>2.09375</value>
         </property>
         <relationship name="timeline">
             <destination>{72b4069c-d587-426a-8388-8e64e4e3179b}</destination>
