@@ -282,7 +282,7 @@ public class UnitScript : MonoBehaviour {
             {
                 if (GameController.Instance.targetUnit != null)
                 {
-                    PerformAttack(GameController.Instance.targetUnit);
+                    // PerformAttack(GameController.Instance.targetUnit);
                 }
 
                 else

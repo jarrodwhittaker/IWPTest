@@ -21,7 +21,7 @@ public class LoadLevel : MonoBehaviour {
     }
     public void TestScene()
     {
-        SceneManager.LoadScene("Test", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
         Debug.Log("Loaded");
     }
 
@@ -29,8 +29,8 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
     }
-    public void RefreshScene()
+    /*public void RefreshScene()
     {
         SceneManager.LoadScene("Level1", LoadSceneMode.Single);
-    }
+    }*/
 }

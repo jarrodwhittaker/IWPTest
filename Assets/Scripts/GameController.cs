@@ -150,7 +150,7 @@ public class GameController : MonoBehaviour {
     {
         // find all enemies and sort them based on their type
         List<UnitScript> allEnemies = FindObjectsOfType<UnitScript>().Where(unit => unit.isPlayer == false).OrderBy(unit => unit.unitType).ToList();
-
+        
         // loop over all of the enemies
         foreach (UnitScript enemy in allEnemies)
         {
@@ -227,11 +227,11 @@ public class GameController : MonoBehaviour {
 
         if(unit.isPlayer != true)
         {
-            targetUnit = unit;
-
             if(activeUnit != null)
             {
-                OnEnemyClicked(unit);
+                targetUnit = unit;
+
+                OnEnemyClicked(targetUnit);
             }
 
             Debug.Log(unit.gameObject.name + " is the enemy");

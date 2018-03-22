@@ -396,8 +396,6 @@ public static class hexAid
                 }
             }
         }
-
-        Debug.Log(optimum);
         return optimum;
     }
 
