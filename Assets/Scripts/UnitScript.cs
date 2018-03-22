@@ -14,7 +14,7 @@ public class UnitScript : MonoBehaviour {
 
     public Animator anim;
 
-    
+
 
     public UnitType unitType = UnitType.Jet;
     public bool isPlayer;
@@ -24,7 +24,7 @@ public class UnitScript : MonoBehaviour {
     public static int currentPool = basePool;
     public float attackRange = 2;
     public float visionRange = 5;
-    public List <UnitType> effectiveAgainst;
+    public List<UnitType> effectiveAgainst;
     //For Sam's audio in FMOD
     public float distanceRemain;
 
@@ -33,12 +33,16 @@ public class UnitScript : MonoBehaviour {
 
     private bool ignoreNextClick = false;
 
-	// Use this for initialization
+    // Use this for initialization
     // When game begins it sets everything
     // Player begins the game
     // No units are to be selected by now
     // 
-	void Start () {
+
+    // LANZ STUFF
+    public hexTile myTile;
+
+    void Start() {
         StartTurn();
 
         target = transform.position;
@@ -66,14 +70,14 @@ public class UnitScript : MonoBehaviour {
         Debug.Log("Animate");
         //Sam plays damage/destruction sfx here
         Invoke("DeathComplete", 1f);
-//        DeathComplete();
+        //        DeathComplete();
     }
 
     public void DeathComplete()
     {
         GameController.Instance.GoingDown(isPlayer);
         Destroy(gameObject);
-        
+
     }
 
     public void Shield()
@@ -128,8 +132,8 @@ public class UnitScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        
+    void Update() {
+
         if (GameController.Instance.p2 == true)
         {
 
@@ -178,25 +182,25 @@ public class UnitScript : MonoBehaviour {
             {
                 AudioManager.Instance.TankStop();
                 Debug.Log("Tank stops making sound");
-			}
-			else if (unitType == UnitType.Jet)
-			{
-				AudioManager.Instance.JetStop();
-				Debug.Log("Jet stops making sound");
-			}
-			else if (unitType == UnitType.Mech)
-			{
-				AudioManager.Instance.MechStop();
-				Debug.Log("Mech stops making sound");
-			}
-			/*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
+            }
+            else if (unitType == UnitType.Jet)
+            {
+                AudioManager.Instance.JetStop();
+                Debug.Log("Jet stops making sound");
+            }
+            else if (unitType == UnitType.Mech)
+            {
+                AudioManager.Instance.MechStop();
+                Debug.Log("Mech stops making sound");
+            }
+            /*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
 			{
 				AudioManager.Instance.DroneStop();
 				Debug.Log("Drone stops making sound");
 			}*/
             iAmMoving = false;
         }
-        
+
 
 
         if (currentPool <= 0)
@@ -213,13 +217,13 @@ public class UnitScript : MonoBehaviour {
 
         if (GameController.Instance.activeUnit == this)
         {
-            if (Input.GetMouseButtonDown(0) && Input.mousePosition.z < (Screen.height - 50) )
+            if (Input.GetMouseButtonDown(0) && Input.mousePosition.z < (Screen.height - 50))
             {
-                if (GameController.Instance.targetUnit != null) 
+                if (GameController.Instance.targetUnit != null)
                 {
                     PerformAttack(GameController.Instance.targetUnit);
                 }
-                
+
                 else
                 {
                     Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -242,12 +246,12 @@ public class UnitScript : MonoBehaviour {
                             AudioManager.Instance.JetMove();
                             Debug.Log("Jet does the move");
                         }
-						else if (unitType == UnitType.Mech)
-						{
-							AudioManager.Instance.MechMove();
-							Debug.Log("Mech does the move");
-						}
-						/*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
+                        else if (unitType == UnitType.Mech)
+                        {
+                            AudioManager.Instance.MechMove();
+                            Debug.Log("Mech does the move");
+                        }
+                        /*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
 						{
 							AudioManager.Instance.DroneMove();
 							Debug.Log("Drone does the move");
@@ -259,5 +263,20 @@ public class UnitScript : MonoBehaviour {
 
         }
 
+    }
+
+    public void SetTile(hexTile _parent)
+    {
+        Debug.Log("parent was set for " + _parent.name);
+        myTile = _parent;
+        transform.position = AdjustPositionforScreen(myTile.transform.position);
+    }
+
+    Vector3 AdjustPositionforScreen(Vector3 _tilePosition)
+    {
+        Vector3 offsetPosition = _tilePosition;
+        offsetPosition.y = _tilePosition.y + 1;
+
+        return offsetPosition;
     }
 }

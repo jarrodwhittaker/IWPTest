@@ -40,6 +40,10 @@ public class hexTile : MonoBehaviour
     public hexTile antecedent { get; private set; }
     #endregion
 
+    #region------- GAME
+    public UnitScript unit;
+    #endregion
+
     // Executed on object load.
     void Awake()
     {
@@ -49,8 +53,14 @@ public class hexTile : MonoBehaviour
     // Executed ahead of first update.
     void Start()
     {
-        DefineBiome();
-        DefineCost();
+        // DefineBiome();
+        // DefineCost();
+
+        // If unit exists, set tile and adjust position.
+        if(unit != null)
+        {
+            unit.SetTile(this);
+        }
     }
 
     // Accessed to define the tile.

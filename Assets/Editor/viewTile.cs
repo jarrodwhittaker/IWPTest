@@ -17,5 +17,7 @@ public class viewTile : Editor
         GUILayout.Space(7);
         EditorGUILayout.LabelField("Biome", EditorStyles.boldLabel);
         ((hexTile)target).myGenus = (biomeGod.biomeGenus)EditorGUILayout.EnumPopup("Gene", ((hexTile)target).myGenus);
+
+        DrawDefaultInspector();
     }
 }
