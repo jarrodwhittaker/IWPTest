@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour {
     public Button swapTurn;
     public Text unitsLeft;
     public Text enemiesLeft;
+    public Canvas Winning;
+    public Canvas Losing;
 
     public int noOfEnemies;
     public int noOfUnits;
@@ -40,6 +42,8 @@ public class GameController : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+        Winning.enabled = false;
+        Losing.enabled = false;
         //p1 will be the first to move
         p1 = true;
         // p2 will be restricted from moving
@@ -48,6 +52,11 @@ public class GameController : MonoBehaviour {
         swapTurn.onClick.AddListener(EndTurn);
         unitsLeft.text = "Units Left: " + noOfUnits;
         enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+    }
+
+    public void IWon()
+    {
+        //if() ;
     }
 
     public void GoingUp(bool isPlayer)

@@ -31,7 +31,7 @@ public class pod : MonoBehaviour
 	void Update()
     {
         Keyboard();
-        Mouse();
+        // Mouse();
 	}
 
     // Operates keyboard input.

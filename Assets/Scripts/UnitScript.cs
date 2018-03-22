@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UnitScript : MonoBehaviour {
     public enum UnitType {
-        Tank, Jet, Mech, Bunker, Flak, Pak
+        Tank, Jet, Mech, Bunker, Flak, Pak, camp
     };
 
     public Vector3 target;
@@ -55,7 +55,11 @@ public class UnitScript : MonoBehaviour {
     {
         // 
         currentPool = basePool;
-        GameController.Instance.AP.text = "Action Points: " + currentPool;
+        if(GameController.Instance != null)
+        {
+            GameController.Instance.AP.text = "Action Points: " + currentPool;
+        }        
+
     }
 
     void OnMouseDown()
@@ -118,10 +122,15 @@ public class UnitScript : MonoBehaviour {
             currentPool = 0;
             Debug.Log("Bang");
 
-            if (effectiveAgainst.Contains(targetUnit.unitType))
+            if(effectiveAgainst.Contains(targetUnit.unitType))
             {
                 // have the enemy unit explode and play their death animation.
                 targetUnit.TakeDamage();
+                if(targetUnit.unitType == UnitType.camp)
+
+                {
+                    GameController.Instance.IWon();
+                }
             }
             else
             {
