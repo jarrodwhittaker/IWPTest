@@ -209,35 +209,24 @@ public class GameController : MonoBehaviour {
 
     public void OnUnitClicked(UnitScript unit)
     {
-        if(rangeVicinity != null)
+        // Remove the current vicinity.
         {
-            if(rangeVicinity.Length > 0)
+            if(rangeVicinity != null)
             {
-                foreach(hexTile tile in rangeVicinity)
+                if(rangeVicinity.Length > 0)
                 {
-                    Material material = tile.GetComponent<MeshRenderer>().material;
-                    material.color = Color.white;
+                    foreach(hexTile tile in rangeVicinity)
+                    {
+                        Material material = tile.GetComponent<MeshRenderer>().material;
+                        material.color = Color.white;
+                    }
                 }
             }
-        }
+        }    
 
         rangeVicinity = new hexTile[0];
 
-        Debug.Log(unit.gameObject.name);
-
-        if(unit.isPlayer != true)
-        {
-            if(activeUnit != null)
-            {
-                targetUnit = unit;
-
-                OnEnemyClicked(targetUnit);
-            }
-
-            Debug.Log(unit.gameObject.name + " is the enemy");
-        }
-
-        else
+        if(unit.isPlayer == true)
         {
             activeUnit = unit;
             targetUnit = null;
@@ -251,7 +240,7 @@ public class GameController : MonoBehaviour {
             }
 
             rangeVicinity = hexAid.DefineHood(activeUnit.myTile, range, activeUnit.canImpassable);
-            Debug.Log(rangeVicinity.Length);
+
             foreach(hexTile tile in rangeVicinity)
             {
                 Material material = tile.GetComponent<MeshRenderer>().material;
@@ -259,8 +248,30 @@ public class GameController : MonoBehaviour {
             }
 
         }
+
+
+        // Check if enemy
+        else if(unit.isPlayer == false)
+        {
+            targetUnit = unit;
+            OnEnemyClicked(targetUnit);
+
+            Debug.Log(unit.gameObject.name + " is the enemy");
+        }
+
         // To be worked on, having the target refresh after a certain amount of time.
     }
+
+    public void OnEnemyClicked(UnitScript _enemy)
+    {
+        Debug.Log("EnemyClicked()");
+        activeUnit.PerformAttack(_enemy);
+        activeUnit.currentattackrange = 0;
+        UnitScript.currentPool = 0;
+        AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
+
+    }
+
 
     // Called by tile that was clicked.
     public void OnTileClicked(hexTile _tileClicked)
@@ -272,37 +283,22 @@ public class GameController : MonoBehaviour {
                 int cost = hexAid.DefinePath(activeUnit.myTile, _tileClicked, activeUnit.canImpassable).Length - 1;
                 activeUnit.currentattackrange -= cost;
                 UnitScript.currentPool -= cost;
-
-                Debug.Log("Cost: " + hexAid.DefinePath(activeUnit.myTile, _tileClicked, activeUnit.canImpassable).Length);
-
-
                 AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
                 activeUnit.target = _tileClicked.transform.position;
                 activeUnit.myTile = _tileClicked;
             }
 
-            if(rangeVicinity != null)
+            if(rangeVicinity.Length > 0)
             {
-                if(rangeVicinity.Length > 0)
+                foreach(hexTile tile in rangeVicinity)
                 {
-                    foreach(hexTile tile in rangeVicinity)
-                    {
-                        Material material = tile.GetComponent<MeshRenderer>().material;
-                        material.color = Color.white;
-                    }
-
-                    rangeVicinity = null;
+                    Material material = tile.GetComponent<MeshRenderer>().material;
+                    material.color = Color.white;
                 }
+
+                rangeVicinity = null;
             }
         }
     }
 
-    public void OnEnemyClicked(UnitScript _enemy)
-    {
-        activeUnit.currentattackrange = 0;
-        UnitScript.currentPool = 0;
-
-        AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
-        activeUnit.PerformAttack(_enemy);
-    }
 }

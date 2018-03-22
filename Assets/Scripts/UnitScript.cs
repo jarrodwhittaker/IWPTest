@@ -122,43 +122,10 @@ public class UnitScript : MonoBehaviour {
 
     public void PerformAttack(UnitScript targetUnit)
     {
-        if(isPlayer != true)
-        {
-            int targetDistance = hexAid.DefinePath(myTile, targetUnit.myTile, canImpassable).Length - 1;
-            if(targetDistance <= AttackRange)
-            {
-                anim.SetTrigger("Attack");
+        int targetDistance = hexAid.DefinePath(myTile, targetUnit.myTile, canImpassable).Length - 1;
+        Debug.Log("target distance: " + targetDistance);
 
-                /*//play the firing sound effect
-                if (unitType == UnitType.Jet)
-                {
-                    //AudioManager.Instance.JetFire();
-                    //Debug.Log("Jet pew pew");
-                }
-                else if (unitType == UnitType.Tank)
-                {
-                    AudioManager.Instance.TankFire();
-                    Debug.Log("Tank pew pew");
-                }*/
-
-                currentPool = 0;
-                Debug.Log("Bang");
-
-                if(effectiveAgainst.Contains(targetUnit.unitType))
-                {
-                    // have the enemy unit explode and play their death animation.
-                    targetUnit.TakeDamage(targetUnit);
-                }
-
-                else
-                {
-                    targetUnit.Shield();
-                    // Shield sound here, have it fade out.
-                }
-            }
-        }
-
-        else
+        if(targetDistance <= currentattackrange)
         {
             anim.SetTrigger("Attack");
 
@@ -228,7 +195,6 @@ public class UnitScript : MonoBehaviour {
 
         if (distanceRemain > 0.1)
         {
-             Debug.Log("I am returning");
             return;
         }
 
@@ -272,63 +238,61 @@ public class UnitScript : MonoBehaviour {
         if (ignoreNextClick)
         {
             ignoreNextClick = false;
-            Debug.Log("Ignoroe next click: " + ignoreNextClick);
             return;
         }
 
-        if (GameController.Instance.activeUnit == this)
-        {
-            if (Input.GetMouseButtonDown(0) && Input.mousePosition.z < (Screen.height - 50))
-            {
-                if (GameController.Instance.targetUnit != null)
-                {
-                    // PerformAttack(GameController.Instance.targetUnit);
-                }
+      //  if (GameController.Instance.activeUnit == this)
+      //  {
+      //      if (Input.GetMouseButtonDown(0) && Input.mousePosition.z < (Screen.height - 50))
+      //      {
+      //          if (GameController.Instance.targetUnit != null)
+      //          {
+      //              // PerformAttack(GameController.Instance.targetUnit);
+      //          }
 
-                else
-                {
-                    Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    if (Vector2.Distance(transform.position, tempTarget) <= currentattackrange)
-                    {
+      //          else
+      //          {
+      //              Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+      //              if (Vector2.Distance(transform.position, tempTarget) <= currentattackrange)
+      //              {
 
-                        target = tempTarget;
-                        target.z = transform.position.z;
-                        anim.SetTrigger("Move");
-                        iAmMoving = true;
-                        Debug.Log("Zoom");
-                        // Sam writes the movement pieces here
-                        if (unitType == UnitType.Tank)
-                        {
-                            AudioManager.Instance.TankMove();
-                            Debug.Log("Tank does the move");
-                        }
-                        else if (unitType == UnitType.Jet)
-                        {
-                            AudioManager.Instance.JetMove();
-                            Debug.Log("Jet does the move");
-                        }
-                        else if (unitType == UnitType.Mech)
-                        {
-                            AudioManager.Instance.MechMove();
-                            Debug.Log("Mech does the move");
-                        }
-                        /*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
-						{
-							AudioManager.Instance.DroneMove();
-							Debug.Log("Drone does the move");
-						}*/
-                        currentPool -= 1;
-                    }
-                }
-            }
+      //                  target = tempTarget;
+      //                  target.z = transform.position.z;
+      //                  anim.SetTrigger("Move");
+      //                  iAmMoving = true;
+      //                  Debug.Log("Zoom");
+      //                  // Sam writes the movement pieces here
+      //                  if (unitType == UnitType.Tank)
+      //                  {
+      //                      AudioManager.Instance.TankMove();
+      //                      Debug.Log("Tank does the move");
+      //                  }
+      //                  else if (unitType == UnitType.Jet)
+      //                  {
+      //                      AudioManager.Instance.JetMove();
+      //                      Debug.Log("Jet does the move");
+      //                  }
+      //                  else if (unitType == UnitType.Mech)
+      //                  {
+      //                      AudioManager.Instance.MechMove();
+      //                      Debug.Log("Mech does the move");
+      //                  }
+      //                  /*else if (unitType == UnitType.Drone)			---- Commented out until a drone UnitType is completed
+						//{
+						//	AudioManager.Instance.DroneMove();
+						//	Debug.Log("Drone does the move");
+						//}*/
+      //                  currentPool -= 1;
+      //              }
+      //          }
+      //      }
 
-        }
+      //  }
 
     }
 
     public void DefineTile(hexTile _parent)
     {
-        Debug.Log("parent was set for " + _parent.name);
         myTile = _parent;
         transform.position = AdjustPositionforScreen(myTile.transform.position);
     }

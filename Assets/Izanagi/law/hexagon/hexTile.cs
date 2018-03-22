@@ -159,16 +159,8 @@ public class hexTile : MonoBehaviour
         {
             if(GameController.Instance.activeUnit.isPlayer)
             {
-                if(myUnit != null)
-                {
-                    GameController.Instance.OnUnitClicked(myUnit);
-                }
-
-                else
-                {
-                    GameController.Instance.OnTileClicked(this);
-                    Debug.Log("Tile selected: " + gameObject.name + ".");
-                }
+                GameController.Instance.OnTileClicked(this);
+                Debug.Log("Tile selected: " + gameObject.name + ".");
             }
         }
 
