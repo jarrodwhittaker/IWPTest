@@ -60,7 +60,7 @@
     <object class="MarkerTrack" id="{34c91b1e-38d6-4042-8b37-4a2ada3b33f7}"/>
     <object class="GroupTrack" id="{f77e0b43-b63d-43b9-82d4-a8e2916b69d5}">
         <relationship name="modules">
-            <destination>{8cc6bea4-17fd-4a65-b0ec-c0ada1d1e0bd}</destination>
+            <destination>{0637faa7-7123-4420-bb90-2a233a0c11d7}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{6c42c9cf-79b5-48f5-ab05-c921aacc5feb}</destination>
@@ -68,7 +68,7 @@
     </object>
     <object class="Timeline" id="{6843c33a-31f0-458f-88ce-85b40f8fafe3}">
         <relationship name="modules">
-            <destination>{8cc6bea4-17fd-4a65-b0ec-c0ada1d1e0bd}</destination>
+            <destination>{0637faa7-7123-4420-bb90-2a233a0c11d7}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{db563553-93e1-4f12-99fa-f2ae61c43327}">
@@ -88,12 +88,12 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{3904737a-12a7-41c3-9086-79b0faad2d11}"/>
-    <object class="SingleSound" id="{8cc6bea4-17fd-4a65-b0ec-c0ada1d1e0bd}">
+    <object class="SingleSound" id="{0637faa7-7123-4420-bb90-2a233a0c11d7}">
         <property name="length">
-            <value>0.091708333333333336</value>
+            <value>1.9973541666666668</value>
         </property>
         <relationship name="audioFile">
-            <destination>{0e357775-fac3-4f72-8d56-55d6c49483da}</destination>
+            <destination>{9af44c42-c8dd-4041-8a66-da64677851d9}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{6c42c9cf-79b5-48f5-ab05-c921aacc5feb}">
