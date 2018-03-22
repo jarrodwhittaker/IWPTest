@@ -213,7 +213,7 @@ public class UnitScript : MonoBehaviour {
 
         if (GameController.Instance.activeUnit == this)
         {
-            if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < (Screen.height - 50) )
+            if (Input.GetMouseButtonDown(0) && Input.mousePosition.z < (Screen.height - 50) )
             {
                 if (GameController.Instance.targetUnit != null) 
                 {
