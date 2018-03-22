@@ -24,4 +24,13 @@ public class LoadLevel : MonoBehaviour {
         SceneManager.LoadScene("Test", LoadSceneMode.Single);
         Debug.Log("Loaded");
     }
+
+    public void TheMenu()
+    {
+        SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
+    }
+    public void RefreshScene()
+    {
+        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+    }
 }

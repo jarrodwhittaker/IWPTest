@@ -22,9 +22,13 @@ public class UnitScript : MonoBehaviour {
     public static int basePool = 5;
     public float speed = 1.5f;
     public static int currentPool = basePool;
-    public float attackRange = 2;
-    public float visionRange = 5;
+    public int currentattackrange;
+    public int AttackRange = 2;
+    public int visionRange = 5;
     public List<UnitType> effectiveAgainst;
+
+    public bool canImpassable;
+
     //For Sam's audio in FMOD
     public float distanceRemain;
 
@@ -48,6 +52,7 @@ public class UnitScript : MonoBehaviour {
         target = transform.position;
         // Communicate with other scripts at the beginning for info
         GameController.Instance.GoingUp(isPlayer);
+        currentattackrange = AttackRange;
 
     }
 
@@ -64,17 +69,31 @@ public class UnitScript : MonoBehaviour {
 
     void OnMouseDown()
     {
+        Debug.Log("Unit clicked: " + gameObject.name);
         GameController.Instance.OnUnitClicked(this);
         ignoreNextClick = true;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(UnitScript _unitscript)
     {
-        anim.SetTrigger("Death");
+        bool Iwon = false;
+
+        if(_unitscript.unitType == UnitType.camp)
+        {
+            Iwon = true;
+        }
+
+            anim.SetTrigger("Death");
         Debug.Log("Animate");
         //Sam plays damage/destruction sfx here
         Invoke("DeathComplete", 1f);
         //        DeathComplete();
+
+        if(Iwon)
+        {
+            Debug.Log("i WON!");
+            GameController.Instance.IWon();
+        }
     }
 
     public void DeathComplete()
@@ -103,7 +122,43 @@ public class UnitScript : MonoBehaviour {
 
     public void PerformAttack(UnitScript targetUnit)
     {
-        if (Vector2.Distance(transform.position, targetUnit.transform.position) <= attackRange)
+        if(isPlayer != true)
+        {
+            int targetDistance = hexAid.DefinePath(myTile, targetUnit.myTile, canImpassable).Length - 1;
+            if(targetDistance <= AttackRange)
+            {
+                anim.SetTrigger("Attack");
+
+                /*//play the firing sound effect
+                if (unitType == UnitType.Jet)
+                {
+                    //AudioManager.Instance.JetFire();
+                    //Debug.Log("Jet pew pew");
+                }
+                else if (unitType == UnitType.Tank)
+                {
+                    AudioManager.Instance.TankFire();
+                    Debug.Log("Tank pew pew");
+                }*/
+
+                currentPool = 0;
+                Debug.Log("Bang");
+
+                if(effectiveAgainst.Contains(targetUnit.unitType))
+                {
+                    // have the enemy unit explode and play their death animation.
+                    targetUnit.TakeDamage(targetUnit);
+                }
+
+                else
+                {
+                    targetUnit.Shield();
+                    // Shield sound here, have it fade out.
+                }
+            }
+        }
+
+        else
         {
             anim.SetTrigger("Attack");
 
@@ -125,13 +180,9 @@ public class UnitScript : MonoBehaviour {
             if(effectiveAgainst.Contains(targetUnit.unitType))
             {
                 // have the enemy unit explode and play their death animation.
-                targetUnit.TakeDamage();
-                if(targetUnit.unitType == UnitType.camp)
-
-                {
-                    GameController.Instance.IWon();
-                }
+                targetUnit.TakeDamage(targetUnit);
             }
+
             else
             {
                 targetUnit.Shield();
@@ -177,7 +228,7 @@ public class UnitScript : MonoBehaviour {
 
         if (distanceRemain > 0.1)
         {
-            Debug.Log("I am returning");
+             Debug.Log("I am returning");
             return;
         }
 
@@ -221,6 +272,7 @@ public class UnitScript : MonoBehaviour {
         if (ignoreNextClick)
         {
             ignoreNextClick = false;
+            Debug.Log("Ignoroe next click: " + ignoreNextClick);
             return;
         }
 
@@ -236,7 +288,7 @@ public class UnitScript : MonoBehaviour {
                 else
                 {
                     Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    if (Vector2.Distance(transform.position, tempTarget) <= attackRange)
+                    if (Vector2.Distance(transform.position, tempTarget) <= currentattackrange)
                     {
 
                         target = tempTarget;

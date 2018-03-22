@@ -47,7 +47,12 @@ public class hexTile : MonoBehaviour
     // Executed on object load.
     void Awake()
     {
-        
+
+        // When unit extant, pass tile to unit.
+        if(myUnit != null)
+        {
+            myUnit.DefineTile(this);
+        }
     }
 
     // Executed ahead of first update.
@@ -56,11 +61,6 @@ public class hexTile : MonoBehaviour
         DefineBiome();
         DefineCost();
 
-        // When unit extant, pass tile to unit.
-        if(myUnit != null)
-        {
-            myUnit.DefineTile(this);
-        }
     }
 
     // Accessed to define the tile.
@@ -150,5 +150,31 @@ public class hexTile : MonoBehaviour
         effort = 0;
         aggregate = 0;
         heuristic = 0;
+    }
+
+    // Executed on mouse click on collider.
+    void OnMouseDown()
+    {
+        if(GameController.Instance.activeUnit != null)
+        {
+            if(GameController.Instance.activeUnit.isPlayer)
+            {
+                if(myUnit != null)
+                {
+                    GameController.Instance.OnUnitClicked(myUnit);
+                }
+
+                else
+                {
+                    GameController.Instance.OnTileClicked(this);
+                    Debug.Log("Tile selected: " + gameObject.name + ".");
+                }
+            }
+        }
+
+        else
+        {
+            Debug.Log("Click a fucking player unit first!");
+        }
     }
 }

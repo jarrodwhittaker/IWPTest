@@ -7,9 +7,11 @@ using System.Linq;
 
 public class GameController : MonoBehaviour {
 
+    hexTile[] rangeVicinity;
+
     public static GameController Instance;
 
-
+    public UnitScript baseee;
     public UnitScript activeUnit;
     public UnitScript targetUnit;
 
@@ -24,9 +26,12 @@ public class GameController : MonoBehaviour {
     public Button swapTurn;
     public Text unitsLeft;
     public Text enemiesLeft;
-    public Canvas Winning;
-    public Canvas Losing;
-
+    public Text Winning;
+    public Button Replay;
+    public Button Menu;
+    public Text Losing;
+    public string win = "You win!";
+    public string lose = "Aww shucks! Better Luck Next Time!";
     public int noOfEnemies;
     public int noOfUnits;
     
@@ -42,8 +47,6 @@ public class GameController : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        Winning.enabled = false;
-        Losing.enabled = false;
         //p1 will be the first to move
         p1 = true;
         // p2 will be restricted from moving
@@ -56,7 +59,16 @@ public class GameController : MonoBehaviour {
 
     public void IWon()
     {
-        //if() ;
+        Winning.text = win;
+        Replay.enabled = true;
+        Menu.enabled = true;
+    }
+
+    public void ILost()
+    {
+        Losing.text = lose;
+        Replay.enabled = true;
+        Menu.enabled = true;
     }
 
     public void GoingUp(bool isPlayer)
@@ -83,6 +95,10 @@ public class GameController : MonoBehaviour {
         {
             noOfUnits -= 1;
             unitsLeft.text = "Units Left: " + noOfUnits;
+            if (noOfUnits <= 0)
+            {
+                ILost();
+            }
         }
         else
         {
@@ -91,23 +107,6 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void OnUnitClicked(UnitScript unit)
-    {
-        Debug.Log(unit.gameObject.name);
-
-        if (unit.isPlayer != true)
-        {
-            targetUnit = unit;
-            Debug.Log(unit.gameObject.name + " is the enemy");
-        }
-        else
-        {
-            activeUnit = unit;
-            targetUnit = null;
-            Debug.Log(unit.gameObject.name + " is your troop");
-        }
-        // To be worked on, having the target refresh after a certain amount of time.
-    }
 
     public void EndTurn()
     {
@@ -122,8 +121,10 @@ public class GameController : MonoBehaviour {
             p2 = true;
             p1 = false;
         }
+
         else if (turn.text == "Enemy's Turn")
         {
+
             activeUnit = null;
             targetUnit = null;
             turn.text = "Player's Turn";
@@ -131,6 +132,17 @@ public class GameController : MonoBehaviour {
 
             p1 = true;
             p2 = false;
+
+            UnitScript[] players = FindObjectsOfType<UnitScript>();
+
+            foreach(UnitScript player in players)
+            {
+                if(player.isPlayer == true)
+                {
+                    player.currentattackrange = player.AttackRange;
+                }
+            }
+
         }
     }
 
@@ -183,11 +195,114 @@ public class GameController : MonoBehaviour {
         //    }
         //}
 
+        if(Input.GetKey("p"))
+        {
 
+        }
 
         if (Input.GetKeyDown("escape"))
         {
             Application.Quit();
         }
+    }
+
+
+    public void OnUnitClicked(UnitScript unit)
+    {
+        if(rangeVicinity != null)
+        {
+            if(rangeVicinity.Length > 0)
+            {
+                foreach(hexTile tile in rangeVicinity)
+                {
+                    Material material = tile.GetComponent<MeshRenderer>().material;
+                    material.color = Color.white;
+                }
+            }
+        }
+
+        rangeVicinity = new hexTile[0];
+
+        Debug.Log(unit.gameObject.name);
+
+        if(unit.isPlayer != true)
+        {
+            targetUnit = unit;
+
+            if(activeUnit != null)
+            {
+                OnEnemyClicked(unit);
+            }
+
+            Debug.Log(unit.gameObject.name + " is the enemy");
+        }
+
+        else
+        {
+            activeUnit = unit;
+            targetUnit = null;
+            Debug.Log(unit.gameObject.name + " is your troop");
+
+            int range = activeUnit.currentattackrange;
+
+            if(range > UnitScript.currentPool)
+            {
+                range = UnitScript.currentPool;
+            }
+
+            rangeVicinity = hexAid.DefineHood(activeUnit.myTile, range, activeUnit.canImpassable);
+            Debug.Log(rangeVicinity.Length);
+            foreach(hexTile tile in rangeVicinity)
+            {
+                Material material = tile.GetComponent<MeshRenderer>().material;
+                material.color = Color.grey;
+            }
+
+        }
+        // To be worked on, having the target refresh after a certain amount of time.
+    }
+
+    // Called by tile that was clicked.
+    public void OnTileClicked(hexTile _tileClicked)
+    {
+        if(rangeVicinity != null)
+        {
+            if(rangeVicinity.Contains(_tileClicked))
+            {
+                int cost = hexAid.DefinePath(activeUnit.myTile, _tileClicked, activeUnit.canImpassable).Length - 1;
+                activeUnit.currentattackrange -= cost;
+                UnitScript.currentPool -= cost;
+
+                Debug.Log("Cost: " + hexAid.DefinePath(activeUnit.myTile, _tileClicked, activeUnit.canImpassable).Length);
+
+
+                AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
+                activeUnit.target = _tileClicked.transform.position;
+                activeUnit.myTile = _tileClicked;
+            }
+
+            if(rangeVicinity != null)
+            {
+                if(rangeVicinity.Length > 0)
+                {
+                    foreach(hexTile tile in rangeVicinity)
+                    {
+                        Material material = tile.GetComponent<MeshRenderer>().material;
+                        material.color = Color.white;
+                    }
+
+                    rangeVicinity = null;
+                }
+            }
+        }
+    }
+
+    public void OnEnemyClicked(UnitScript _enemy)
+    {
+        activeUnit.currentattackrange = 0;
+        UnitScript.currentPool = 0;
+
+        AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
+        activeUnit.PerformAttack(_enemy);
     }
 }
