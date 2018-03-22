@@ -265,7 +265,7 @@ public class UnitScript : MonoBehaviour {
 
     }
 
-    public void SetTile(hexTile _parent)
+    public void DefineTile(hexTile _parent)
     {
         Debug.Log("parent was set for " + _parent.name);
         myTile = _parent;

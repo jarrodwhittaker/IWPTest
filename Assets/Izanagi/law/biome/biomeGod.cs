@@ -9,18 +9,26 @@ public class biomeGod : MonoBehaviour
     //Taxonomy of biomes.
     public enum biomeGenus
     {
-        plain,
-        hill,
-        ocean,
+        grass,
+        forestA,
+        forestB,
+        forestC,
+        mountainA,
+        mountainB,
+        mountainC,
     };
 
     #region ------- GENE
     public biomeGene biomeVoid;
 
     //Biome genes.
-    public biomeGene biomePlain;
-    public biomeGene biomeHill;
-    public biomeGene biomeOcean;
+    public biomeGene biomeGrass;
+    public biomeGene biomeForestA;
+    public biomeGene biomeForestB;
+    public biomeGene biomeForestC;
+    public biomeGene biomeMountainA;
+    public biomeGene biomeMountainB;
+    public biomeGene biomeMountainC;
     #endregion
 
     // Executed on object load.
@@ -34,14 +42,26 @@ public class biomeGod : MonoBehaviour
     {
         switch(_genus)
         {
-            case biomeGenus.plain:
-            return biomePlain;
+            case biomeGenus.grass:
+            return biomeGrass;
 
-            case biomeGenus.hill:
-            return biomeHill;
+            case biomeGenus.forestA:
+            return biomeForestA;
 
-            case biomeGenus.ocean:
-            return biomeOcean;
+            case biomeGenus.forestB:
+            return biomeForestB;
+
+            case biomeGenus.forestC:
+            return biomeForestC;
+
+            case biomeGenus.mountainA:
+            return biomeMountainA;
+
+            case biomeGenus.mountainB:
+            return biomeMountainB;
+
+            case biomeGenus.mountainC:
+            return biomeMountainC;
 
             default:
             return biomeVoid;

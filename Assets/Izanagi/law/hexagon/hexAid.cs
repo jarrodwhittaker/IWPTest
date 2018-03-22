@@ -79,12 +79,12 @@ public static class hexAid
     static Vector2[] pointWrap =
     {
         new Vector2(0.5f, 0.5f),
-        new Vector2(0.5f, 1.0f),
-        new Vector2(1.0f, 0.75f),
-        new Vector2(1.0f, 0.25f),
-        new Vector2(0.5f, 0.0f),
-        new Vector2(0.0f, 0.25f),
-        new Vector2(0.0f, 0.75f),
+        new Vector2(0.5f, 0.99f),
+        new Vector2(0.99f, 0.74f),
+        new Vector2(0.99f, 0.26f),
+        new Vector2(0.5f, 0.01f),
+        new Vector2(0.01f, 0.26f),
+        new Vector2(0.01f, 0.74f),
     };
 
     #endregion
@@ -121,12 +121,12 @@ public static class hexAid
     static Vector2[] flatWrap =
     {
         new Vector2(0.5f, 0.5f),
-        new Vector2(1.0f, 0.5f),
-        new Vector2(0.75f, 0.0f),
-        new Vector2(0.25f, 0.0f),
-        new Vector2(0.0f, 0.5f),
-        new Vector2(0.25f, 1.0f),
-        new Vector2(0.75f, 1.0f),
+        new Vector2(0.99f, 0.5f),
+        new Vector2(0.74f, 0.01f),
+        new Vector2(0.26f, 0.01f),
+        new Vector2(0.01f, 0.5f),
+        new Vector2(0.26f, 0.99f),
+        new Vector2(0.74f, 0.99f),
     };
 
     #endregion
