@@ -27,17 +27,16 @@ public class viewGod : Editor
                 origin.GenerateGrid();
             }
 
+            // Remove extant grid on button down.
+            if(GUILayout.Button("Remove Grid"))
+            {
+                origin.RemoveGrid();
+            }
 
             // Remove extant grid on button down.
             if(GUILayout.Button("Generate Biome"))
             {
                 origin.GenerateBiome();
-            }
-
-            // Remove extant grid on button down.
-            if(GUILayout.Button("Remove Grid"))
-            {
-                origin.RemoveGrid();
             }
         }
         GUILayout.Space(7);
