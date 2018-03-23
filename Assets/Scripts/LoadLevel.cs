@@ -29,8 +29,8 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
     }
-    /*public void RefreshScene()
+    public void RefreshScene()
     {
         SceneManager.LoadScene("Level1", LoadSceneMode.Single);
-    }*/
+    }
 }

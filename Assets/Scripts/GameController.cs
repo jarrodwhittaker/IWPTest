@@ -55,20 +55,24 @@ public class GameController : MonoBehaviour {
         swapTurn.onClick.AddListener(EndTurn);
         unitsLeft.text = "Units Left: " + noOfUnits;
         enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+        Replay.gameObject.SetActive(false);
+        Menu.gameObject.SetActive(false);
     }
 
     public void IWon()
     {
         Winning.text = win;
-        Replay.enabled = true;
-        Menu.enabled = true;
+        Replay.gameObject.SetActive(true);
+        Menu.gameObject.SetActive(true);
+        Debug.Log("We did it");
     }
 
     public void ILost()
     {
         Losing.text = lose;
-        Replay.enabled = true;
-        Menu.enabled = true;
+        Replay.gameObject.SetActive(true);
+        Menu.gameObject.SetActive(true);
+        Debug.Log("Dang");
     }
 
     public void GoingUp(bool isPlayer)
@@ -197,7 +201,7 @@ public class GameController : MonoBehaviour {
 
         if(Input.GetKey("p"))
         {
-
+            IWon();
         }
 
         if (Input.GetKeyDown("escape"))
@@ -286,9 +290,30 @@ public class GameController : MonoBehaviour {
                 AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
                 activeUnit.target = _tileClicked.transform.position;
                 activeUnit.myTile = _tileClicked;
+                activeUnit.iAmMoving = true;
+                if (activeUnit.unitType == UnitScript.UnitType.Tank)
+                {
+                    AudioManager.Instance.TankMove();
+                    Debug.Log("Tank does the move");
+                }
+                else if (activeUnit.unitType == UnitScript.UnitType.Jet)
+                {
+                    AudioManager.Instance.JetMove();
+                    Debug.Log("Jet does the move");
+                }
+                else if (activeUnit.unitType == UnitScript.UnitType.Mech)
+                {
+                    AudioManager.Instance.MechMove();
+                    Debug.Log("Mech does the move");
+                }
+                /*else if (activeUnit.unitType == UnitScript.UnitType.Drone)			---- Commented out until a drone UnitType is completed
+{
+AudioManager.Instance.DroneMove();
+Debug.Log("Drone does the move");
+}*/
             }
 
-            if(rangeVicinity.Length > 0)
+            if (rangeVicinity.Length > 0)
             {
                 foreach(hexTile tile in rangeVicinity)
                 {
