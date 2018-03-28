@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshCollider), typeof(MeshRenderer))]
 public class hexTile : MonoBehaviour
@@ -159,8 +160,11 @@ public class hexTile : MonoBehaviour
         {
             if(GameController.Instance.activeUnit.isPlayer)
             {
-                GameController.Instance.OnTileClicked(this);
-                Debug.Log("Tile selected: " + gameObject.name + ".");
+                if(myUnit == null)
+                {
+                    GameController.Instance.OnTileClicked(this);
+                    Debug.Log("Tile selected: " + gameObject.name + ".");
+                }
             }
         }
 
@@ -168,5 +172,11 @@ public class hexTile : MonoBehaviour
         {
             Debug.Log("Click a fucking player unit first!");
         }
+    }
+
+    // Removes unit from tile.
+    public void NullUnit()
+    {
+        myUnit = null;
     }
 }

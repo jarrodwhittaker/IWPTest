@@ -35,7 +35,7 @@ public class UnitScript : MonoBehaviour {
     // troy
     public bool iAmMoving;
 
-    private bool ignoreNextClick = false;
+    public bool ignoreNextClick = false;
 
     // Use this for initialization
     // When game begins it sets everything
@@ -48,7 +48,6 @@ public class UnitScript : MonoBehaviour {
 
     void Start() {
         StartTurn();
-
         target = transform.position;
         // Communicate with other scripts at the beginning for info
         GameController.Instance.GoingUp(isPlayer);
@@ -122,10 +121,12 @@ public class UnitScript : MonoBehaviour {
 
     public void PerformAttack(UnitScript targetUnit)
     {
-        int targetDistance = hexAid.DefinePath(myTile, targetUnit.myTile, canImpassable).Length - 1;
+        // Can attack impassable tiles = true. 
+        int targetDistance = hexAid.DefinePath(myTile, targetUnit.myTile, true).Length - 1;
         Debug.Log("target distance: " + targetDistance);
 
-        if(targetDistance <= currentattackrange)
+        // Target distance = -1 if path not found.
+        if(targetDistance <= currentattackrange && targetDistance >= 0)
         {
             anim.SetTrigger("Attack");
 

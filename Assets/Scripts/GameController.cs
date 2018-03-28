@@ -41,10 +41,9 @@ public class GameController : MonoBehaviour {
     // Sets Instance
     private void Awake()
     {
-        {
-            Instance = this;
-        }
+        Instance = this;
     }
+
     // Use this for initialization
     void Start () {
         //p1 will be the first to move
@@ -84,6 +83,7 @@ public class GameController : MonoBehaviour {
             noOfUnits += 1;
             unitsLeft.text = "Units Left: " + noOfUnits;
         }
+
         else
         {
             noOfEnemies += 1;
@@ -117,6 +117,7 @@ public class GameController : MonoBehaviour {
         
         if (turn.text == "Player's Turn")
         {
+            swapTurn.interactable = false;
             activeUnit = null;
             targetUnit = null;
             turn.text = "Enemy's Turn";
@@ -128,7 +129,7 @@ public class GameController : MonoBehaviour {
 
         else if (turn.text == "Enemy's Turn")
         {
-
+            swapTurn.interactable = true;
             activeUnit = null;
             targetUnit = null;
             turn.text = "Player's Turn";
@@ -154,7 +155,7 @@ public class GameController : MonoBehaviour {
     {
         // find all enemies and sort them based on their type
         List<UnitScript> allEnemies = FindObjectsOfType<UnitScript>().Where(unit => unit.isPlayer == false).OrderBy(unit => unit.unitType).ToList();
-        
+
         // loop over all of the enemies
         foreach (UnitScript enemy in allEnemies)
         {
@@ -167,10 +168,11 @@ public class GameController : MonoBehaviour {
             foreach (UnitScript playerUnit in allPlayers)
             {
                 enemy.PerformAttack(playerUnit);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(0.5f);
             }
         }
 
+        EndTurn();
         yield return null;
     }
 
@@ -228,6 +230,7 @@ public class GameController : MonoBehaviour {
             }
         }    
 
+        // Definw new vicinity.
         rangeVicinity = new hexTile[0];
 
         if(unit.isPlayer == true)
@@ -248,7 +251,17 @@ public class GameController : MonoBehaviour {
             foreach(hexTile tile in rangeVicinity)
             {
                 Material material = tile.GetComponent<MeshRenderer>().material;
-                material.color = Color.grey;
+
+                if(tile.myUnit == null)
+                {
+
+                    material.color = Color.grey;
+                }
+
+                else
+                {
+                    material.color = (tile.myUnit.isPlayer == true) ? Color.blue : Color.red;
+                }
             }
 
         }
@@ -269,11 +282,22 @@ public class GameController : MonoBehaviour {
     public void OnEnemyClicked(UnitScript _enemy)
     {
         Debug.Log("EnemyClicked()");
-        activeUnit.PerformAttack(_enemy);
-        activeUnit.currentattackrange = 0;
-        UnitScript.currentPool = 0;
-        AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
 
+        if(UnitScript.currentPool > 0)
+        {
+            // Check which is lower.
+            int attackPool = (UnitScript.currentPool < activeUnit.currentattackrange) ? UnitScript.currentPool : activeUnit.currentattackrange; 
+            
+            hexTile[] attackVicinity = hexAid.DefineHood(activeUnit.myTile, attackPool, true);
+
+            if(attackVicinity.Contains(_enemy.myTile))
+            {
+                activeUnit.PerformAttack(_enemy);
+                activeUnit.currentattackrange = 0;
+                UnitScript.currentPool = 0;
+                AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
+            }
+        }
     }
 
 
@@ -284,6 +308,9 @@ public class GameController : MonoBehaviour {
         {
             if(rangeVicinity.Contains(_tileClicked))
             {
+                activeUnit.myTile.NullUnit();
+                _tileClicked.myUnit = activeUnit;
+
                 int cost = hexAid.DefinePath(activeUnit.myTile, _tileClicked, activeUnit.canImpassable).Length - 1;
                 activeUnit.currentattackrange -= cost;
                 UnitScript.currentPool -= cost;
@@ -291,6 +318,8 @@ public class GameController : MonoBehaviour {
                 activeUnit.target = _tileClicked.transform.position;
                 activeUnit.myTile = _tileClicked;
                 activeUnit.iAmMoving = true;
+
+
                 if (activeUnit.unitType == UnitScript.UnitType.Tank)
                 {
                     AudioManager.Instance.TankMove();
