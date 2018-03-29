@@ -33,4 +33,8 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("NewLevel", LoadSceneMode.Single);
     }
+	public void Tutorial()
+	{
+		SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
+	}
 }
