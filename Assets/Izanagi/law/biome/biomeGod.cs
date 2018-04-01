@@ -72,6 +72,31 @@ public class biomeGod : MonoBehaviour
         L04_mountainEnd,
         L04_waterStart,
         L04_waterMiddle,
+
+        // Level 5.
+        L05_grassA,
+        L05_grassB,
+        L05_grassC,
+        L05_duneA,
+        L05_duneB,
+        L05_duneC,
+        L05_forestA,
+        L05_forestB,
+        L05_forestC,
+        L05_mountainStart,
+        L05_mountainMiddleA,
+        L05_mountainMiddleB,
+        L05_mountainEnd,
+        L05_waterStart,
+        L05_waterA,
+        L05_waterLeftTop,
+        L05_waterRightTop,
+        L05_waterMiddleA,
+        L05_waterMiddleB,
+        L05_waterLeftBottom,
+        L05_waterRightBottom,
+        L05_waterEndA,
+        L05_waterEndB,
     };
 
     #region ------- GENE
@@ -140,6 +165,31 @@ public class biomeGod : MonoBehaviour
     public biomeGene L04_mountainEnd;
     public biomeGene L04_waterStart;
     public biomeGene L04_waterMiddle;
+
+    // Biome genes. Level 5.
+    public biomeGene L05_grassA;
+    public biomeGene L05_grassB;
+    public biomeGene L05_grassC;
+    public biomeGene L05_duneA;
+    public biomeGene L05_duneB;
+    public biomeGene L05_duneC;
+    public biomeGene L05_forestA;
+    public biomeGene L05_forestB;
+    public biomeGene L05_forestC;
+    public biomeGene L05_mountainStart;
+    public biomeGene L05_mountainMiddleA;
+    public biomeGene L05_mountainMiddleB;
+    public biomeGene L05_mountainEnd;
+    public biomeGene L05_waterStart;
+    public biomeGene L05_waterA;
+    public biomeGene L05_waterLeftTop;
+    public biomeGene L05_waterRightTop;
+    public biomeGene L05_waterMiddleA;
+    public biomeGene L05_waterMiddleB;
+    public biomeGene L05_waterLeftBottom;
+    public biomeGene L05_waterRightBottom;
+    public biomeGene L05_waterEndA;
+    public biomeGene L05_waterEndB;
     #endregion
 
     // Executed on object load.
@@ -324,6 +374,76 @@ public class biomeGod : MonoBehaviour
 
             case biomeGenus.L04_waterMiddle:
             return L04_waterMiddle;
+
+            // Level 5.
+            case biomeGenus.L05_grassA:
+            return L05_grassA;
+
+            case biomeGenus.L05_grassB:
+            return L05_grassB;
+
+            case biomeGenus.L05_grassC:
+            return L05_grassC;
+
+            case biomeGenus.L05_duneA:
+            return L05_duneA;
+
+            case biomeGenus.L05_duneB:
+            return L05_duneB;
+
+            case biomeGenus.L05_duneC:
+            return L05_duneC;
+
+            case biomeGenus.L05_forestA:
+            return L05_forestA;
+
+            case biomeGenus.L05_forestB:
+            return L05_forestB;
+
+            case biomeGenus.L05_forestC:
+            return L05_forestC;
+
+            case biomeGenus.L05_mountainStart:
+            return L05_mountainStart;
+
+            case biomeGenus.L05_mountainMiddleA:
+            return L05_mountainMiddleA;
+
+            case biomeGenus.L05_mountainMiddleB:
+            return L05_mountainMiddleB;
+
+            case biomeGenus.L05_mountainEnd:
+            return L05_mountainEnd;
+
+            case biomeGenus.L05_waterStart:
+            return L05_waterStart;
+
+            case biomeGenus.L05_waterA:
+            return L05_waterA;
+
+            case biomeGenus.L05_waterLeftTop:
+            return L05_waterLeftTop;
+
+            case biomeGenus.L05_waterRightTop:
+            return L05_waterRightTop;
+
+            case biomeGenus.L05_waterMiddleA:
+            return L04_waterMiddle;
+
+            case biomeGenus.L05_waterMiddleB:
+            return L05_waterMiddleA;
+
+            case biomeGenus.L05_waterLeftBottom:
+            return L05_waterMiddleB;
+
+            case biomeGenus.L05_waterRightBottom:
+            return L05_waterRightBottom;
+
+            case biomeGenus.L05_waterEndA:
+            return L05_waterEndA;
+
+            case biomeGenus.L05_waterEndB:
+            return L05_waterEndB;
 
             default:
             return biomeVoid;
