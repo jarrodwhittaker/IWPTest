@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour {
     public void IWon()
     {
         Winning.text = win;
-        Replay.gameObject.SetActive(true);
+        //Replay.gameObject.SetActive(true);
         Menu.gameObject.SetActive(true);
         Debug.Log("We did it");
     }
@@ -74,7 +74,7 @@ public class GameController : MonoBehaviour {
     public void ILost()
     {
         Losing.text = lose;
-        Replay.gameObject.SetActive(true);
+        //Replay.gameObject.SetActive(true);
         Menu.gameObject.SetActive(true);
         Debug.Log("Dang");
     }
