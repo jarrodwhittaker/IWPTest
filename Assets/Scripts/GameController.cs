@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour {
     public Text Winning;
     public Button Replay;
     public Button Menu;
+    public Button Pause;
+    public Canvas Pausing;
     public Text Losing;
     public string win = "You win!";
     public string lose = "Aww shucks! Better Luck Next Time!";
@@ -56,6 +58,7 @@ public class GameController : MonoBehaviour {
         enemiesLeft.text = "Enemies Left: " + noOfEnemies;
         Replay.gameObject.SetActive(false);
         Menu.gameObject.SetActive(false);
+        Pausing.gameObject.SetActive(false);
     }
 
     public void IWon()
@@ -72,6 +75,18 @@ public class GameController : MonoBehaviour {
         Replay.gameObject.SetActive(true);
         Menu.gameObject.SetActive(true);
         Debug.Log("Dang");
+    }
+
+    public void GamePause()
+    {
+        Time.timeScale = 0;
+        Pausing.gameObject.SetActive(true);
+    }
+
+    public void GameResume()
+    {
+        Time.timeScale = 1;
+        Pausing.gameObject.SetActive(false);
     }
 
     public void GoingUp(bool isPlayer)

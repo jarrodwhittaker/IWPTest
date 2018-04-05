@@ -27,11 +27,11 @@ public class LoadLevel : MonoBehaviour {
 
     public void TheMenu()
     {
-        SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
     public void RefreshScene()
     {
-        SceneManager.LoadScene("NewLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level1Earth", LoadSceneMode.Single);
     }
 	public void Tutorial()
 	{
