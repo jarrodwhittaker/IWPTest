@@ -102,6 +102,11 @@ public class UnitScript : MonoBehaviour {
 
     }
 
+    public void OutOfPoints()
+    {
+        GameController.Instance.NoPoints.text = "Out Of Action Points";
+    }
+
     public void Shield()
     {
         anim.SetTrigger("Shield");
@@ -233,6 +238,7 @@ public class UnitScript : MonoBehaviour {
         if (currentPool <= 0)
         {
             currentPool = 0;
+            OutOfPoints();
             return;
         }
 

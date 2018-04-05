@@ -36,7 +36,8 @@ public class GameController : MonoBehaviour {
     public string lose = "Aww shucks! Better Luck Next Time!";
     public int noOfEnemies;
     public int noOfUnits;
-    
+
+    public Text NoPoints;
 
 
     //Instance variable equals game object
@@ -59,6 +60,7 @@ public class GameController : MonoBehaviour {
         Replay.gameObject.SetActive(false);
         Menu.gameObject.SetActive(false);
         Pausing.gameObject.SetActive(false);
+        NoPoints.text = "";
     }
 
     public void IWon()
@@ -140,6 +142,7 @@ public class GameController : MonoBehaviour {
             StartCoroutine(P2Turn());
             p2 = true;
             p1 = false;
+            NoPoints.text = "";
         }
 
         else if (turn.text == "Enemy's Turn")
@@ -149,6 +152,7 @@ public class GameController : MonoBehaviour {
             targetUnit = null;
             turn.text = "Player's Turn";
             UnitScript.StartTurn();
+            NoPoints.text = "";
 
             p1 = true;
             p2 = false;
