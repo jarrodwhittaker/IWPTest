@@ -8,7 +8,7 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000000008BAFBAA8 isAsync 1 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000000004DAE1C18 isAsync 1 updatePeriod 0.02
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
@@ -17,36 +17,30 @@
 [LOG] LiveUpdate::init                         : 
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
 [LOG] Profile::init                            : Profiler listening on port: 9264
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='JetMove 48khz', format=2, channels=1, frequency=48000, lengthbytes=3712, lengthpcm=21572, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.755096.
@@ -55,14 +49,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='BunkerFire 48khz', format=2, channels=1, frequency=48000, lengthbytes=14624, lengthpcm=85501, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.501282.
@@ -71,14 +65,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='DroneMove 48khz', format=2, channels=1, frequency=48000, lengthbytes=4192, lengthpcm=25225, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.755096.
@@ -87,14 +81,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='TankFire 48khz', format=2, channels=1, frequency=48000, lengthbytes=24896, lengthpcm=138335, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.497925.
@@ -103,14 +97,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Destroy 48khz', format=2, channels=1, frequency=48000, lengthbytes=12096, lengthpcm=76765, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.501404.
@@ -119,14 +113,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='JetFire 48khz', format=2, channels=1, frequency=48000, lengthbytes=14720, lengthpcm=95873, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493591.
@@ -135,14 +129,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='TankMove 48khz', format=2, channels=1, frequency=48000, lengthbytes=4640, lengthpcm=30015, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.755066.
@@ -151,14 +145,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='FlakFire 48khz', format=2, channels=1, frequency=48000, lengthbytes=13728, lengthpcm=82702, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.502228.
@@ -167,14 +161,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='DefenderDef 48khz', format=2, channels=1, frequency=48000, lengthbytes=8544, lengthpcm=53500, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.476990.
@@ -183,14 +177,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='DroneScan 48khz', format=2, channels=1, frequency=48000, lengthbytes=11520, lengthpcm=71500, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.500671.
@@ -199,14 +193,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='AttackerDef 48khz', format=2, channels=1, frequency=48000, lengthbytes=21216, lengthpcm=137168, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.464050.
@@ -215,14 +209,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='MechFire 48khz', format=2, channels=1, frequency=48000, lengthbytes=24928, lengthpcm=148274, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.501068.
@@ -231,14 +225,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='MechWalk 48khz', format=2, channels=1, frequency=48000, lengthbytes=17824, lengthpcm=100500, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.497314.
@@ -247,139 +241,45 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 192288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17376
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000007A9DF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000005E78F5FC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3F795EC0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3F795E90
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3F795F90
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3F796040
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000008B9B3618
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB3DFF5EC0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB3DFF5E90
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB3DFF5F90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB3DFF6040
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000044D926E8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='PakFire 48khz', format=2, channels=1, frequency=48000, lengthbytes=14784, lengthpcm=102216, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.501404.
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[LOG] SoundI::release                          :  (00000000028138C8)
-[LOG] SoundI::release                          :     TankMove 48khz (000000008B539778)
-[LOG] SoundI::release                          :  (0000000002813758)
-[LOG] SoundI::release                          :     JetFire 48khz (000000008B537F18)
-[LOG] SoundI::release                          :  (0000000074A6BAA8)
-[LOG] SoundI::release                          :     MechFire 48khz (000000008B53BCD8)
-[LOG] SoundI::release                          :  (0000000002814CE8)
-[LOG] SoundI::release                          :     DroneScan 48khz (000000008B53BB38)
-[LOG] SoundI::release                          :  (000000002428CA28)
-[LOG] SoundI::release                          :     TankFire 48khz (000000008B53A478)
-[LOG] SoundI::release                          :  (0000000074A6C348)
-[LOG] SoundI::release                          :     MechWalk 48khz (000000008B538C18)
-[LOG] SoundI::release                          :  (000000002428CB98)
-[LOG] SoundI::release                          :     Destroy 48khz (000000008B5395D8)
-[LOG] SoundI::release                          :  (0000000002814448)
-[LOG] SoundI::release                          :     FlakFire 48khz (000000008B53A2D8)
-[LOG] SoundI::release                          :  (000000002428DE48)
-[LOG] SoundI::release                          :     JetMove 48khz (000000008B53B178)
-[LOG] SoundI::release                          :  (000000002428E298)
-[LOG] SoundI::release                          :     DroneMove 48khz (000000008B539C58)
-[LOG] SoundI::release                          :  (0000000002814A08)
-[LOG] SoundI::release                          :     DefenderDef 48khz (000000008B53B318)
-[LOG] SoundI::release                          :  (000000000E6CB448)
-[LOG] SoundI::release                          :     AttackerDef 48khz (000000008B538A78)
-[LOG] SoundI::release                          :  (0000000074A6D038)
-[LOG] SoundI::release                          :     PakFire 48khz (000000008B5380B8)
-[LOG] SoundI::release                          :  (000000002428C5D8)
-[LOG] SoundI::release                          :     BunkerFire 48khz (000000008B539438)
+[LOG] SoundI::release                          :  (000000001286F858)
+[LOG] SoundI::release                          :     TankMove 48khz (000000004DA2B108)
+[LOG] SoundI::release                          :  (000000001286E718)
+[LOG] SoundI::release                          :     JetFire 48khz (000000004DA2ADC8)
+[LOG] SoundI::release                          :  (000000004DAEA918)
+[LOG] SoundI::release                          :     MechFire 48khz (000000004DA2B448)
+[LOG] SoundI::release                          :  (000000004DAEA638)
+[LOG] SoundI::release                          :     DroneScan 48khz (000000004DA2A5A8)
+[LOG] SoundI::release                          :  (000000001286E5A8)
+[LOG] SoundI::release                          :     TankFire 48khz (000000004DA2A8E8)
+[LOG] SoundI::release                          :  (000000004DAE9C28)
+[LOG] SoundI::release                          :     MechWalk 48khz (000000004DA2A748)
+[LOG] SoundI::release                          :  (000000001286EB68)
+[LOG] SoundI::release                          :     Destroy 48khz (000000004DA2A268)
+[LOG] SoundI::release                          :  (000000001286E888)
+[LOG] SoundI::release                          :     FlakFire 48khz (000000004DA29F28)
+[LOG] SoundI::release                          :  (000000001286E438)
+[LOG] SoundI::release                          :     JetMove 48khz (000000004DA2A0C8)
+[LOG] SoundI::release                          :  (000000001286E2C8)
+[LOG] SoundI::release                          :     DroneMove 48khz (000000004DA29D88)
+[LOG] SoundI::release                          :  (00000000127DBD78)
+[LOG] SoundI::release                          :     DefenderDef 48khz (000000004DA2A408)
+[LOG] SoundI::release                          :  (000000004DAE9F08)
+[LOG] SoundI::release                          :     AttackerDef 48khz (000000004DA2B2A8)
+[LOG] SoundI::release                          :  (000000004DAEAA88)
+[LOG] SoundI::release                          :     PakFire 48khz (000000004DA2B5E8)
+[LOG] SoundI::release                          :  (000000001286F408)
+[LOG] SoundI::release                          :     BunkerFire 48khz (000000004DA2AF68)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
@@ -390,35 +290,3 @@
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
