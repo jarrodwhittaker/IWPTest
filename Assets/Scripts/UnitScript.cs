@@ -68,6 +68,9 @@ public class UnitScript : MonoBehaviour {
 
     void OnMouseDown()
     {
+        if (GameController.GameOver)
+            return;
+
         Debug.Log("Unit clicked: " + gameObject.name);
         GameController.Instance.OnUnitClicked(this);
         ignoreNextClick = true;
@@ -124,7 +127,7 @@ public class UnitScript : MonoBehaviour {
         
     }*/
 
-    public void PerformAttack(UnitScript targetUnit)
+    public bool PerformAttack(UnitScript targetUnit)
     {
         // Can attack impassable tiles = true. 
         int targetDistance = hexAid.DefinePath(myTile, targetUnit.myTile, true).Length - 1;
@@ -161,7 +164,11 @@ public class UnitScript : MonoBehaviour {
                 targetUnit.Shield();
                 // Shield sound here, have it fade out.
             }
+
+            return true;
         }
+
+        return false;
     }
 
     // Update is called once per frame

@@ -32,6 +32,7 @@ public class LoadLevel : MonoBehaviour {
     public void RefreshScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Reloading");
     }
 	public void Tutorial()
 	{

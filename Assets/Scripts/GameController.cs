@@ -39,6 +39,8 @@ public class GameController : MonoBehaviour {
 
     public Text NoPoints;
 
+    public static bool GameOver = false;
+
 
     //Instance variable equals game object
     // Sets Instance
@@ -49,6 +51,8 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        GameOver = false;
+
         //p1 will be the first to move
         p1 = true;
         // p2 will be restricted from moving
@@ -65,16 +69,22 @@ public class GameController : MonoBehaviour {
 
     public void IWon()
     {
+        GameOver = true;
+
         Winning.text = win;
-        //Replay.gameObject.SetActive(true);
+        Replay.gameObject.SetActive(true);
         Menu.gameObject.SetActive(true);
+        Pause.gameObject.SetActive(false);
+        swapTurn.gameObject.SetActive(false);
         Debug.Log("We did it");
     }
 
     public void ILost()
     {
+        GameOver = true;
+
         Losing.text = lose;
-        //Replay.gameObject.SetActive(true);
+        Replay.gameObject.SetActive(true);
         Menu.gameObject.SetActive(true);
         Debug.Log("Dang");
     }
@@ -176,6 +186,7 @@ public class GameController : MonoBehaviour {
         List<UnitScript> allEnemies = FindObjectsOfType<UnitScript>().Where(unit => unit.isPlayer == false).OrderBy(unit => unit.unitType).ToList();
 
         // loop over all of the enemies
+        bool didAnyAttack = false;
         foreach (UnitScript enemy in allEnemies)
         {
             Debug.Log(enemy.gameObject.name);
@@ -186,10 +197,16 @@ public class GameController : MonoBehaviour {
             // loop over all of the player units and attacks each one
             foreach (UnitScript playerUnit in allPlayers)
             {
-                enemy.PerformAttack(playerUnit);
-                yield return new WaitForSeconds(0.5f);
+                if (enemy.PerformAttack(playerUnit))
+                {
+                    yield return new WaitForSeconds(0.5f);
+                    didAnyAttack = true;
+                }
             }
         }
+
+        if (!didAnyAttack)
+            yield return new WaitForSeconds(0.5f);
 
         EndTurn();
         yield return null;

@@ -67,6 +67,9 @@ public class pod : MonoBehaviour
     // Operates mouse input.
     void Mouse()
     {
+        if (GameController.GameOver)
+            return;
+
         // Check for left mouse click.
         if(Input.GetMouseButton(0) && mouseCooldown.x <= 0 && MouseRay())
         {

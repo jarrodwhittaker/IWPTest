@@ -156,6 +156,9 @@ public class hexTile : MonoBehaviour
     // Executed on mouse click on collider.
     void OnMouseDown()
     {
+        if (GameController.GameOver)
+            return;
+
         if(GameController.Instance.activeUnit != null)
         {
             if(GameController.Instance.activeUnit.isPlayer)
