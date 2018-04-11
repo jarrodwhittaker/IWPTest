@@ -39,6 +39,12 @@ public class GameController : MonoBehaviour {
 
     public Text NoPoints;
 
+    public Button Leave;
+    
+    public Canvas really;
+    public Button yesreally;
+    public Button noreally;
+
     public static bool GameOver = false;
 
 
@@ -65,6 +71,7 @@ public class GameController : MonoBehaviour {
         Menu.gameObject.SetActive(false);
         Pausing.gameObject.SetActive(false);
         NoPoints.text = "";
+        really.gameObject.SetActive(false);
     }
 
     public void IWon()
@@ -86,6 +93,8 @@ public class GameController : MonoBehaviour {
         Losing.text = lose;
         Replay.gameObject.SetActive(true);
         Menu.gameObject.SetActive(true);
+        Pause.gameObject.SetActive(false);
+        swapTurn.gameObject.SetActive(false);
         Debug.Log("Dang");
     }
 
@@ -93,12 +102,28 @@ public class GameController : MonoBehaviour {
     {
         Time.timeScale = 0;
         Pausing.gameObject.SetActive(true);
+        Pause.gameObject.SetActive(false);
+        swapTurn.gameObject.SetActive(false);
+        Leave.gameObject.SetActive(true);
+    }
+
+    public void AreYouSure()
+    {
+        really.gameObject.SetActive(true);
+        Pausing.gameObject.SetActive(false);
+        yesreally.gameObject.SetActive(true);
+        noreally.gameObject.SetActive(true);
     }
 
     public void GameResume()
     {
+        
         Time.timeScale = 1;
         Pausing.gameObject.SetActive(false);
+        Pause.gameObject.SetActive(true);
+        swapTurn.gameObject.SetActive(true);
+
+
     }
 
     public void GoingUp(bool isPlayer)

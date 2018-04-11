@@ -38,4 +38,13 @@ public class LoadLevel : MonoBehaviour {
 	{
 		SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
 	}
+
+    public void SelectLevel()
+    {
+        SceneManager.LoadScene("Select Level", LoadSceneMode.Single);
+    }
+    public void TheSettings()
+    {
+        SceneManager.LoadScene("Settings", LoadSceneMode.Single);
+    }
 }
