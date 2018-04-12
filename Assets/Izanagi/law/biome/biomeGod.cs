@@ -97,6 +97,24 @@ public class biomeGod : MonoBehaviour
         L05_waterRightBottom,
         L05_waterEndA,
         L05_waterEndB,
+
+        // New Tiles: Level 3.
+        L03_forestD,
+        L03_cliffA,
+        L03_cliffB,
+        L03_cliffC,
+        L03_mountainA,
+        L03_mountainB,
+        L03_mountainC,
+        L03_waterA,
+        L03_waterB,
+        L03_waterC,
+
+        // New Tiles: Level 4.
+        L04_waterA,
+        L04_mountainB,
+        L04_mountainC,
+        L04_mountainD,
     };
 
     #region ------- GENE
@@ -140,6 +158,7 @@ public class biomeGod : MonoBehaviour
     public biomeGene L03_forestA;
     public biomeGene L03_forestB;
     public biomeGene L03_forestC;
+    public biomeGene L03_forestD;
     public biomeGene L03_lavaStart;
     public biomeGene L03_lavaBendTopLeft;
     public biomeGene L03_lavaBendTopRight;
@@ -148,6 +167,15 @@ public class biomeGod : MonoBehaviour
     public biomeGene L03_lavaMiddleA;
     public biomeGene L03_lavaMiddleB;
     public biomeGene L03_lavaEnd;
+    public biomeGene L03_cliffA;
+    public biomeGene L03_cliffB;
+    public biomeGene L03_cliffC;
+    public biomeGene L03_mountainA;
+    public biomeGene L03_mountainB;
+    public biomeGene L03_mountainC;
+    public biomeGene L03_waterA;
+    public biomeGene L03_waterB;
+    public biomeGene L03_waterC;
 
     // Biome genes. Level 4.
     public biomeGene L04_iceA;
@@ -163,8 +191,12 @@ public class biomeGod : MonoBehaviour
     public biomeGene L04_mountainMiddleA;
     public biomeGene L04_mountainMiddleB;
     public biomeGene L04_mountainEnd;
+    public biomeGene L04_waterA;
     public biomeGene L04_waterStart;
     public biomeGene L04_waterMiddle;
+    public biomeGene L04_mountainB;
+    public biomeGene L04_mountainC;
+    public biomeGene L04_mountainD;
 
     // Biome genes. Level 5.
     public biomeGene L05_grassA;
@@ -293,6 +325,9 @@ public class biomeGod : MonoBehaviour
             case biomeGenus.L03_forestC:
             return L03_forestC;
 
+            case biomeGenus.L03_forestD:
+            return L03_forestD;
+
             case biomeGenus.L03_stoneyA:
             return L03_stoneyA;
 
@@ -329,6 +364,33 @@ public class biomeGod : MonoBehaviour
             case biomeGenus.L03_lavaEnd:
             return L03_lavaEnd;
 
+            case biomeGenus.L03_cliffA:
+            return L03_cliffA;
+
+            case biomeGenus.L03_cliffB:
+            return L03_cliffB;
+
+            case biomeGenus.L03_cliffC:
+            return L03_cliffC;
+
+            case biomeGenus.L03_mountainA:
+            return L03_mountainA;
+
+            case biomeGenus.L03_mountainB:
+            return L03_mountainB;
+
+            case biomeGenus.L03_mountainC:
+            return L03_mountainC;
+
+            case biomeGenus.L03_waterA:
+            return L03_waterA;
+
+            case biomeGenus.L03_waterB:
+            return L03_waterB;
+
+            case biomeGenus.L03_waterC:
+            return L03_waterC;
+
             // Level 4.
             case biomeGenus.L04_iceA:
             return L04_iceA;
@@ -357,6 +419,15 @@ public class biomeGod : MonoBehaviour
             case biomeGenus.L04_mountainA:
             return L04_mountainA;
 
+            case biomeGenus.L04_mountainB:
+            return L04_mountainB;
+
+            case biomeGenus.L04_mountainC:
+            return L04_mountainC;
+
+            case biomeGenus.L04_mountainD:
+            return L04_mountainD;
+
             case biomeGenus.L04_mountainStart:
             return L04_mountainStart;
 
@@ -368,6 +439,9 @@ public class biomeGod : MonoBehaviour
 
             case biomeGenus.L04_mountainEnd:
             return L04_mountainEnd;
+
+            case biomeGenus.L04_waterA:
+            return L04_waterA;
 
             case biomeGenus.L04_waterStart:
             return L04_waterStart;
