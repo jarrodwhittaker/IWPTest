@@ -19,7 +19,7 @@ public class UnitScript : MonoBehaviour {
     public UnitType unitType = UnitType.Jet;
     public bool isPlayer;
     public bool canMove;
-    public static int basePool = 10;
+    public static int basePool = 9;
     public float speed = 1.5f;
     public static int currentPool = basePool;
     public int currentattackrange;

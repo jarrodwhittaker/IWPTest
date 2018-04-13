@@ -9,8 +9,11 @@ public class CameraScript : MonoBehaviour
     Vector3 cameraLoc;
     public bool isMouseDown;
     public float scale = 2;
+    float minSize = 30f;
+    float maxSize = 80f;
+    float sensitivity = 5f;
+    float zoom;
 
-    
 
     void Update()
     {
@@ -19,7 +22,7 @@ public class CameraScript : MonoBehaviour
             isMouseDown = true;
             cameraLoc = Camera.main.transform.position;
             startingMousePos = Input.mousePosition;
-            
+
         }
         if (Input.GetMouseButton(0))
         {
@@ -34,6 +37,11 @@ public class CameraScript : MonoBehaviour
         {
             isMouseDown = false;
         }
+
+        zoom = Camera.main.orthographicSize;
+        zoom += Input.GetAxis("Mouse ScrollWheel") * sensitivity;
+        zoom = Mathf.Clamp(zoom, minSize, maxSize);
+        Camera.main.orthographicSize = zoom;
     }
 
     /*    

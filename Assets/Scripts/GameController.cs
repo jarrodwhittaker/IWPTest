@@ -115,7 +115,7 @@ public class GameController : MonoBehaviour {
         noreally.gameObject.SetActive(true);
     }
 
-    public void YouAreSure()
+    public void Regret()
     {
         really.gameObject.SetActive(false);
         Pausing.gameObject.SetActive(true);
