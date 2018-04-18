@@ -32,7 +32,7 @@
             <destination>{393881ca-ea1c-477b-9274-3776ceb9f427}</destination>
         </relationship>
         <relationship name="banks">
-            <destination>{8f357f9b-c94d-4608-aa64-2964f65f57c1}</destination>
+            <destination>{3c5260b0-0494-4806-af99-869276884757}</destination>
         </relationship>
     </object>
     <object class="EventMixer" id="{8cfe973c-cd5f-4bff-a536-f13545bd097a}">
@@ -60,7 +60,7 @@
     <object class="MarkerTrack" id="{37b5c981-0a18-4d69-8d34-04862365c25d}"/>
     <object class="GroupTrack" id="{309a4179-16b6-4680-ad5b-7e0b658b48ab}">
         <relationship name="modules">
-            <destination>{2c65543c-37fd-49e7-8958-2783825b8130}</destination>
+            <destination>{7781df05-f1b2-41e6-9925-651405ba1ebf}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{8f4217d7-5cae-4253-b805-c92cbcefe4a7}</destination>
@@ -68,7 +68,7 @@
     </object>
     <object class="Timeline" id="{393881ca-ea1c-477b-9274-3776ceb9f427}">
         <relationship name="modules">
-            <destination>{2c65543c-37fd-49e7-8958-2783825b8130}</destination>
+            <destination>{7781df05-f1b2-41e6-9925-651405ba1ebf}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{a75dda75-09c5-49da-8a24-9ac6f83bf659}">
@@ -88,12 +88,12 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{5aacfc4e-37be-43ab-a68a-d482a15d786d}"/>
-    <object class="SingleSound" id="{2c65543c-37fd-49e7-8958-2783825b8130}">
+    <object class="SingleSound" id="{7781df05-f1b2-41e6-9925-651405ba1ebf}">
         <property name="length">
-            <value>2.8576666666666668</value>
+            <value>2.2136874999999998</value>
         </property>
         <relationship name="audioFile">
-            <destination>{27250496-3220-44a5-8abe-51c2c9eab57b}</destination>
+            <destination>{72abde2f-3a8e-4c22-8e34-a37fe36a69e1}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{8f4217d7-5cae-4253-b805-c92cbcefe4a7}">
