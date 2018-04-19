@@ -20,15 +20,17 @@ public class levelManager : MonoBehaviour {
 
     public void startGame() //Tells it to load the main upon starting
     {
-       // SceneManager.LoadScene("menu");
+        // SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("tutorial");
     }
 
     public void BeginTutorial() //load tutorial scene
     {
-        SceneManager.LoadScene("tutorial");
+        //SceneManager.LoadScene("tutorial");
+        SceneManager.LoadScene("Level1Earth");
     }
 
-    public void BeginLevel1() //load level one
+   /* public void BeginLevel1() //load level one
     {
         SceneManager.LoadScene("level1");
     }
@@ -46,5 +48,5 @@ public class levelManager : MonoBehaviour {
     public void BeginLevel4()
     {
         SceneManager.LoadScene("level4");
-    }
+    } */
 }
