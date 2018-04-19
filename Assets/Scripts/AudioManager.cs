@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour {
 	FMOD.Studio.EventInstance TankFireEv;
 	public string tankShieldP ="event:/Units/Tank/Tank Shield";
 	FMOD.Studio.EventInstance TankShieldEv;
-	public string tankDesP ="event:/Units/Tank/TankDes";
+	public string tankDesP ="event:/Units/Tank/Tank Des";
 	FMOD.Studio.EventInstance TankDesEv;
 
 
@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour {
 	FMOD.Studio.EventInstance JetFireEv;
 	public string jetShieldP ="event:/Units/Jet/Jet Shield";
 	FMOD.Studio.EventInstance JetShieldEv;
-	public string jetDesP ="event:/Units/Jet/JetDes";
+	public string jetDesP ="event:/Units/Jet/Jet Des";
 	FMOD.Studio.EventInstance JetDesEv;
 
 	//Mech Events
