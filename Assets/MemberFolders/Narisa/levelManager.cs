@@ -14,15 +14,16 @@ public class levelManager : MonoBehaviour {
 
     void Update()  //exit function
     {
-        if (Input.GetKey("escape"))
-            Application.Quit();
+       /* if (Input.GetKey("escape"))
+            Application.Quit();*/
     }
 
     public void startGame() //Tells it to load the main upon starting
     {
-        // SceneManager.LoadScene("menu");
-        SceneManager.LoadScene("tutorial");
+        //SceneManager.LoadScene("tutorial");
     }
+
+    // Play Starting Dialogues //
 
     public void BeginTutorial() //load tutorial scene
     {
@@ -30,23 +31,51 @@ public class levelManager : MonoBehaviour {
         SceneManager.LoadScene("Level1Earth");
     }
 
-   /* public void BeginLevel1() //load level one
+     public void BeginLevel1() //load level one
+     {
+         SceneManager.LoadScene("Level2Kagruyama");
+     }
+
+     public void BeginLevel2()
+     {
+         SceneManager.LoadScene("Level3Clayton303"); 
+     }
+
+     public void BeginLevel3()
+     {
+         SceneManager.LoadScene("Level4Hasslehoff101");
+     }
+
+     public void BeginLevel4()
+     {
+         SceneManager.LoadScene("Level5Samjarcamarisa");
+     }
+
+    //  Play End Level Dialogues //
+
+
+  /*
+
+    public void EndLevel1() //load level one
     {
-        SceneManager.LoadScene("level1");
+        SceneManager.LoadScene("");
     }
 
-    public void BeginLevel2()
+    public void EndLevel2()
     {
-        SceneManager.LoadScene("level2"); //load level 2
+        SceneManager.LoadScene("");
     }
 
-    public void BeginLevel3()
+    public void EndLevel3()
     {
-        SceneManager.LoadScene("level3");
+        SceneManager.LoadScene("");
     }
 
-    public void BeginLevel4()
+    public void EndLevel4()
     {
-        SceneManager.LoadScene("level4");
-    } */
+        SceneManager.LoadScene("");
+    } 
+    
+     */
+
 }
