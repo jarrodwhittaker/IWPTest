@@ -13,6 +13,10 @@ public class CameraScript : MonoBehaviour
     float maxSize = 80f;
     float sensitivity = 5f;
     float zoom;
+    public float minZ;
+    public float maxZ;
+    public float minX;
+    public float maxX;
 
 
     void Update()
@@ -29,7 +33,13 @@ public class CameraScript : MonoBehaviour
             Vector3 newMousePos = Input.mousePosition - startingMousePos;
             newMousePos.z = newMousePos.y;
             newMousePos.y = 0;
-            Camera.main.transform.position = cameraLoc + -newMousePos * scale;
+
+            Vector3 newLocation = cameraLoc + -newMousePos * scale;
+
+            newLocation.x = Mathf.Clamp(newLocation.x, minX, maxX);
+            newLocation.z = Mathf.Clamp(newLocation.z, minZ, maxZ);
+
+            Camera.main.transform.position = newLocation;
         }
 
 

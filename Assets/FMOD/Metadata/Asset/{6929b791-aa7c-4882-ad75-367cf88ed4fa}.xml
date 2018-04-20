@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="EncodableAsset" id="{6929b791-aa7c-4882-ad75-367cf88ed4fa}">
+        <property name="assetPath">
+            <value>Flak/L3/</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{b54ee500-fa6a-41dd-9614-95973b667ce8}</destination>
+        </relationship>
+    </object>
+</objects>

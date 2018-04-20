@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -38,6 +39,7 @@ public class GameController : MonoBehaviour {
     public int noOfUnits;
 
     public Text NoPoints;
+    public Text Announcement;
 
     public Button Leave;
     
@@ -72,6 +74,14 @@ public class GameController : MonoBehaviour {
         Pausing.gameObject.SetActive(false);
         NoPoints.text = "";
         really.gameObject.SetActive(false);
+        BigPlayerTurn();
+
+        
+    }
+
+    public void SceneSong()
+    {
+        SceneManager.GetActiveScene();
     }
 
     public void IWon()
@@ -134,6 +144,23 @@ public class GameController : MonoBehaviour {
 
     }
 
+    public void BigPlayerTurn()
+    {
+        Announcement.text = "Player's Turn";
+        Invoke("Vanish", 2f);
+    }
+    
+    public void BigEnemyTurn()
+    {
+        Announcement.text = "Enemy Turn";
+        Invoke("Vanish", 2f);
+    }
+
+    public void Vanish()
+    {
+        Announcement.text = "";
+    }
+
     public void GoingUp(bool isPlayer)
     {
         // Have the tally of enemies and units go up at the beginning of the game to the amount in the level.
@@ -186,6 +213,7 @@ public class GameController : MonoBehaviour {
             p2 = true;
             p1 = false;
             NoPoints.text = "";
+            BigEnemyTurn();
         }
 
         else if (turn.text == "Enemy's Turn")
@@ -196,7 +224,7 @@ public class GameController : MonoBehaviour {
             turn.text = "Player's Turn";
             UnitScript.StartTurn();
             NoPoints.text = "";
-
+            BigPlayerTurn();
             p1 = true;
             p2 = false;
 

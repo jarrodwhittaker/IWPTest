@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{94477886-95c6-4163-b06e-62d99e56b963}">
+        <property name="assetPath">
+            <value>Bunker/L2/L2BunkerDes 48khz.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>1.661125</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{b54ee500-fa6a-41dd-9614-95973b667ce8}</destination>
+        </relationship>
+    </object>
+</objects>

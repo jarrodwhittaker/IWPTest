@@ -36,7 +36,7 @@ public class LoadLevel : MonoBehaviour {
     }
 	public void Tutorial()
 	{
-		SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
+		SceneManager.LoadScene("tutorialDialogue", LoadSceneMode.Single);
 	}
 
     public void SelectLevel()
@@ -46,5 +46,9 @@ public class LoadLevel : MonoBehaviour {
     public void TheSettings()
     {
         SceneManager.LoadScene("Settings", LoadSceneMode.Single);
+    }
+    public void GetMeOuttaHere()
+    {
+        Application.Quit();
     }
 }
