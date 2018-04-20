@@ -49,7 +49,7 @@ public class CameraScript : MonoBehaviour
         }
 
         zoom = Camera.main.orthographicSize;
-        zoom += Input.GetAxis("Mouse ScrollWheel") * sensitivity;
+        zoom -= Input.GetAxis("Mouse ScrollWheel") * sensitivity;
         zoom = Mathf.Clamp(zoom, minSize, maxSize);
         Camera.main.orthographicSize = zoom;
     }
