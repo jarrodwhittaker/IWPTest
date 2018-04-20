@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -74,6 +75,13 @@ public class GameController : MonoBehaviour {
         NoPoints.text = "";
         really.gameObject.SetActive(false);
         BigPlayerTurn();
+
+        
+    }
+
+    public void SceneSong()
+    {
+        SceneManager.GetActiveScene();
     }
 
     public void IWon()
