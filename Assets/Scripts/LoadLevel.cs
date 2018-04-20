@@ -47,4 +47,8 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("Settings", LoadSceneMode.Single);
     }
+    public void GetMeOuttaHere()
+    {
+        Application.Quit();
+    }
 }
