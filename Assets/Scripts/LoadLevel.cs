@@ -51,4 +51,29 @@ public class LoadLevel : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void Level1()
+    {
+        SceneManager.LoadScene("Level1Earth", LoadSceneMode.Single);
+    }
+
+    public void Level2()
+    {
+        SceneManager.LoadScene("Level2Kagruyama", LoadSceneMode.Single);
+    }
+
+    public void Level3()
+    {
+        SceneManager.LoadScene("Level3Clayton303", LoadSceneMode.Single);
+    }
+
+    public void Level4()
+    {
+        SceneManager.LoadScene("Level4Hasselhoff", LoadSceneMode.Single);
+    }
+
+    public void Level5()
+    {
+        SceneManager.LoadScene("Level5Samjarcamarisa", LoadSceneMode.Single);
+    }
 }
