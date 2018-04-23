@@ -54,28 +54,24 @@ public class levelManager : MonoBehaviour {
     //  These will start the next level dialogues after the end level dialogues end  //
     // e.g. At the end of Level 1 dialogue, this script will kick in to load starting dialogue for level 2//
 
-    /*
-
-      public void EndLevel1() // End of Level 1 > Load Level 2
+      public void startLevel2Dialogue() // End of Level 1 > Load Level 2
       {
-          SceneManager.LoadScene("startLv2Dialogue");
+          SceneManager.LoadScene("level2Dialogue");
       }
 
-      public void EndLevel2() // End of Level 2 > Load Level 3
+      public void startLevel3Dialogue() // End of Level 2 > Load Level 3
       {
-          SceneManager.LoadScene("startLv3Dialogue");
+          SceneManager.LoadScene("level3Dialogue");
       }
 
-      public void EndLevel3() // End of Level 3 > Load Level 4
+      public void startLevel4Dialogue() // End of Level 3 > Load Level 4
       {
-          SceneManager.LoadScene("startLv4Dialogue");
+          SceneManager.LoadScene("level4Dialogue");
       }
 
-      public void EndLevel4() // End of Level 4 > Return to Main menu
+      public void ReturntoMainMenu() // End of Level 4 > Return to Main menu
       {
-          SceneManager.LoadScene("returnMainMenu");
+          SceneManager.LoadScene("Menu");
       } 
-
-       */
 
 }
