@@ -51,31 +51,31 @@ public class levelManager : MonoBehaviour {
          SceneManager.LoadScene("Level5Samjarcamarisa");
      }
 
-    //  Play End Level Dialogues //
+    //  These will start the next level dialogues after the end level dialogues end  //
+    // e.g. At the end of Level 1 dialogue, this script will kick in to load starting dialogue for level 2//
 
+    /*
 
-  /*
+      public void EndLevel1() // End of Level 1 > Load Level 2
+      {
+          SceneManager.LoadScene("startLv2Dialogue");
+      }
 
-    public void EndLevel1() //load level one
-    {
-        SceneManager.LoadScene("");
-    }
+      public void EndLevel2() // End of Level 2 > Load Level 3
+      {
+          SceneManager.LoadScene("startLv3Dialogue");
+      }
 
-    public void EndLevel2()
-    {
-        SceneManager.LoadScene("");
-    }
+      public void EndLevel3() // End of Level 3 > Load Level 4
+      {
+          SceneManager.LoadScene("startLv4Dialogue");
+      }
 
-    public void EndLevel3()
-    {
-        SceneManager.LoadScene("");
-    }
+      public void EndLevel4() // End of Level 4 > Return to Main menu
+      {
+          SceneManager.LoadScene("returnMainMenu");
+      } 
 
-    public void EndLevel4()
-    {
-        SceneManager.LoadScene("");
-    } 
-    
-     */
+       */
 
 }
