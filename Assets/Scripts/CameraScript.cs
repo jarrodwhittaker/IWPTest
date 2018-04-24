@@ -10,7 +10,7 @@ public class CameraScript : MonoBehaviour
     public bool isMouseDown;
     public float scale = 2;
     float minSize = 30f;
-    float maxSize = 80f;
+    float maxSize = 50f;
     float sensitivity = 5f;
     float zoom;
     public float minZ;

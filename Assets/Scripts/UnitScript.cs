@@ -61,7 +61,7 @@ public class UnitScript : MonoBehaviour {
         currentPool = basePool;
         if(GameController.Instance != null)
         {
-            GameController.Instance.AP.text = "Action Points: " + currentPool;
+            GameController.Instance.AP.text = "" + currentPool;
         }        
 
     }
@@ -203,7 +203,7 @@ public class UnitScript : MonoBehaviour {
 
         //if (GameController.Instance.activeUnit == this)
         {
-            GameController.Instance.AP.text = "Action Points: " + currentPool;
+            GameController.Instance.AP.text = "" + currentPool;
         }
 
         if (distanceRemain > 0.1)

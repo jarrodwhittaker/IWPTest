@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour {
 
     hexTile[] rangeVicinity;
 
+    
+
     public static GameController Instance;
 
     public UnitScript baseee;
@@ -67,8 +69,8 @@ public class GameController : MonoBehaviour {
         p2 = false;
         turn.text = "Player's Turn";
         swapTurn.onClick.AddListener(EndTurn);
-        unitsLeft.text = "Units Left: " + noOfUnits;
-        enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+        unitsLeft.text = "" + noOfUnits;
+        enemiesLeft.text = "" + noOfEnemies;
         Replay.gameObject.SetActive(false);
         Menu.gameObject.SetActive(false);
         Pausing.gameObject.SetActive(false);
@@ -168,13 +170,13 @@ public class GameController : MonoBehaviour {
         if (isPlayer)
         {
             noOfUnits += 1;
-            unitsLeft.text = "Units Left: " + noOfUnits;
+            unitsLeft.text = "" + noOfUnits;
         }
 
         else
         {
             noOfEnemies += 1;
-            enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+            enemiesLeft.text = "" + noOfEnemies;
         }
     }
 
@@ -185,7 +187,7 @@ public class GameController : MonoBehaviour {
         if (isPlayer)
         {
             noOfUnits -= 1;
-            unitsLeft.text = "Units Left: " + noOfUnits;
+            unitsLeft.text = "" + noOfUnits;
             if (noOfUnits <= 0)
             {
                 ILost();
@@ -194,7 +196,7 @@ public class GameController : MonoBehaviour {
         else
         {
             noOfEnemies -= 1;
-            enemiesLeft.text = "Enemies Left: " + noOfEnemies;
+            enemiesLeft.text = "" + noOfEnemies;
         }
     }
 
@@ -392,7 +394,7 @@ public class GameController : MonoBehaviour {
                 activeUnit.PerformAttack(_enemy);
                 activeUnit.currentattackrange = 0;
                 UnitScript.currentPool = 0;
-                AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
+                AP.text = UnitScript.currentPool.ToString();
             }
         }
     }
@@ -411,7 +413,7 @@ public class GameController : MonoBehaviour {
                 int cost = hexAid.DefinePath(activeUnit.myTile, _tileClicked, activeUnit.canImpassable).Length - 1;
                 activeUnit.currentattackrange -= cost;
                 UnitScript.currentPool -= cost;
-                AP.text = "Action Points Left: " + UnitScript.currentPool.ToString();
+                AP.text = UnitScript.currentPool.ToString();
                 activeUnit.target = _tileClicked.transform.position;
                 activeUnit.myTile = _tileClicked;
                 activeUnit.iAmMoving = true;
