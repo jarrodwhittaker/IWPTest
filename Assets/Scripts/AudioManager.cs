@@ -176,7 +176,23 @@ public class AudioManager : MonoBehaviour {
 	public string bunkerDesP5 ="event:/Units/Bunker/L5/BunkerDes";
 	FMOD.Studio.EventInstance BunkerDesEv5;
 
- 
+ 	//Music Events
+	public string musicGame1P ="event:/Music/Music_Game1";
+	FMOD.Studio.EventInstance Music_Game1;
+	public string musicGame2P ="event:/Music/Music_Game2";
+	FMOD.Studio.EventInstance Music_Game2;
+	public string musicGameL5P ="event:/Music/Music_GameLvl5";
+	FMOD.Studio.EventInstance Music_GameLvl5;
+	public string musicLoseP ="event:/Music/Music_Lose";
+	FMOD.Studio.EventInstance Music_Lose;
+	public string musicWinP ="event:/Music/Music_Win";
+	FMOD.Studio.EventInstance Music_Win;
+	public string musicMenuP ="event:/Music/Music_Menu";
+	FMOD.Studio.EventInstance Music_Menu;
+	public string musicNarrativeP ="event:/Music/Music_Narrative";
+	FMOD.Studio.EventInstance Music_Narrative;
+
+
 	private void Awake()
     {
         Instance = this;
@@ -288,6 +304,14 @@ public class AudioManager : MonoBehaviour {
 		BunkerDefenceEv5 = FMODUnity.RuntimeManager.CreateInstance(bunkerDefP5);
 		BunkerDesEv5 = FMODUnity.RuntimeManager.CreateInstance(bunkerDesP5);
 
+		//Music instance creation
+		Music_Game1 = FMODUnity.RuntimeManager.CreateInstance(musicGame1P);
+		Music_Game2 = FMODUnity.RuntimeManager.CreateInstance(musicGame2P);
+		Music_GameLvl5 = FMODUnity.RuntimeManager.CreateInstance(musicGameL5P);
+		Music_Lose = FMODUnity.RuntimeManager.CreateInstance(musicLoseP);
+		Music_Win = FMODUnity.RuntimeManager.CreateInstance(musicWinP);
+		Music_Menu = FMODUnity.RuntimeManager.CreateInstance(musicMenuP);
+		Music_Narrative = FMODUnity.RuntimeManager.CreateInstance(musicNarrativeP);
 	}
 	
 	// Update is called once per frame
@@ -643,6 +667,93 @@ public class AudioManager : MonoBehaviour {
 	public void BunkerDes5()
 	{
 		BunkerDesEv5.start();
+	}
+
+	//Music Functions
+
+	public void StopAllMusic()
+	{
+		Music_Game1.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		Music_Game2.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		Music_GameLvl5.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		Music_Lose.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		Music_Win.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		Music_Menu.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		Music_Narrative.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+	}
+
+	//Start Music Functions
+
+	public void MusicG1_Start()
+	{
+		Music_Game1.start();
+	}
+
+	public void MusicG2_Start()
+	{
+		Music_Game2.start();
+	}
+
+	public void MusicGL5_Start()
+	{
+		Music_GameLvl5.start();
+	}
+
+	public void MusicLose_Start()
+	{
+		Music_Lose.start();
+	}
+
+	public void MusicWin_Start()
+	{
+		Music_Win.start();
+	}
+
+	public void MusicMenu_Start()
+	{
+		Music_Menu.start();
+	}
+
+	public void MusicNarrative_Start()
+	{
+		Music_Narrative.start();
+	}
+
+	//Stop Music Functions
+
+	public void MusicG1_Stop()
+	{
+		Music_Game1.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+	}
+
+	public void MusicG2_Stop()
+	{
+		Music_Game2.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+	}
+
+	public void MusicGL5_Stop()
+	{
+		Music_GameLvl5.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+	}
+
+	public void MusicLose_Stop()
+	{
+		Music_Lose.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+	}
+
+	public void MusicWin_Stop()
+	{
+		Music_Win.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+	}
+
+	public void MusicMenu_Stop()
+	{
+		Music_Menu.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+	}
+
+	public void MusicNarrative_Stop()
+	{
+		Music_Narrative.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 	}
 		
 }
