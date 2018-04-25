@@ -1,4 +1,10 @@
 {ac7c1765-1bae-45e4-a3b9-542fa32b9149} event:/Music/Music_Game1
+{19adb2ad-bfdc-43d3-845e-ef0c5df9f794} event:/Music/Music_Game2
+{350091eb-50b3-4744-be33-fff75a245865} event:/Music/Music_GameLvl5
+{322fe9e0-8b07-4ed3-becf-3c476a6c0c2a} event:/Music/Music_Menu
+{242d6646-6d65-4023-a299-8c0218a62999} event:/Music/Music_Narrative
+{af15ba20-1f62-4146-9422-b38b2a04a2b7} event:/Music/Music_Lose
+{17fa833f-7211-4db5-b9b1-fefd7b274a07} event:/Music/Music_Win
 {3eb19cff-35bd-42c7-8355-e8ebfb7b4081} event:/Units/Bunker/L1/BunkerDefence
 {1a95f797-1460-4e27-887a-d96531534a9a} event:/Units/Bunker/L1/BunkerDes
 {1a419bd0-bdce-4301-bf41-3b785e14ea19} event:/Units/Bunker/L1/BunkerFire
