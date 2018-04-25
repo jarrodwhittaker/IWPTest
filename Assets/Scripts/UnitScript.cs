@@ -102,7 +102,6 @@ public class UnitScript : MonoBehaviour {
     {
         GameController.Instance.GoingDown(isPlayer);
         Destroy(gameObject);
-
     }
 
     public void OutOfPoints()
