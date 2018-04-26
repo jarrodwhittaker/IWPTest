@@ -47,11 +47,11 @@ public class UnitScript : MonoBehaviour {
     public hexTile myTile;
 
     void Start() {
-        StartTurn();
         target = transform.position;
         // Communicate with other scripts at the beginning for info
         GameController.Instance.GoingUp(isPlayer);
         currentattackrange = AttackRange;
+        StartTurn();
 
     }
 
@@ -61,7 +61,7 @@ public class UnitScript : MonoBehaviour {
         currentPool = basePool;
         if(GameController.Instance != null)
         {
-            GameController.Instance.AP.text = "" + currentPool;
+            GameController.Instance.AP.SetCountdownValue(UnitScript.currentPool);
         }        
 
     }
@@ -202,7 +202,7 @@ public class UnitScript : MonoBehaviour {
 
         //if (GameController.Instance.activeUnit == this)
         {
-            GameController.Instance.AP.text = "" + currentPool;
+            GameController.Instance.AP.SetCountdownValue(UnitScript.currentPool); 
         }
 
         if (distanceRemain > 0.1)

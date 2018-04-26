@@ -22,7 +22,7 @@ public class Countdown : MonoBehaviour {
             sprite.SetActive(false);            
         }
 
-        NumberSprites[newValue] = NumberSprites[NumberSprites.Count];
+        //NumberSprites[newValue] = NumberSprites[NumberSprites.Count];
 
         NumberSprites[newValue].SetActive(true);
     }

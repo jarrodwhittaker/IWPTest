@@ -20,15 +20,15 @@ public class GameController : MonoBehaviour {
 
     public RaycastHit hit;
 
-    public Text AP;
+    public Countdown AP;
     public bool p1;
     public GameObject player1;
     public bool p2;
     public GameObject player2;
     public Text turn;
     public Button swapTurn;
-    public Text unitsLeft;
-    public Text enemiesLeft;
+    public Countdown unitsLeft;
+    public Countdown enemiesLeft;
     public Text Winning;
     public Button Replay;
     public Button Menu;
@@ -69,16 +69,17 @@ public class GameController : MonoBehaviour {
         p2 = false;
         turn.text = "Player's Turn";
         swapTurn.onClick.AddListener(EndTurn);
-        unitsLeft.text = "" + noOfUnits;
-        enemiesLeft.text = "" + noOfEnemies;
+        unitsLeft.SetCountdownValue(noOfUnits);
+        enemiesLeft.SetCountdownValue(noOfEnemies);
+
         Replay.gameObject.SetActive(false);
         Menu.gameObject.SetActive(false);
         Pausing.gameObject.SetActive(false);
         NoPoints.text = "";
         really.gameObject.SetActive(false);
         BigPlayerTurn();
+        AP.SetCountdownValue(UnitScript.currentPool);
 
-        
     }
 
     public void SceneSong()
@@ -170,13 +171,14 @@ public class GameController : MonoBehaviour {
         if (isPlayer)
         {
             noOfUnits += 1;
-            unitsLeft.text = "" + noOfUnits;
+            unitsLeft.SetCountdownValue(noOfUnits);
+ 
         }
 
         else
         {
             noOfEnemies += 1;
-            enemiesLeft.text = "" + noOfEnemies;
+            enemiesLeft.SetCountdownValue(noOfEnemies);
         }
     }
 
@@ -187,7 +189,8 @@ public class GameController : MonoBehaviour {
         if (isPlayer)
         {
             noOfUnits -= 1;
-            unitsLeft.text = "" + noOfUnits;
+            unitsLeft.SetCountdownValue(noOfUnits);
+            
             if (noOfUnits <= 0)
             {
                 ILost();
@@ -196,7 +199,7 @@ public class GameController : MonoBehaviour {
         else
         {
             noOfEnemies -= 1;
-            enemiesLeft.text = "" + noOfEnemies;
+            enemiesLeft.SetCountdownValue(noOfEnemies);
         }
     }
 
@@ -394,7 +397,7 @@ public class GameController : MonoBehaviour {
                 activeUnit.PerformAttack(_enemy);
                 activeUnit.currentattackrange = 0;
                 UnitScript.currentPool = 0;
-                AP.text = UnitScript.currentPool.ToString();
+                AP.SetCountdownValue(UnitScript.currentPool);
             }
         }
     }
@@ -413,7 +416,8 @@ public class GameController : MonoBehaviour {
                 int cost = hexAid.DefinePath(activeUnit.myTile, _tileClicked, activeUnit.canImpassable).Length - 1;
                 activeUnit.currentattackrange -= cost;
                 UnitScript.currentPool -= cost;
-                AP.text = UnitScript.currentPool.ToString();
+ 
+                AP.SetCountdownValue(UnitScript.currentPool);
                 activeUnit.target = _tileClicked.transform.position;
                 activeUnit.myTile = _tileClicked;
                 activeUnit.iAmMoving = true;
