@@ -25,7 +25,8 @@ public class GameController : MonoBehaviour {
     public GameObject player1;
     public bool p2;
     public GameObject player2;
-    public Text turn;
+    public Image PlayerTurn;
+    public Image EnemyTurn;
     public Button swapTurn;
     public Countdown unitsLeft;
     public Countdown enemiesLeft;
@@ -41,7 +42,8 @@ public class GameController : MonoBehaviour {
     public int noOfUnits;
 
     public Text NoPoints;
-    public Text Announcement;
+    public Image PlayerAnnouncement;
+    public Image EnemyAnnouncement;
 
     public Button Leave;
     
@@ -67,7 +69,8 @@ public class GameController : MonoBehaviour {
         p1 = true;
         // p2 will be restricted from moving
         p2 = false;
-        turn.text = "Player's Turn";
+        PlayerTurn.gameObject.SetActive(true);
+        EnemyTurn.gameObject.SetActive(false);
         swapTurn.onClick.AddListener(EndTurn);
         unitsLeft.SetCountdownValue(noOfUnits);
         enemiesLeft.SetCountdownValue(noOfEnemies);
@@ -149,19 +152,26 @@ public class GameController : MonoBehaviour {
 
     public void BigPlayerTurn()
     {
-        Announcement.text = "Player's Turn";
-        Invoke("Vanish", 2f);
+        PlayerAnnouncement.gameObject.SetActive(true);
+        EnemyAnnouncement.gameObject.SetActive(false);
+        Invoke("PlayerVanish", 2f);
     }
     
     public void BigEnemyTurn()
     {
-        Announcement.text = "Enemy Turn";
-        Invoke("Vanish", 2f);
+        PlayerAnnouncement.gameObject.SetActive(false);
+        EnemyAnnouncement.gameObject.SetActive(true);
+        Invoke("EnemyVanish", 2f);
     }
 
-    public void Vanish()
+    public void PlayerVanish()
     {
-        Announcement.text = "";
+        PlayerAnnouncement.gameObject.SetActive(false);
+    }
+
+    public void EnemyVanish()
+    {
+        EnemyAnnouncement.gameObject.SetActive(false);
     }
 
     public void GoingUp(bool isPlayer)
@@ -207,12 +217,13 @@ public class GameController : MonoBehaviour {
     public void EndTurn()
     {
         
-        if (turn.text == "Player's Turn")
+        if (p1 == true)
         {
             swapTurn.interactable = false;
             activeUnit = null;
             targetUnit = null;
-            turn.text = "Enemy's Turn";
+            PlayerTurn.gameObject.SetActive(false);
+            EnemyTurn.gameObject.SetActive(true);
             UnitScript.StartTurn();
             StartCoroutine(P2Turn());
             p2 = true;
@@ -221,12 +232,13 @@ public class GameController : MonoBehaviour {
             BigEnemyTurn();
         }
 
-        else if (turn.text == "Enemy's Turn")
+        else if (p2 == true)
         {
             swapTurn.interactable = true;
             activeUnit = null;
             targetUnit = null;
-            turn.text = "Player's Turn";
+            PlayerTurn.gameObject.SetActive(true);
+            EnemyTurn.gameObject.SetActive(false);
             UnitScript.StartTurn();
             NoPoints.text = "";
             BigPlayerTurn();
