@@ -137,4 +137,19 @@ public class LoadLevel : MonoBehaviour {
 		AudioManager.Instance.StopAllMusic();
 		AudioManager.Instance.MusicGL5_Start();
     }
+
+    public void Dialogue2()
+    {
+        SceneManager.LoadScene("level1Dialogue", LoadSceneMode.Single);
+    }
+
+    public void Dialogue3()
+    {
+        SceneManager.LoadScene("level2Dialogue", LoadSceneMode.Single);
+    }
+
+    public void Dialogue4()
+    {
+        SceneManager.LoadScene("level3Dialogue", LoadSceneMode.Single);
+    }
 }

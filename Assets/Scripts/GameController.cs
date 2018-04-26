@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour {
     public Canvas really;
     public Button yesreally;
     public Button noreally;
+    public Button NextLevel;
 
     public static bool GameOver = false;
 
@@ -75,6 +76,7 @@ public class GameController : MonoBehaviour {
         unitsLeft.SetCountdownValue(noOfUnits);
         enemiesLeft.SetCountdownValue(noOfEnemies);
 
+        NextLevel.gameObject.SetActive(false);
         Replay.gameObject.SetActive(false);
         Menu.gameObject.SetActive(false);
         Pausing.gameObject.SetActive(false);
@@ -99,6 +101,7 @@ public class GameController : MonoBehaviour {
         Menu.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
         swapTurn.gameObject.SetActive(false);
+        NextLevel.gameObject.SetActive(true);
         Debug.Log("We did it");
     }
 
