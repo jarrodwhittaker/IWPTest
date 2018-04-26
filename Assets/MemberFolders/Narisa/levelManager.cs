@@ -38,7 +38,7 @@ public class levelManager : MonoBehaviour {
 
      public void BeginLevel2()
      {
-         SceneManager.LoadScene("Level3Clayton303"); 
+         SceneManager.LoadScene("CHeers"); 
      }
 
      public void BeginLevel3()
