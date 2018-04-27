@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
 	public static AudioManager Instance;
+	public void Awake()
+	{
+		Instance = this;
+	}
 
 
 	[FMODUnity.EventRef]
@@ -190,17 +195,12 @@ public class AudioManager : MonoBehaviour {
 	public string musicMenuP ="event:/Music/Music_Menu";
 	FMOD.Studio.EventInstance Music_Menu;
 	public string musicNarrativeP ="event:/Music/Music_Narrative";
-	FMOD.Studio.EventInstance Music_Narrative;
-
-
-	private void Awake()
-    {
-        Instance = this;
-    }
-    
+	FMOD.Studio.EventInstance Music_Narrative;   
 
 	// Use this for initialization
-    void Start () {
+    public void Start() 
+	{
+		
 		//Tank instance creation
 		TankMoveEv = FMODUnity.RuntimeManager.CreateInstance(tankMoveP);
 		TankFireEv = FMODUnity.RuntimeManager.CreateInstance(tankFireP);
@@ -319,6 +319,8 @@ public class AudioManager : MonoBehaviour {
 
 
 	}
+
+
 
 
 	//Attacking Units
@@ -671,15 +673,27 @@ public class AudioManager : MonoBehaviour {
 
 	//Music Functions
 
+	public void MenuSong()
+	{
+		
+		Scene currentscene = SceneManager.GetActiveScene ();
+		if (currentscene.name == "Menu")
+		{
+			Debug.Log ("menu song should play");
+			StopAllMusic ();
+			Music_Menu.start ();
+		}
+	}
+
 	public void StopAllMusic()
 	{
-		Music_Game1.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		Music_Game2.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		Music_GameLvl5.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		Music_Lose.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		Music_Win.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		Music_Menu.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		Music_Narrative.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		MusicG1_Stop();
+		MusicG2_Stop();
+		MusicGL5_Stop();
+		MusicLose_Stop();
+		MusicWin_Stop ();
+		MusicMenu_Stop ();
+		MusicNarrative_Stop();
 	}
 
 	//Start Music Functions
