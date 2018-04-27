@@ -20,9 +20,9 @@ public class Introscene : MonoBehaviour {
 
 	void changeLevel()
 	{
-		SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
-		AudioManager.Instance.MusicMenu_Start();
-
+		SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+		AudioManager.Instance.StopAllMusic();
+		//AudioManager.Instance.MusicMenu_Start();
 	}
 
 

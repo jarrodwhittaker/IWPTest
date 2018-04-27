@@ -96,6 +96,8 @@ public class GameController : MonoBehaviour {
 
     public void IWon()
     {
+		AudioManager.Instance.StopAllMusic();
+		AudioManager.Instance.MusicWin_Start();
         GameOver = true;
 
         Winning.text = win;
@@ -109,6 +111,8 @@ public class GameController : MonoBehaviour {
 
     public void ILost()
     {
+		AudioManager.Instance.StopAllMusic();
+		AudioManager.Instance.MusicLose_Start();
         GameOver = true;
 
         Losing.text = lose;

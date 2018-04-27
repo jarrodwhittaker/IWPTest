@@ -673,7 +673,7 @@ public class AudioManager : MonoBehaviour {
 
 	//Music Functions
 
-	public void MenuSong()
+	/*public void MenuSong()
 	{
 		
 		Scene currentscene = SceneManager.GetActiveScene ();
@@ -683,7 +683,7 @@ public class AudioManager : MonoBehaviour {
 			StopAllMusic ();
 			Music_Menu.start ();
 		}
-	}
+	}*/
 
 	public void StopAllMusic()
 	{
@@ -739,6 +739,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Game1.getPlaybackState (out currentState);
+		//Debug.Log("Current state g1 music " + currentState);
 		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING) 
 		{
 			Music_Game1.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -749,6 +750,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Game2.getPlaybackState (out currentState);
+		//Debug.Log("Current state g2 music " + currentState);
 		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)  
 		{
 			Music_Game2.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -759,6 +761,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_GameLvl5.getPlaybackState (out currentState);
+		//Debug.Log("Current state lvl5 music " + currentState);
 		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
 		{
 			Music_GameLvl5.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -769,6 +772,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Lose.getPlaybackState (out currentState);
+		//Debug.Log("Current state lose music " + currentState);
 		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING) 
 		{
 			Music_Lose.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -779,6 +783,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Win.getPlaybackState (out currentState);
+		//Debug.Log("Current state win music " + currentState);
 		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
 		{
 			Music_Win.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -789,6 +794,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Menu.getPlaybackState (out currentState);
+		//Debug.Log("Current state menu music " + currentState);
 		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)  
 		{
 			Music_Menu.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -799,6 +805,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Narrative.getPlaybackState (out currentState);
+		//Debug.Log("Current state narrative music " + currentState);
 		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
 		{
 			Music_Narrative.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);

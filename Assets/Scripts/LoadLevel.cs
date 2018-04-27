@@ -10,7 +10,6 @@ public class LoadLevel : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-		AudioManager.Instance.MenuSong();
 
     }
 
@@ -42,7 +41,7 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
-        AudioManager.Instance.MusicMenu_Start();
+        //AudioManager.Instance.MusicMenu_Start();
     }
     public void RefreshScene()
     {

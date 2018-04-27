@@ -28,7 +28,7 @@ public class levelManager : MonoBehaviour {
     public void BeginTutorial() //load tutorial scene
     {
         //SceneManager.LoadScene("tutorial");
-        SceneManager.LoadScene("Level1Earth");
+        SceneManager.LoadScene("Level1Earth", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         int music_rng = Random.Range(0, 1);
         switch (music_rng)
@@ -44,7 +44,7 @@ public class levelManager : MonoBehaviour {
 
     public void BeginLevel1() //load level one
     {
-        SceneManager.LoadScene("Level2Kagruyama");
+		SceneManager.LoadScene("Level2Kagruyama", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         int music_rng = Random.Range(0, 1);
         switch (music_rng)
@@ -60,7 +60,7 @@ public class levelManager : MonoBehaviour {
 
     public void BeginLevel2()
     {
-        SceneManager.LoadScene("Level3Clayton303");
+		SceneManager.LoadScene("Level3Clayton303", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         int music_rng = Random.Range(0, 1);
         switch (music_rng)
@@ -76,7 +76,7 @@ public class levelManager : MonoBehaviour {
 
     public void BeginLevel3()
     {
-        SceneManager.LoadScene("Level4Hasslehoff101");
+		SceneManager.LoadScene("Level4Hasslehoff101", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         int music_rng = Random.Range(0, 1);
         switch (music_rng)
@@ -92,7 +92,7 @@ public class levelManager : MonoBehaviour {
 
     public void BeginLevel4()
     {
-        SceneManager.LoadScene("Level5Samjarcamarisa");
+		SceneManager.LoadScene("Level5Samjarcamarisa", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         AudioManager.Instance.MusicGL5_Start();
     }
@@ -102,30 +102,30 @@ public class levelManager : MonoBehaviour {
 
     public void startLevel2Dialogue() // End of Level 1 > Load Level 2
     {
-        SceneManager.LoadScene("level2Dialogue");
+		SceneManager.LoadScene("level2Dialogue", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         AudioManager.Instance.MusicNarrative_Start();
     }
 
     public void startLevel3Dialogue() // End of Level 2 > Load Level 3
     {
-        SceneManager.LoadScene("level3Dialogue");
+		SceneManager.LoadScene("level3Dialogue", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         AudioManager.Instance.MusicNarrative_Start();
     }
 
     public void startLevel4Dialogue() // End of Level 3 > Load Level 4
     {
-        SceneManager.LoadScene("level4Dialogue");
+		SceneManager.LoadScene("level4Dialogue", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         AudioManager.Instance.MusicNarrative_Start();
     }
 
     public void ReturntoMainMenu() // End of Level 4 > Return to Main menu
     {
-        SceneManager.LoadScene("Menu");
+		SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
-        AudioManager.Instance.MusicMenu_Start();
+        //AudioManager.Instance.MusicMenu_Start();
     }
 
 }
