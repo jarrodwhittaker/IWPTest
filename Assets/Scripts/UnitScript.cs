@@ -207,14 +207,17 @@ public class UnitScript : MonoBehaviour {
 
         if (distanceRemain > 0.1)
         {
+            GameController.Instance.swapTurn.interactable = false;
             return;
         }
 
         else if (distanceRemain <= 0 && iAmMoving) // we check that we are actually taking action)
         {
+            GameController.Instance.swapTurn.interactable = true;
             Debug.Log(distanceRemain);
             anim.SetTrigger("Idle");
             Debug.Log("Halt!");
+            
             // Sam stops movement sfx pieces here
             if (unitType == UnitType.Tank)
             {
@@ -237,6 +240,7 @@ public class UnitScript : MonoBehaviour {
 				Debug.Log("Drone stops making sound");
 			}*/
             iAmMoving = false;
+            
         }
 
 
