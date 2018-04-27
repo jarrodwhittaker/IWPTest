@@ -152,4 +152,14 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("level3Dialogue", LoadSceneMode.Single);
     }
+
+    public void Dialogue5()
+    {
+        SceneManager.LoadScene("level4Dialogue", LoadSceneMode.Single);
+    }
+
+    public void Dialogue6()
+    {
+        SceneManager.LoadScene("level5Dialogue", LoadSceneMode.Single);
+    }
 }
