@@ -723,37 +723,72 @@ public class AudioManager : MonoBehaviour {
 
 	public void MusicG1_Stop()
 	{
-		Music_Game1.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		FMOD.Studio.PLAYBACK_STATE currentState;
+		Music_Game1.getPlaybackState (out currentState);
+		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING) 
+		{
+			Music_Game1.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+		}
 	}
 
 	public void MusicG2_Stop()
 	{
-		Music_Game2.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		FMOD.Studio.PLAYBACK_STATE currentState;
+		Music_Game2.getPlaybackState (out currentState);
+		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)  
+		{
+			Music_Game2.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+		}
 	}
 
 	public void MusicGL5_Stop()
 	{
-		Music_GameLvl5.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		FMOD.Studio.PLAYBACK_STATE currentState;
+		Music_GameLvl5.getPlaybackState (out currentState);
+		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+		{
+			Music_GameLvl5.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+		}
 	}
 
 	public void MusicLose_Stop()
 	{
-		Music_Lose.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		FMOD.Studio.PLAYBACK_STATE currentState;
+		Music_Lose.getPlaybackState (out currentState);
+		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING) 
+		{
+			Music_Lose.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+		}
 	}
 
 	public void MusicWin_Stop()
 	{
-		Music_Win.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		FMOD.Studio.PLAYBACK_STATE currentState;
+		Music_Win.getPlaybackState (out currentState);
+		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+		{
+			Music_Win.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+		}
 	}
 
 	public void MusicMenu_Stop()
 	{
-		Music_Menu.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		FMOD.Studio.PLAYBACK_STATE currentState;
+		Music_Menu.getPlaybackState (out currentState);
+		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)  
+		{
+			Music_Menu.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+		}
 	}
 
 	public void MusicNarrative_Stop()
 	{
-		Music_Narrative.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		FMOD.Studio.PLAYBACK_STATE currentState;
+		Music_Narrative.getPlaybackState (out currentState);
+		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+		{
+			Music_Narrative.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+		}
 	}
 		
 }
