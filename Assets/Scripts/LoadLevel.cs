@@ -25,7 +25,7 @@ public class LoadLevel : MonoBehaviour {
         SceneManager.LoadScene("Level1Earth", LoadSceneMode.Single);
         Debug.Log("Loaded");
         AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 1);
+        int music_rng = Random.Range(0, 2);
         switch (music_rng)
         {
             case 0:
@@ -73,7 +73,7 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("Level1Earth", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 1);
+        int music_rng = Random.Range(0, 2);
         switch (music_rng)
         {
             case 0:
@@ -89,7 +89,7 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("Level2Kagruyama", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 1);
+        int music_rng = Random.Range(0, 2);
         switch (music_rng)
         {
             case 0:
@@ -105,7 +105,7 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("Level3Clayton303", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 1);
+        int music_rng = Random.Range(0, 2);
         switch (music_rng)
         {
             case 0:
@@ -121,7 +121,7 @@ public class LoadLevel : MonoBehaviour {
     {
         SceneManager.LoadScene("Level4Hasselhoff", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 1);
+        int music_rng = Random.Range(0, 2);
         switch (music_rng)
         {
             case 0:
