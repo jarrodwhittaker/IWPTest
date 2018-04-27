@@ -324,10 +324,7 @@ public class GameController : MonoBehaviour {
         //    }
         //}
 
-        if(Input.GetKey("p"))
-        {
-            IWon();
-        }
+        
 
         if (Input.GetKeyDown("escape"))
         {

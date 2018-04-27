@@ -119,7 +119,7 @@ public class LoadLevel : MonoBehaviour {
 
     public void Level4()
     {
-        SceneManager.LoadScene("Level4Hasselhoff", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level4Hasslehoff101", LoadSceneMode.Single);
         AudioManager.Instance.StopAllMusic();
         int music_rng = Random.Range(0, 2);
         switch (music_rng)
