@@ -312,6 +312,62 @@ public class AudioManager : MonoBehaviour {
 		Music_Win = FMODUnity.RuntimeManager.CreateInstance(musicWinP);
 		Music_Menu = FMODUnity.RuntimeManager.CreateInstance(musicMenuP);
 		Music_Narrative = FMODUnity.RuntimeManager.CreateInstance(musicNarrativeP);
+
+
+		//Conditionally start a music event and stop the old music event
+		Scene currentScene = SceneManager.GetActiveScene();
+		switch (currentScene.name)
+		{
+		//Menu
+		case "Menu":
+			MusicMenu_Start();
+			break;
+		//Game scenes
+		case "Level1Earth":
+			MusicGame_Start();
+			break;
+		case "Level2Kagruyama":
+			MusicGame_Start();
+			break;
+		case "Level3Clayton303":
+			MusicGame_Start();
+			break;
+		case "Level4Hasslehoff101":
+			MusicGame_Start();
+			break;
+		case "Level5Samjarcamarisa":
+			MusicGL5_Start();
+			break;
+		//Narrative scenes
+		case "level1Dialogue":
+			MusicNarrative_Start();
+			break;
+		case "level2Dialogue":
+			MusicNarrative_Start();
+			break;
+		case "level3Dialogue":
+			MusicNarrative_Start();
+			break;
+		case "level4Dialogue":
+			MusicNarrative_Start();
+			break;
+		case "tutorialDialogue":
+			MusicNarrative_Start();
+			break;
+		case "endLv1":
+			MusicNarrative_Start();
+			break;
+		case "endLv2":
+			MusicNarrative_Start();
+			break;
+		case "endLv3":
+			MusicNarrative_Start();
+			break;
+		case "endLv4":
+			MusicNarrative_Start();
+			break;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -685,6 +741,7 @@ public class AudioManager : MonoBehaviour {
 		}
 	}*/
 
+
 	public void StopAllMusic()
 	{
 		MusicG1_Stop();
@@ -698,14 +755,19 @@ public class AudioManager : MonoBehaviour {
 
 	//Start Music Functions
 
-	public void MusicG1_Start()
+	public void MusicGame_Start()
 	{
-		Music_Game1.start();
-	}
+		int music_rng = Random.Range(0, 2);
+		switch (music_rng)
+		{
+		case 0:
+			Music_Game1.start();
+			break;
+		case 1:
+			Music_Game2.start();
+			break;
 
-	public void MusicG2_Start()
-	{
-		Music_Game2.start();
+		}
 	}
 
 	public void MusicGL5_Start()
@@ -739,10 +801,12 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Game1.getPlaybackState (out currentState);
-		//Debug.Log("Current state g1 music " + currentState);
-		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING) 
+		Debug.Log("Current state g1 music " + currentState);
+		if (currentState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
 		{
 			Music_Game1.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+			Music_Game1.release();
+			Debug.Log("Game 1 music has been stopped");
 		}
 	}
 
@@ -750,10 +814,12 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Game2.getPlaybackState (out currentState);
-		//Debug.Log("Current state g2 music " + currentState);
-		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)  
+		Debug.Log("Current state g2 music " + currentState);
+		if (currentState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
 		{
 			Music_Game2.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+			Music_Game1.release();
+			Debug.Log("Game 2 music has been stopped");
 		}
 	}
 
@@ -761,10 +827,12 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_GameLvl5.getPlaybackState (out currentState);
-		//Debug.Log("Current state lvl5 music " + currentState);
-		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+		Debug.Log("Current state lvl5 music " + currentState);
+		if (currentState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
 		{
 			Music_GameLvl5.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+			Music_Game1.release();
+			Debug.Log("Game 5 music has been stopped");
 		}
 	}
 
@@ -772,10 +840,12 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Lose.getPlaybackState (out currentState);
-		//Debug.Log("Current state lose music " + currentState);
-		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING) 
+		Debug.Log("Current state lose music " + currentState);
+		if (currentState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
 		{
 			Music_Lose.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+			Music_Game1.release();
+			Debug.Log("Lose music has been stopped");
 		}
 	}
 
@@ -783,10 +853,12 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Win.getPlaybackState (out currentState);
-		//Debug.Log("Current state win music " + currentState);
-		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+		Debug.Log("Current state win music " + currentState);
+		if (currentState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
 		{
 			Music_Win.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+			Music_Game1.release();
+			Debug.Log("Win music has been stopped");
 		}
 	}
 
@@ -794,10 +866,12 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Menu.getPlaybackState (out currentState);
-		//Debug.Log("Current state menu music " + currentState);
-		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)  
+		Debug.Log("Current state menu music " + currentState);
+		if (currentState != FMOD.Studio.PLAYBACK_STATE.STOPPED)  
 		{
 			Music_Menu.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+			Music_Game1.release();
+			Debug.Log("Menu music has been stopped");
 		}
 	}
 
@@ -805,10 +879,12 @@ public class AudioManager : MonoBehaviour {
 	{
 		FMOD.Studio.PLAYBACK_STATE currentState;
 		Music_Narrative.getPlaybackState (out currentState);
-		//Debug.Log("Current state narrative music " + currentState);
-		if (currentState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+		Debug.Log("Current state narrative music " + currentState);
+		if (currentState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
 		{
 			Music_Narrative.stop (FMOD.Studio.STOP_MODE.IMMEDIATE);
+			Music_Game1.release();
+			Debug.Log("Narrative music has been stopped");
 		}
 	}
 		

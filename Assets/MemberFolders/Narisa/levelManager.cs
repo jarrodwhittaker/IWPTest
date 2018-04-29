@@ -10,6 +10,7 @@ public class levelManager : MonoBehaviour {
         //this script tells Fungus via the Call Method function which scenes to call once it reaches the end of each dialogue
         //the names need to match in the script and scene file within Unity
         //note to self: fix the load scene commands to load correct names (e.g = tutorial is now tutorialDialogue)
+		AudioManager.Instance.StopAllMusic();
     }
 
     void Update()  //exit function
@@ -28,73 +29,32 @@ public class levelManager : MonoBehaviour {
     public void BeginTutorial() //load tutorial scene
     {
         //SceneManager.LoadScene("tutorial");
-        SceneManager.LoadScene("Level1Earth", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 2);
-        switch (music_rng)
-        {
-            case 0:
-                AudioManager.Instance.MusicG1_Start();
-                break;
-            case 1:
-                AudioManager.Instance.MusicG2_Start();
-                break;
-        }
+		AudioManager.Instance.StopAllMusic();
+		SceneManager.LoadScene("Level1Earth", LoadSceneMode.Single);
     }
 
     public void BeginLevel1() //load level one
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("Level2Kagruyama", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 2);
-        switch (music_rng)
-        {
-            case 0:
-                AudioManager.Instance.MusicG1_Start();
-                break;
-            case 1:
-                AudioManager.Instance.MusicG2_Start();
-                break;
-        }
     }
 
     public void BeginLevel2()
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("Level3Clayton303", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 2);
-        switch (music_rng)
-        {
-            case 0:
-                AudioManager.Instance.MusicG1_Start();
-                break;
-            case 1:
-                AudioManager.Instance.MusicG2_Start();
-                break;
-        }
     }
 
     public void BeginLevel3()
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("Level4Hasslehoff101", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        int music_rng = Random.Range(0, 2);
-        switch (music_rng)
-        {
-            case 0:
-                AudioManager.Instance.MusicG1_Start();
-                break;
-            case 1:
-                AudioManager.Instance.MusicG2_Start();
-                break;
-        }
     }
 
     public void BeginLevel4()
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("Level5Samjarcamarisa", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        AudioManager.Instance.MusicGL5_Start();
     }
 
     //  These will start the next level dialogues after the end level dialogues end  //
@@ -102,30 +62,26 @@ public class levelManager : MonoBehaviour {
 
     public void startLevel2Dialogue() // End of Level 1 > Load Level 2
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("level2Dialogue", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        AudioManager.Instance.MusicNarrative_Start();
     }
 
     public void startLevel3Dialogue() // End of Level 2 > Load Level 3
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("level3Dialogue", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        AudioManager.Instance.MusicNarrative_Start();
     }
 
     public void startLevel4Dialogue() // End of Level 3 > Load Level 4
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("level4Dialogue", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        AudioManager.Instance.MusicNarrative_Start();
     }
 
     public void ReturntoMainMenu() // End of Level 4 > Return to Main menu
     {
+		AudioManager.Instance.StopAllMusic();
 		SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-        AudioManager.Instance.StopAllMusic();
-        //AudioManager.Instance.MusicMenu_Start();
     }
 
 }
