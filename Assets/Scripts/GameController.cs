@@ -102,6 +102,7 @@ public class GameController : MonoBehaviour {
         Pause.gameObject.SetActive(false);
         swapTurn.gameObject.SetActive(false);
         NextLevel.gameObject.SetActive(true);
+        NoPoints.text = "";
         Debug.Log("We did it");
     }
 
