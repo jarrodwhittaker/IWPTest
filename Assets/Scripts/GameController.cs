@@ -223,6 +223,7 @@ public class GameController : MonoBehaviour {
         
         if (p1 == true)
         {
+            Debug.Log("Enemy Turn");
             swapTurn.interactable = false;
             activeUnit = null;
             targetUnit = null;
@@ -238,6 +239,7 @@ public class GameController : MonoBehaviour {
 
         else if (p2 == true)
         {
+            Debug.Log("Player Turn");
             swapTurn.interactable = true;
             activeUnit = null;
             targetUnit = null;
@@ -271,7 +273,7 @@ public class GameController : MonoBehaviour {
         bool didAnyAttack = false;
         foreach (UnitScript enemy in allEnemies)
         {
-            Debug.Log(enemy.gameObject.name);
+            //Debug.Log(enemy.gameObject.name);
 
             // find all of the player units
             List<UnitScript> allPlayers = FindObjectsOfType<UnitScript>().Where(unit => unit.isPlayer == true).ToList();
