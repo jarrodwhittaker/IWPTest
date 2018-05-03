@@ -2,14 +2,14 @@
 [LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
 [LOG] SystemI::init                            : Initialize version=11003 (93157), maxchannels=256, flags=0x00020000
 [LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=4, nSamplesPerSec=48000, nAvgBytesPerSec=768000, nBlockAlign=16, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000033, SubFormat=00000003-0000-0010-8000-00AA00389B71.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=6, nSamplesPerSec=48000, nAvgBytesPerSec=1152000, nBlockAlign=24, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x0000060F, SubFormat=00000003-0000-0010-8000-00AA00389B71.
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
-[LOG] DownMix::init                            : dspbuffersize: 1024  rate: 48000. output speaker mode: 4, input speaker mode 3
+[LOG] DownMix::init                            : dspbuffersize: 1024  rate: 48000. output speaker mode: 6, input speaker mode 3
 [LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000000004B93AE78 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000000004C6EAB18 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -29,4 +29,138 @@
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Closed.
+[LOG] SoundI::release                          :  (000000004C9AC5F8)
+[LOG] SoundI::release                          :     L1PakDef 48khz (000000004D025D98)
+[LOG] SoundI::release                          :  (000000004D068688)
+[LOG] SoundI::release                          :     L3BunkerDef 48khz (000000004D070048)
+[LOG] SoundI::release                          :  (000000004D0C8248)
+[LOG] SoundI::release                          :     L4FlakFire 48khz (000000004D0C3AC8)
+[LOG] SoundI::release                          :  (000000004D0C79A8)
+[LOG] SoundI::release                          :     L5FlakDes 48khz (000000004D0C2F68)
+[LOG] SoundI::release                          :  (000000004D0C7558)
+[LOG] SoundI::release                          :     MechWalk 48khz (000000004D0C3928)
+[LOG] SoundI::release                          :  (000000004D0C83B8)
+[LOG] SoundI::release                          :     L4PakDef 48khz (000000004D0C3E08)
+[LOG] SoundI::release                          :  (000000004C9AC768)
+[LOG] SoundI::release                          :     L2FlakDes 48khz (000000004D024398)
+[LOG] SoundI::release                          :  (000000004D068238)
+[LOG] SoundI::release                          :     L2BunkerDef 48khz (000000004D0C3C68)
+[LOG] SoundI::release                          :  (000000004C9ACBB8)
+[LOG] SoundI::release                          :     L1FlakFire 48khz (000000004C637BB8)
+[LOG] SoundI::release                          :  (000000004C9ACA48)
+[LOG] SoundI::release                          :     L2PakDes 48khz (000000004D025718)
+[LOG] SoundI::release                          :  (000000004D068AD8)
+[LOG] SoundI::release                          :     Landmine_Loop (000000004D06F9C8)
+[LOG] SoundI::release                          :  (000000004C9AB4B8)
+[LOG] SoundI::release                          :     L1PakFire 48khz (000000004D025BF8)
+[LOG] SoundI::release                          :  (000000004D067B08)
+[LOG] SoundI::release                          :     L4BunkerDef 48khz (000000004D06F688)
+[LOG] SoundI::release                          :  (000000004D0C7278)
+[LOG] SoundI::release                          :     MechFire 48khz (000000004D0C2DC8)
+[LOG] SoundI::release                          :  (000000004D068518)
+[LOG] SoundI::release                          :     L2BunkerDes 48khz (000000004D06E988)
+[LOG] SoundI::release                          :  (000000001332BF48)
+[LOG] SoundI::release                          :     L5BunkerDes 48khz (000000004C638A58)
+[LOG] SoundI::release                          :  (000000004D067828)
+[LOG] SoundI::release                          :     L3FlakDef 48khz (000000004D06F348)
+[LOG] SoundI::release                          :  (000000004D068C48)
+[LOG] SoundI::release                          :     L1PakDes 48khz (000000004D06F008)
+[LOG] SoundI::release                          :  (000000004C9AC488)
+[LOG] SoundI::release                          :     L1FlakDef 48khz (000000004D024EF8)
+[LOG] SoundI::release                          :  (000000004C9AB908)
+[LOG] SoundI::release                          :     L5BunkerFire 48khz (000000004D025098)
+[LOG] SoundI::release                          :  (000000004C9ABD58)
+[LOG] SoundI::release                          :     L3PakFire 48khz (0000000046DF5D88)
+[LOG] SoundI::release                          :  (000000004D0680C8)
+[LOG] SoundI::release                          :     L2FlakFire 48khz (000000004D06EE68)
+[LOG] SoundI::release                          :  (000000004C9AC038)
+[LOG] SoundI::release                          :     L4BunkerDes 48khz (0000000046DF7108)
+[LOG] SoundI::release                          :  (000000001332D088)
+[LOG] SoundI::release                          :     DroneMove 48khz (000000004C6395B8)
+[LOG] SoundI::release                          :  (000000004D068968)
+[LOG] SoundI::release                          :     L1BunkerDef 48khz (000000004D025A58)
+[LOG] SoundI::release                          :  (000000004D0C8DC8)
+[LOG] SoundI::release                          :     L3PakDes 48khz (000000004D0C3FA8)
+[LOG] SoundI::release                          :  (000000004D0673D8)
+[LOG] SoundI::release                          :     WhenTheyAttacked_Start (000000004D06FB68)
+[LOG] SoundI::release                          :  (000000004C9ABBE8)
+[LOG] SoundI::release                          :     WhenTheyAttacked_Loop (000000004D0253D8)
+[LOG] SoundI::release                          :  (000000004C9ABEC8)
+[LOG] SoundI::release                          :     MechDef 48khz (000000004D025578)
+[LOG] SoundI::release                          :  (000000004D067C78)
+[LOG] SoundI::release                          :     L2PakDef 48khz (000000004D06FD08)
+[LOG] SoundI::release                          :  (000000004D069098)
+[LOG] SoundI::release                          :     TankMove 48khz (000000004D06F4E8)
+[LOG] SoundI::release                          :  (000000004C9AB798)
+[LOG] SoundI::release                          :     JetFire 48khz (000000004D024538)
+[LOG] SoundI::release                          :  (000000004C9ACD28)
+[LOG] SoundI::release                          :     MechDes 48khz (000000004D024058)
+[LOG] SoundI::release                          :  (000000004D069208)
+[LOG] SoundI::release                          :     L1FlakDes 48khz (000000004D06ECC8)
+[LOG] SoundI::release                          :  (000000004D068F28)
+[LOG] SoundI::release                          :     DroneScan 48khz (000000004D06EB28)
+[LOG] SoundI::release                          :  (000000004D0683A8)
+[LOG] SoundI::release                          :     L5FlakDef 48khz (000000004D070388)
+[LOG] SoundI::release                          :  (000000004D067548)
+[LOG] SoundI::release                          :     TankDes 48khz (000000004D06FEA8)
+[LOG] SoundI::release                          :  (000000004D0C7B18)
+[LOG] SoundI::release                          :     L3BunkerFire 48khz (000000004D0C2A88)
+[LOG] SoundI::release                          :  (000000004C9AD008)
+[LOG] SoundI::release                          :     L4BunkerFire 48khz (000000004D024878)
+[LOG] SoundI::release                          :  (000000004D0C7C88)
+[LOG] SoundI::release                          :     L5FlakFire 48khz (000000004D0C2268)
+[LOG] SoundI::release                          :  (000000004C9AB348)
+[LOG] SoundI::release                          :     TankFire 48khz (0000000046DF68E8)
+[LOG] SoundI::release                          :  (000000004D067998)
+[LOG] SoundI::release                          :     L1BunkerDes 48khz (000000004D06F1A8)
+[LOG] SoundI::release                          :  (000000004D0676B8)
+[LOG] SoundI::release                          :     L3FlakFire 48khz (000000004D024A18)
+[LOG] SoundI::release                          :  (000000004D0C8528)
+[LOG] SoundI::release                          :     L2BunkerFire 48khz (000000004D0C2C28)
+[LOG] SoundI::release                          :  (000000004C9AC318)
+[LOG] SoundI::release                          :     L4FlakDef 48khz (0000000046DF5BE8)
+[LOG] SoundI::release                          :  (000000004C9ABA78)
+[LOG] SoundI::release                          :     L5PakDes 48khz (000000004D024BB8)
+[LOG] SoundI::release                          :  (000000004C9AC8D8)
+[LOG] SoundI::release                          :     JetDef 48khz (000000004D0258B8)
+[LOG] SoundI::release                          :  (000000004D0C80D8)
+[LOG] SoundI::release                          :     L3FlakDes 48khz (000000004D0C25A8)
+[LOG] SoundI::release                          :  (000000004D068DB8)
+[LOG] SoundI::release                          :     L3PakDef 48khz (000000004D070528)
+[LOG] SoundI::release                          :  (000000001332D1F8)
+[LOG] SoundI::release                          :     L4PakFire 48khz (000000004C6390D8)
+[LOG] SoundI::release                          :  (000000001332CF18)
+[LOG] SoundI::release                          :     JetDes 48khz (000000004C637A18)
+[LOG] SoundI::release                          :  (000000004C9AC1A8)
+[LOG] SoundI::release                          :     L5BunkerDef 48khz (000000004D024D58)
+[LOG] SoundI::release                          :  (000000004C9AB1D8)
+[LOG] SoundI::release                          :     L2FlakDef 48khz (000000004D0241F8)
+[LOG] SoundI::release                          :  (000000004D0687F8)
+[LOG] SoundI::release                          :     L2PakFire 48khz (000000004D0701E8)
+[LOG] SoundI::release                          :  (000000004C9AB628)
+[LOG] SoundI::release                          :     L5PakFire 48khz (000000004D025238)
+[LOG] SoundI::release                          :  (000000004C9ACE98)
+[LOG] SoundI::release                          :     L5PakDef 48khz (000000004D0246D8)
+[LOG] SoundI::release                          :  (000000001332C0B8)
+[LOG] SoundI::release                          :     L4PakDes 48khz (000000004C6388B8)
+[LOG] SoundI::release                          :  (000000001332CAC8)
+[LOG] SoundI::release                          :     L3BunkerDes 48khz (000000004C638BF8)
+[LOG] SoundI::release                          :  (000000001332CC38)
+[LOG] SoundI::release                          :     JetMove 48khz (000000004C638D98)
+[LOG] SoundI::release                          :  (000000004D0C8AE8)
+[LOG] SoundI::release                          :     TankDef 48khz (000000004D0C32A8)
+[LOG] SoundI::release                          :  (000000004D067DE8)
+[LOG] SoundI::release                          :     L4FlakDes 48khz (000000004D06F828)
+[LOG] SoundI::release                          :  (000000004D067F58)
+[LOG] SoundI::release                          :     L1BunkerFire 48khz (000000004D06E7E8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
